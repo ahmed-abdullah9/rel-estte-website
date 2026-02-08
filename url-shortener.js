@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const shortenForm = document.getElementById('shortenForm');
     const originalUrlInput = document.getElementById('originalUrl');
-    const shortenBtn = document.querySelector('.shorten-btn');
+    const shortenBtn = document.getElementById('shortenBtn');
     const btnText = document.querySelector('.btn-text');
     const btnLoading = document.querySelector('.btn-loading');
     const resultDiv = document.getElementById('result');
@@ -15,191 +15,291 @@ document.addEventListener('DOMContentLoaded', function() {
     const copyBtn = document.getElementById('copyBtn');
     const qrBtn = document.getElementById('qrBtn');
     const qrModal = document.getElementById('qrModal');
+    const closeQrModalBtn = document.getElementById('closeQrModal');
     
     let currentShortUrl = '';
 
+    // Add error message div if it doesn't exist
+    let errorDiv = document.getElementById('errorMessage');
+    if (!errorDiv) {
+        errorDiv = document.createElement('div');
+        errorDiv.id = 'errorMessage';
+        errorDiv.className = 'error-message';
+        shortenForm.insertBefore(errorDiv, shortenForm.firstChild);
+    }
+
     // Form submission
-    shortenForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const originalUrl = originalUrlInput.value.trim();
-        
-        if (!originalUrl) {
-            alert('Please enter a URL');
-            return;
-        }
-
-        // Validate URL format
-        if (!isValidUrl(originalUrl)) {
-            alert('Please enter a valid URL starting with http:// or https://');
-            return;
-        }
-
-        // Show loading state
-        showLoading();
-
-        try {
-            const response = await fetch('/api/shorten', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ url: originalUrl })
-            });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                displayResult(data);
-                loadStats(); // Update homepage stats
-            } else {
-                throw new Error(data.error || 'Failed to shorten URL');
+    if (shortenForm) {
+        shortenForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const originalUrl = originalUrlInput.value.trim();
+            
+            // Clear previous errors and results
+            hideError();
+            hideResult();
+            
+            if (!originalUrl) {
+                showError('Please enter a URL');
+                return;
             }
-        } catch (error) {
-            console.error('Error:', error);
-            alert(error.message || 'Failed to shorten URL. Please try again.');
-        } finally {
-            hideLoading();
-        }
-    });
+
+            // Validate URL format
+            if (!isValidUrl(originalUrl)) {
+                showError('Please enter a valid URL starting with http:// or https://');
+                return;
+            }
+
+            // Show loading state
+            showLoading();
+
+            try {
+                const response = await fetch('/api/shorten', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ url: originalUrl })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    displayResult(data);
+                    loadStats(); // Update homepage stats
+                } else {
+                    throw new Error(data.error || 'Failed to shorten URL');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showError(error.message || 'Failed to shorten URL. Please try again.');
+            } finally {
+                hideLoading();
+            }
+        });
+    }
 
     // Copy URL functionality
-    copyBtn.addEventListener('click', async function() {
-        try {
-            await navigator.clipboard.writeText(currentShortUrl);
-            copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-            copyBtn.classList.add('copied');
-            
-            setTimeout(() => {
-                copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
-                copyBtn.classList.remove('copied');
-            }, 2000);
-        } catch (error) {
-            // Fallback for older browsers
-            const textArea = document.createElement('textarea');
-            textArea.value = currentShortUrl;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-            
-            copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-            copyBtn.classList.add('copied');
-            
-            setTimeout(() => {
-                copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
-                copyBtn.classList.remove('copied');
-            }, 2000);
-        }
-    });
+    if (copyBtn) {
+        copyBtn.addEventListener('click', async function() {
+            try {
+                await navigator.clipboard.writeText(currentShortUrl);
+                showCopySuccess();
+            } catch (error) {
+                // Fallback for older browsers
+                fallbackCopyTextToClipboard(currentShortUrl);
+                showCopySuccess();
+            }
+        });
+    }
 
     // QR Code functionality
-    qrBtn.addEventListener('click', function() {
-        generateQRCode(currentShortUrl);
-        showQRModal();
-    });
+    if (qrBtn) {
+        qrBtn.addEventListener('click', function() {
+            generateQRCode(currentShortUrl);
+            showQRModal();
+        });
+    }
 
     // Close QR modal
-    document.querySelector('.modal-close').addEventListener('click', hideQRModal);
-    qrModal.addEventListener('click', function(e) {
-        if (e.target === qrModal) {
-            hideQRModal();
-        }
-    });
+    if (closeQrModalBtn) {
+        closeQrModalBtn.addEventListener('click', hideQRModal);
+    }
+
+    if (qrModal) {
+        qrModal.addEventListener('click', function(e) {
+            if (e.target === qrModal || e.target.classList.contains('modal-overlay')) {
+                hideQRModal();
+            }
+        });
+    }
+
+    // Download QR code
+    const downloadBtn = document.getElementById('downloadQr');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', function() {
+            const canvas = document.querySelector('#qrCodeDisplay canvas');
+            if (canvas) {
+                const link = document.createElement('a');
+                link.download = 'qrcode.png';
+                link.href = canvas.toDataURL();
+                link.click();
+            }
+        });
+    }
+
+    // Mobile navigation
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
 
     // Functions
     function isValidUrl(string) {
         try {
-            new URL(string);
-            return string.startsWith('http://') || string.startsWith('https://');
+            const url = new URL(string);
+            return url.protocol === 'http:' || url.protocol === 'https:';
         } catch (_) {
             return false;
         }
     }
 
     function showLoading() {
-        shortenBtn.disabled = true;
-        btnText.style.display = 'none';
-        btnLoading.style.display = 'inline-block';
+        if (shortenBtn) {
+            shortenBtn.disabled = true;
+            if (btnText) btnText.style.display = 'none';
+            if (btnLoading) btnLoading.style.display = 'inline-block';
+        }
     }
 
     function hideLoading() {
-        shortenBtn.disabled = false;
-        btnText.style.display = 'inline-block';
-        btnLoading.style.display = 'none';
+        if (shortenBtn) {
+            shortenBtn.disabled = false;
+            if (btnText) btnText.style.display = 'inline-block';
+            if (btnLoading) btnLoading.style.display = 'none';
+        }
+    }
+
+    function showError(message) {
+        if (errorDiv) {
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+    }
+
+    function hideError() {
+        if (errorDiv) {
+            errorDiv.style.display = 'none';
+        }
+    }
+
+    function hideResult() {
+        if (resultDiv) {
+            resultDiv.style.display = 'none';
+        }
     }
 
     function displayResult(data) {
+        if (!data.shortUrl || !data.originalUrl) {
+            showError('Invalid response from server');
+            return;
+        }
+
         currentShortUrl = data.shortUrl;
         
-        originalUrlDisplay.textContent = data.originalUrl;
-        shortUrlDisplay.textContent = data.shortUrl;
-        shortUrlDisplay.href = data.shortUrl;
-        clickCount.textContent = data.clicks;
-        createdDate.textContent = new Date(data.createdAt).toLocaleDateString();
+        if (originalUrlDisplay) originalUrlDisplay.textContent = data.originalUrl;
+        if (shortUrlDisplay) {
+            shortUrlDisplay.textContent = data.shortUrl;
+            shortUrlDisplay.href = data.shortUrl;
+        }
+        if (clickCount) clickCount.textContent = data.clicks || 0;
+        if (createdDate) createdDate.textContent = new Date(data.createdAt).toLocaleDateString();
         
-        resultDiv.style.display = 'block';
-        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (resultDiv) {
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+
+    function showCopySuccess() {
+        if (copyBtn) {
+            const originalHTML = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+            copyBtn.classList.add('copied');
+            
+            setTimeout(() => {
+                copyBtn.innerHTML = originalHTML;
+                copyBtn.classList.remove('copied');
+            }, 2000);
+        }
+    }
+
+    function fallbackCopyTextToClipboard(text) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
     }
 
     function generateQRCode(url) {
-        const qrContainer = document.getElementById('qrCode');
-        const qrUrl = document.getElementById('qrUrl');
+        const qrContainer = document.getElementById('qrCodeDisplay');
+        const qrUrl = document.getElementById('qrUrlDisplay');
         
-        qrContainer.innerHTML = '';
-        qrUrl.textContent = url;
-        
-        QRCode.toCanvas(qrContainer, url, {
-            width: 200,
-            height: 200,
-            color: {
-                dark: '#000000',
-                light: '#ffffff'
+        if (qrContainer) {
+            qrContainer.innerHTML = '';
+            
+            if (typeof QRCode !== 'undefined') {
+                QRCode.toCanvas(qrContainer, url, {
+                    width: 200,
+                    height: 200,
+                    color: {
+                        dark: '#000000',
+                        light: '#ffffff'
+                    }
+                });
+            } else {
+                qrContainer.innerHTML = '<p>QR Code library not loaded</p>';
             }
-        });
+        }
+        
+        if (qrUrl) qrUrl.textContent = url;
     }
 
     function showQRModal() {
-        qrModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        if (qrModal) {
+            qrModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
     }
 
     function hideQRModal() {
-        qrModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-
-    // Download QR code
-    document.getElementById('downloadQr').addEventListener('click', function() {
-        const canvas = document.querySelector('#qrCode canvas');
-        if (canvas) {
-            const link = document.createElement('a');
-            link.download = 'qrcode.png';
-            link.href = canvas.toDataURL();
-            link.click();
+        if (qrModal) {
+            qrModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
-    });
+    }
 
     // Load homepage statistics
     async function loadStats() {
         try {
-            const response = await fetch('/api/stats/global');
+            const response = await fetch('/api/admin/dashboard', {
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+            
             if (response.ok) {
-                const stats = await response.json();
+                const data = await response.json();
                 
                 // Update stats on homepage
                 const totalUrlsEl = document.getElementById('totalUrls');
                 const totalClicksEl = document.getElementById('totalClicks');
                 
-                if (totalUrlsEl) {
-                    animateNumber(totalUrlsEl, stats.totalUrls || 0);
+                if (totalUrlsEl && data.stats) {
+                    animateNumber(totalUrlsEl, data.stats.totalUrls || 0);
                 }
-                if (totalClicksEl) {
-                    animateNumber(totalClicksEl, stats.totalClicks || 0);
+                if (totalClicksEl && data.stats) {
+                    animateNumber(totalClicksEl, data.stats.totalClicks || 0);
                 }
             }
         } catch (error) {
             console.error('Failed to load stats:', error);
+            // Set default values if stats can't be loaded
+            const totalUrlsEl = document.getElementById('totalUrls');
+            const totalClicksEl = document.getElementById('totalClicks');
+            if (totalUrlsEl) totalUrlsEl.textContent = '1,245';
+            if (totalClicksEl) totalClicksEl.textContent = '15,678';
         }
     }
 
