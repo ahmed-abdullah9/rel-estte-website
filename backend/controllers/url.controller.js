@@ -8,8 +8,6 @@ class URLController {
     try {
       const { url, customCode } = req.body;
       
-      logger.info('📝 Shorten request received:', { url });
-      
       // Validate input
       const validation = validateURL(url, customCode);
       if (!validation.isValid) {
@@ -17,14 +15,20 @@ class URLController {
       }
       
       // Create short URL
-      const userId = req.user?.id || null;
-      const result = await URLService.createShortURL(url, userId, customCode);
+      const shortUrl = await URLService.createShortURL(
+        url, 
+        req.user?.id || null, 
+        customCode
+      );
       
-      logger.info('✅ URL shortened successfully:', result.short_code);
+      logger.info('Short URL created:', { 
+        shortCode: shortUrl.short_code,
+        originalUrl: url,
+        userId: req.user?.id || 'anonymous'
+      });
       
-      return successResponse(res, result, 'URL shortened successfully', 201);
+      return successResponse(res, shortUrl, 'URL shortened successfully', 201);
     } catch (error) {
-      logger.error('URL shortening error:', error);
       next(error);
     }
   }
@@ -33,42 +37,37 @@ class URLController {
     try {
       const { shortCode } = req.params;
       
-      // Get client info for analytics
+      if (!shortCode || shortCode.length !== 6) {
+        return errorResponse(res, null, 'Invalid short code', 400);
+      }
+      
       const clientInfo = {
-        ip_address: req.ip,
-        user_agent: req.get('User-Agent'),
-        referrer: req.get('Referrer') || null,
-        browser: req.get('User-Agent')?.split(' ')[0] || 'Unknown',
-        operating_system: req.get('User-Agent')?.includes('Windows') ? 'Windows' : 
-                         req.get('User-Agent')?.includes('Mac') ? 'macOS' : 
-                         req.get('User-Agent')?.includes('Linux') ? 'Linux' : 'Unknown',
-        device_type: req.get('User-Agent')?.includes('Mobile') ? 'Mobile' : 'Desktop'
+        ip_address: req.ip || req.connection.remoteAddress,
+        user_agent: req.get('user-agent') || 'Unknown',
+        browser: req.get('user-agent') ? 'Browser' : 'Unknown',
+        operating_system: 'Unknown',
+        device_type: 'Desktop',
+        country: 'Unknown',
+        referrer: req.get('referrer') || null
       };
       
       const originalUrl = await URLService.handleRedirect(shortCode, clientInfo);
       
       if (!originalUrl) {
         return res.status(404).send(`
-          <!DOCTYPE html>
           <html>
-          <head>
-            <title>Link Not Found</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-          </head>
-          <body style="font-family: Arial, sans-serif; text-align: center; padding: 50px;">
-            <h1>404 - Link Not Found</h1>
-            <p>The short link you clicked does not exist or has been removed.</p>
-            <a href="/" style="color: #007bff;">Create a new short link</a>
-          </body>
+            <head><title>Link Not Found</title></head>
+            <body style="font-family:Arial;text-align:center;padding:50px;">
+              <h1>🔗 Link Not Found</h1>
+              <p>The short link you're looking for doesn't exist or has expired.</p>
+              <a href="/">← Go Home</a>
+            </body>
           </html>
         `);
       }
       
-      logger.info('🔄 Redirecting:', { shortCode, originalUrl });
       return res.redirect(301, originalUrl);
-      
     } catch (error) {
-      logger.error('Redirect error:', error);
       next(error);
     }
   }
@@ -77,15 +76,18 @@ class URLController {
     try {
       const { shortCode } = req.params;
       
-      const stats = await URLService.getPublicStats(shortCode);
+      const url = await URLService.getURLStats(shortCode);
       
-      if (!stats) {
-        return errorResponse(res, null, 'Short URL not found', 404);
+      if (!url) {
+        return errorResponse(res, null, 'URL not found', 404);
       }
       
-      return successResponse(res, stats);
+      return successResponse(res, {
+        short_code: url.short_code,
+        click_count: url.click_count,
+        created_at: url.created_at
+      });
     } catch (error) {
-      logger.error('Stats error:', error);
       next(error);
     }
   }
@@ -93,15 +95,13 @@ class URLController {
   static async getUserURLs(req, res, next) {
     try {
       const userId = req.user.id;
-      const page = parseInt(req.query.page) || 1;
-      const limit = parseInt(req.query.limit) || 10;
-      const offset = (page - 1) * limit;
+      const limit = parseInt(req.query.limit) || 50;
+      const offset = parseInt(req.query.offset) || 0;
       
       const urls = await URLService.getUserURLs(userId, limit, offset);
       
       return successResponse(res, urls);
     } catch (error) {
-      logger.error('Get user URLs error:', error);
       next(error);
     }
   }
@@ -112,7 +112,7 @@ class URLController {
       const userId = req.user.id;
       const days = parseInt(req.query.days) || 30;
       
-      const analytics = await URLService.getAnalytics(shortCode, userId, days);
+      const analytics = await URLService.getURLAnalytics(shortCode, userId, days);
       
       if (!analytics) {
         return errorResponse(res, null, 'URL not found or access denied', 404);
@@ -120,7 +120,6 @@ class URLController {
       
       return successResponse(res, analytics);
     } catch (error) {
-      logger.error('Analytics error:', error);
       next(error);
     }
   }
@@ -130,15 +129,14 @@ class URLController {
       const { id } = req.params;
       const userId = req.user.id;
       
-      const deleted = await URLService.deleteURL(id, userId);
+      const result = await URLService.deleteURL(id, userId);
       
-      if (!deleted) {
+      if (!result) {
         return errorResponse(res, null, 'URL not found or access denied', 404);
       }
       
       return successResponse(res, null, 'URL deleted successfully');
     } catch (error) {
-      logger.error('Delete URL error:', error);
       next(error);
     }
   }

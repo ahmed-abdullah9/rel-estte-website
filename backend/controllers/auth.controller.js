@@ -9,24 +9,26 @@ class AuthController {
       const { email, password } = req.body;
       
       // Validate input
+      if (!email || !password) {
+        return errorResponse(res, null, 'Email and password are required', 400);
+      }
+      
       if (!validateEmail(email)) {
-        return errorResponse(res, { email: 'Invalid email format' }, 'Validation failed', 400);
+        return errorResponse(res, null, 'Invalid email format', 400);
       }
       
       if (!validatePassword(password)) {
-        return errorResponse(res, { 
-          password: 'Password must be at least 8 characters with uppercase, lowercase, and number' 
-        }, 'Validation failed', 400);
+        return errorResponse(res, null, 'Password must be at least 8 characters with uppercase, lowercase and number', 400);
       }
       
       const result = await AuthService.register(email, password);
       
-      logger.info('User registered:', { email });
+      logger.info('User registered:', { email, userId: result.user.id });
       
       return successResponse(res, result, 'Registration successful', 201);
     } catch (error) {
       if (error.message === 'User already exists') {
-        return errorResponse(res, { email: 'Email already registered' }, error.message, 409);
+        return errorResponse(res, null, error.message, 409);
       }
       next(error);
     }
@@ -46,7 +48,7 @@ class AuthController {
         return errorResponse(res, null, 'Invalid email or password', 401);
       }
       
-      logger.info('User logged in:', { email });
+      logger.info('User logged in:', { email, userId: result.user.id });
       
       return successResponse(res, result, 'Login successful');
     } catch (error) {
@@ -57,6 +59,7 @@ class AuthController {
   static async getProfile(req, res, next) {
     try {
       const userId = req.user.id;
+      
       const profile = await AuthService.getProfile(userId);
       
       return successResponse(res, profile);

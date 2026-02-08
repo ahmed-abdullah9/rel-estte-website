@@ -1,5 +1,5 @@
--- LinkShort Database Schema
-SET FOREIGN_KEY_CHECKS = 0;
+CREATE DATABASE IF NOT EXISTS linkshort_db;
+USE linkshort_db;
 
 -- Users table
 CREATE TABLE IF NOT EXISTS users (
@@ -9,31 +9,27 @@ CREATE TABLE IF NOT EXISTS users (
   role ENUM('user', 'admin') DEFAULT 'user',
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   last_login DATETIME NULL,
-  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  INDEX idx_email (email),
-  INDEX idx_role (role)
+  INDEX idx_email (email)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- URLs table
 CREATE TABLE IF NOT EXISTS urls (
   id INT PRIMARY KEY AUTO_INCREMENT,
   user_id INT NULL,
-  original_url TEXT NOT NULL,
-  short_code VARCHAR(20) UNIQUE NOT NULL,
-  title VARCHAR(500) NULL,
+  original_url VARCHAR(2048) NOT NULL,
+  short_code VARCHAR(10) UNIQUE NOT NULL,
+  title VARCHAR(255) NULL,
   click_count INT DEFAULT 0,
-  is_active BOOLEAN DEFAULT 1,
+  is_active BOOLEAN DEFAULT TRUE,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   last_accessed DATETIME NULL,
-  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   INDEX idx_short_code (short_code),
   INDEX idx_user_id (user_id),
   INDEX idx_created_at (created_at),
-  INDEX idx_is_active (is_active),
-  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Analytics table (optional - for detailed tracking)
+-- URL Analytics table (optional)
 CREATE TABLE IF NOT EXISTS url_analytics (
   id INT PRIMARY KEY AUTO_INCREMENT,
   url_id INT NOT NULL,
@@ -43,17 +39,19 @@ CREATE TABLE IF NOT EXISTS url_analytics (
   operating_system VARCHAR(100),
   device_type VARCHAR(50),
   country VARCHAR(100),
-  referrer TEXT,
+  referrer VARCHAR(255),
   clicked_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   INDEX idx_url_id (url_id),
   INDEX idx_clicked_at (clicked_at),
-  INDEX idx_country (country),
   FOREIGN KEY (url_id) REFERENCES urls(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Insert default admin user
-INSERT IGNORE INTO users (email, password, role, created_at) VALUES 
-('admin@linkshort.com', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewYT3UBH2Q9eQpL2', 'admin', NOW());
--- Password: Admin123!
+INSERT IGNORE INTO users (email, password, role) VALUES 
+('admin@linkshort.com', '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj/YGNs.3k8C', 'admin');
 
-SET FOREIGN_KEY_CHECKS = 1;
+-- Sample data
+INSERT IGNORE INTO urls (original_url, short_code, click_count) VALUES 
+('https://google.com', 'google', 42),
+('https://github.com', 'github', 28),
+('https://stackoverflow.com', 'stack', 15);

@@ -17,7 +17,7 @@ class URLService {
 
   static async createShortURL(originalUrl, userId = null, customCode = null) {
     // Basic URL validation
-    if (!originalUrl || !originalUrl.startsWith('http')) {
+    if (!originalUrl || !originalUrl.match(/^https?:\/\/.+/)) {
       throw new Error('Invalid URL format');
     }
 
@@ -39,8 +39,14 @@ class URLService {
       shortCode = customCode;
     } else {
       // Generate unique short code
+      let attempts = 0;
       do {
         shortCode = this.generateShortCode(config.SHORT_CODE_LENGTH);
+        attempts++;
+        
+        if (attempts > 10) {
+          throw new Error('Unable to generate unique short code, try again');
+        }
       } while (await URLModel.shortCodeExists(shortCode));
     }
 
@@ -94,59 +100,27 @@ class URLService {
     }
   }
 
-  static async getPublicStats(shortCode) {
-    const url = await URLModel.findByShortCode(shortCode);
-    
-    if (!url) {
-      return null;
-    }
-
-    return {
-      short_code: url.short_code,
-      click_count: url.click_count,
-      created_at: url.created_at
-    };
+  static async getURLStats(shortCode) {
+    return await URLModel.findByShortCode(shortCode);
   }
 
-  static async getUserURLs(userId, limit, offset) {
+  static async getUserURLs(userId, limit = 50, offset = 0) {
     return await URLModel.findByUserId(userId, limit, offset);
   }
 
-  static async getAnalytics(shortCode, userId, days) {
-    const url = await URLModel.findByShortCode(shortCode);
-    
-    if (!url || (userId && url.user_id !== userId)) {
-      return null;
-    }
-
-    try {
-      return await AnalyticsModel.getUrlAnalytics(url.id, days);
-    } catch (error) {
-      logger.warn('Analytics retrieval failed:', error.message);
-      return {
-        url: {
-          id: url.id,
-          original_url: url.original_url,
-          short_code: url.short_code,
-          click_count: url.click_count
-        },
-        daily_stats: [],
-        browser_stats: [],
-        device_stats: [],
-        country_stats: [],
-        referrer_stats: []
-      };
-    }
+  static async getURLAnalytics(shortCode, userId, days = 30) {
+    const AnalyticsService = require('./analytics.service');
+    return await AnalyticsService.getURLAnalytics(shortCode, userId, days);
   }
 
-  static async deleteURL(id, userId) {
-    const url = await URLModel.findById(id);
+  static async deleteURL(urlId, userId) {
+    const url = await URLModel.findById(urlId);
     
-    if (!url || (userId && url.user_id !== userId)) {
+    if (!url || (url.user_id !== userId)) {
       return false;
     }
 
-    await URLModel.deleteById(id);
+    await URLModel.deleteById(urlId);
     return true;
   }
 }

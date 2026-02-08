@@ -16,13 +16,23 @@ class APIClient {
 
     try {
       const response = await fetch(url, config);
-      const data = await response.json();
+      const contentType = response.headers.get('content-type');
       
       if (!response.ok) {
-        throw new Error(data.message || 'Request failed');
+        let error;
+        if (contentType && contentType.includes('application/json')) {
+          error = await response.json();
+        } else {
+          error = { message: `HTTP ${response.status}: ${response.statusText}` };
+        }
+        throw new Error(error.message || 'Request failed');
       }
       
-      return data;
+      if (contentType && contentType.includes('application/json')) {
+        return await response.json();
+      } else {
+        return { data: await response.text() };
+      }
     } catch (error) {
       console.error('API Error:', error);
       throw error;
@@ -38,17 +48,6 @@ class APIClient {
       method: 'POST',
       body: JSON.stringify(data)
     });
-  }
-
-  put(endpoint, data) {
-    return this.request(endpoint, {
-      method: 'PUT',
-      body: JSON.stringify(data)
-    });
-  }
-
-  delete(endpoint) {
-    return this.request(endpoint, { method: 'DELETE' });
   }
 }
 
