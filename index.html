@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,9 @@
                 <div class="nav-menu">
                     <a href="#features" class="nav-link">Features</a>
                     <a href="#about" class="nav-link">About</a>
-                    <a href="admin-login.html" class="nav-link admin-btn">Admin</a>
+                    <a href="admin-login.html" class="nav-link admin-btn">
+                        <i class="fas fa-user-shield"></i> Admin
+                    </a>
                 </div>
                 <div class="hamburger">
                     <span></span>
@@ -45,65 +47,51 @@
                     <div id="errorMessage" class="error-message" style="display: none;"></div>
                     <form id="shortenForm" class="shortener-form">
                         <div class="input-group">
-                            <div class="input-container">
-                                <i class="fas fa-link input-icon"></i>
-                                <input 
-                                    type="text" 
-                                    id="originalUrl" 
-                                    placeholder="Enter your long URL here..." 
-                                    required
-                                >
-                            </div>
-                            <button type="submit" class="shorten-btn" id="shortenBtn">
-                                <span class="btn-text">Shorten URL</span>
+                            <i class="fas fa-link input-icon"></i>
+                            <input 
+                                type="url" 
+                                id="originalUrl" 
+                                placeholder="Enter your long URL here..." 
+                                required
+                            >
+                            <button type="submit" id="shortenBtn" class="shorten-btn">
+                                <span class="btn-text">Shorten</span>
                                 <span class="btn-loading" style="display: none;">
                                     <i class="fas fa-spinner fa-spin"></i>
                                 </span>
                             </button>
                         </div>
                     </form>
-                    
-                    <!-- Result Display -->
-                    <div id="result" class="result-container" style="display: none;">
+
+                    <!-- Result Section -->
+                    <div id="result" class="result-section" style="display: none;">
                         <div class="result-header">
-                            <h3><i class="fas fa-check-circle"></i> Your Short URL is Ready!</h3>
+                            <h3><i class="fas fa-check-circle"></i> URL Shortened Successfully!</h3>
                         </div>
-                        
-                        <div class="url-display">
-                            <div class="url-row">
-                                <label>Original URL:</label>
-                                <div class="url-value original-url" id="originalUrlDisplay"></div>
-                            </div>
-                            <div class="url-row">
-                                <label>Short URL:</label>
-                                <div class="url-value short-url">
-                                    <a href="#" id="shortUrlDisplay" target="_blank"></a>
-                                    <button class="copy-btn" id="copyBtn" title="Copy to clipboard">
-                                        <i class="fas fa-copy"></i>
-                                    </button>
+                        <div class="result-content">
+                            <div class="url-display">
+                                <div class="url-item">
+                                    <label>Original URL:</label>
+                                    <div id="originalUrlDisplay" class="url-value"></div>
+                                </div>
+                                <div class="url-item">
+                                    <label>Short URL:</label>
+                                    <div class="url-value">
+                                        <span id="shortUrlDisplay"></span>
+                                        <button id="copyBtn" class="action-btn copy-btn" title="Copy to clipboard">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="result-stats">
-                            <div class="stat">
-                                <i class="fas fa-mouse-pointer"></i>
-                                <div class="stat-info">
-                                    <div class="stat-value" id="clickCount">0</div>
-                                    <div class="stat-label">Clicks</div>
-                                </div>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-calendar"></i>
-                                <div class="stat-info">
-                                    <div class="stat-value" id="createdDate">-</div>
-                                    <div class="stat-label">Created</div>
-                                </div>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-qrcode"></i>
-                                <div class="stat-info">
-                                    <button class="qr-btn" id="qrBtn">Generate QR</button>
+                            <div class="result-actions">
+                                <button id="qrBtn" class="action-btn qr-btn">
+                                    <i class="fas fa-qrcode"></i>
+                                    Generate QR Code
+                                </button>
+                                <div class="stats">
+                                    <span><i class="fas fa-mouse-pointer"></i> <span id="clickCount">0</span> clicks</span>
+                                    <span><i class="fas fa-calendar"></i> Created <span id="createdDate"></span></span>
                                 </div>
                             </div>
                         </div>
@@ -118,80 +106,36 @@
         <div class="container">
             <div class="section-header">
                 <h2>Powerful Features</h2>
-                <p>Everything you need for professional URL management</p>
+                <p>Everything you need for professional link management</p>
             </div>
-            
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Lightning Fast</h3>
-                    <p>Generate short URLs instantly with our optimized platform and global CDN infrastructure.</p>
-                </div>
-                
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Advanced Analytics</h3>
-                    <p>Track clicks, analyze traffic sources, geographic data, and user behavior patterns.</p>
+                    <h3>Click Analytics</h3>
+                    <p>Track clicks, geographic data, referrers, and device information in real-time</p>
                 </div>
-                
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-qrcode"></i>
                     </div>
-                    <h3>QR Code Generator</h3>
-                    <p>Automatically generate QR codes for easy mobile sharing and offline campaigns.</p>
+                    <h3>QR Codes</h3>
+                    <p>Generate QR codes for your short links to share offline and mobile</p>
                 </div>
-                
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
                     <h3>Secure & Reliable</h3>
-                    <p>Enterprise-grade security with SSL encryption and 99.9% uptime guarantee.</p>
+                    <p>Enterprise-grade security with 99.9% uptime guarantee</p>
                 </div>
-                
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
+                        <i class="fas fa-tachometer-alt"></i>
                     </div>
-                    <h3>Mobile Optimized</h3>
-                    <p>Perfect experience on all devices with responsive design and fast loading.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>Easy Management</h3>
-                    <p>Intuitive admin dashboard for managing all your links and viewing detailed reports.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Statistics Section -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number" id="totalUrls">1,245</div>
-                    <div class="stat-description">URLs Shortened</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" id="totalClicks">15,678</div>
-                    <div class="stat-description">Total Clicks</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">99.9%</div>
-                    <div class="stat-description">Uptime</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-description">Support</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Instant redirects with global CDN for maximum speed</p>
                 </div>
             </div>
         </div>
@@ -202,71 +146,50 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Simple. Fast. Powerful.</h2>
-                    <p>LinkShort is a professional URL shortening service designed for businesses, marketers, and developers who need reliable link management with comprehensive analytics.</p>
-                    
-                    <div class="about-features">
-                        <div class="about-feature">
-                            <i class="fas fa-check"></i>
-                            <span>No registration required for basic use</span>
+                    <h2>About LinkShort</h2>
+                    <p>LinkShort is a professional URL shortening service designed for businesses, marketers, and individuals who need reliable link management with comprehensive analytics.</p>
+                    <p>Our platform provides detailed insights into your link performance, helping you understand your audience and optimize your marketing campaigns.</p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">1M+</span>
+                            <span class="stat-label">Links Created</span>
                         </div>
-                        <div class="about-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Real-time click tracking and analytics</span>
+                        <div class="stat-item">
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label">Active Users</span>
                         </div>
-                        <div class="about-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Automatic QR code generation</span>
-                        </div>
-                        <div class="about-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Professional admin dashboard</span>
-                        </div>
-                        <div class="about-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Enterprise-grade security</span>
-                        </div>
-                        <div class="about-feature">
-                            <i class="fas fa-check"></i>
-                            <span>API access for developers</span>
+                        <div class="stat-item">
+                            <span class="stat-number">99.9%</span>
+                            <span class="stat-label">Uptime</span>
                         </div>
                     </div>
                 </div>
-                
                 <div class="about-image">
-                    <div class="about-visual">
+                    <div class="chart-placeholder">
                         <i class="fas fa-chart-bar"></i>
+                        <p>Real-time Analytics Dashboard</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- QR Code Modal -->
+    <!-- QR Modal -->
     <div id="qrModal" class="modal" style="display: none;">
-        <div class="modal-overlay"></div>
         <div class="modal-content">
             <div class="modal-header">
-                <h3><i class="fas fa-qrcode"></i> QR Code</h3>
-                <button class="modal-close" id="closeQrModal">
+                <h3>QR Code</h3>
+                <button id="closeQrModal" class="close-btn">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="modal-body">
-                <div class="qr-container">
-                    <div id="qrCodeDisplay"></div>
-                    <p class="qr-url" id="qrUrlDisplay"></p>
-                </div>
-                <div class="modal-actions">
-                    <button id="downloadQr" class="download-btn">
-                        <i class="fas fa-download"></i>
-                        Download PNG
-                    </button>
-                    <button id="shareQr" class="share-btn">
-                        <i class="fas fa-share"></i>
-                        Share
-                    </button>
-                </div>
+                <div id="qrcode"></div>
+                <p>Scan this QR code to access your short link</p>
+                <button id="downloadQr" class="download-btn">
+                    <i class="fas fa-download"></i>
+                    Download QR Code
+                </button>
             </div>
         </div>
     </div>
@@ -275,59 +198,16 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-brand">
-                        <i class="fas fa-link"></i>
-                        <span>LinkShort</span>
-                    </div>
-                    <p>Professional URL shortening service with advanced analytics and QR code generation.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                    </div>
+                <div class="footer-brand">
+                    <i class="fas fa-link"></i>
+                    <span>LinkShort</span>
                 </div>
-                
-                <div class="footer-section">
-                    <h4>Features</h4>
-                    <ul>
-                        <li><a href="#features">URL Shortening</a></li>
-                        <li><a href="#features">Click Analytics</a></li>
-                        <li><a href="#features">QR Codes</a></li>
-                        <li><a href="admin-login.html">Admin Dashboard</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#">API Documentation</a></li>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Status Page</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                        <li><a href="#">GDPR</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
                 <p>&copy; 2024 LinkShort. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.3/qrcode.min.js"></script>
-    <script src="url-shortener.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
