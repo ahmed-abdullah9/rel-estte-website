@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عقارات الرياض - أفضل العقارات في المملكة</title>
+    <title>برنامج الولاء - اكسب نقاط واستمتع بالمكافآت</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -14,23 +14,26 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <h2><i class="fas fa-home"></i> عقارات الرياض</h2>
+                    <h2><i class="fas fa-crown"></i> برنامج الولاء</h2>
                 </div>
                 <ul class="nav-menu">
                     <li class="nav-item">
                         <a href="#home" class="nav-link active">الرئيسية</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#properties" class="nav-link">العقارات</a>
+                        <a href="#program" class="nav-link">البرنامج</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#services" class="nav-link">الخدمات</a>
+                        <a href="#rewards" class="nav-link">المكافآت</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#about" class="nav-link">من نحن</a>
+                        <a href="#benefits" class="nav-link">المزايا</a>
                     </li>
                     <li class="nav-item">
                         <a href="#contact" class="nav-link">تواصل معنا</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link login-btn" id="loginBtn">تسجيل الدخول</a>
                     </li>
                 </ul>
                 <div class="hamburger">
@@ -45,162 +48,268 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>اعثر على منزل أحلامك</h1>
-            <p>نحن نساعدك في العثور على أفضل العقارات في أفضل المواقع بأسعار مناسبة</p>
-            <div class="hero-search">
-                <div class="search-form">
-                    <select class="search-input">
-                        <option>نوع العقار</option>
-                        <option>شقة</option>
-                        <option>فيلا</option>
-                        <option>أرض</option>
-                        <option>مكتب</option>
-                    </select>
-                    <select class="search-input">
-                        <option>المنطقة</option>
-                        <option>الرياض</option>
-                        <option>جدة</option>
-                        <option>الدمام</option>
-                        <option>مكة</option>
-                    </select>
-                    <input type="text" class="search-input" placeholder="السعر الأقصى">
-                    <button class="search-btn">بحث <i class="fas fa-search"></i></button>
+            <div class="hero-text">
+                <h1>اكسب نقاط واستمتع بالمكافآت</h1>
+                <p>انضم إلى برنامج الولاء الأفضل في المملكة واحصل على نقاط مع كل عملية شراء واستبدلها بمكافآت مذهلة</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" id="registerBtn">انضم الآن</button>
+                    <button class="btn btn-outline">تعرف على المزيد</button>
                 </div>
             </div>
         </div>
         <div class="hero-image">
-            <div class="hero-img-placeholder"></div>
-        </div>
-    </section>
-
-    <!-- Featured Properties -->
-    <section id="properties" class="featured-properties">
-        <div class="container">
-            <div class="section-header">
-                <h2>العقارات المميزة</h2>
-                <p>اكتشف أفضل العقارات المتاحة حاليًا</p>
-            </div>
-            <div class="properties-grid">
-                <div class="property-card">
-                    <div class="property-image">
-                        <div class="img-placeholder"></div>
-                        <div class="property-badge">للبيع</div>
-                    </div>
-                    <div class="property-info">
-                        <h3>فيلا فاخرة في حي النرجس</h3>
-                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> الرياض، النرجس</p>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 4 غرف</span>
-                            <span><i class="fas fa-bath"></i> 3 حمامات</span>
-                            <span><i class="fas fa-ruler-combined"></i> 350 م²</span>
-                        </div>
-                        <div class="property-price">1,200,000 ريال</div>
-                    </div>
-                </div>
-
-                <div class="property-card">
-                    <div class="property-image">
-                        <div class="img-placeholder"></div>
-                        <div class="property-badge rent">للإيجار</div>
-                    </div>
-                    <div class="property-info">
-                        <h3>شقة حديثة في العليا</h3>
-                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> الرياض، العليا</p>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 2 غرف</span>
-                            <span><i class="fas fa-bath"></i> 2 حمامات</span>
-                            <span><i class="fas fa-ruler-combined"></i> 120 م²</span>
-                        </div>
-                        <div class="property-price">3,500 ريال/شهر</div>
-                    </div>
-                </div>
-
-                <div class="property-card">
-                    <div class="property-image">
-                        <div class="img-placeholder"></div>
-                        <div class="property-badge">للبيع</div>
-                    </div>
-                    <div class="property-info">
-                        <h3>مكتب تجاري في الملز</h3>
-                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> الرياض، الملز</p>
-                        <div class="property-features">
-                            <span><i class="fas fa-building"></i> مكتب</span>
-                            <span><i class="fas fa-car"></i> مواقف</span>
-                            <span><i class="fas fa-ruler-combined"></i> 80 م²</span>
-                        </div>
-                        <div class="property-price">450,000 ريال</div>
-                    </div>
-                </div>
-
-                <div class="property-card">
-                    <div class="property-image">
-                        <div class="img-placeholder"></div>
-                        <div class="property-badge rent">للإيجار</div>
-                    </div>
-                    <div class="property-info">
-                        <h3>شقة عائلية في الأزدهار</h3>
-                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> الرياض، الأزدهار</p>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 3 غرف</span>
-                            <span><i class="fas fa-bath"></i> 2 حمامات</span>
-                            <span><i class="fas fa-ruler-combined"></i> 150 م²</span>
-                        </div>
-                        <div class="property-price">2,800 ريال/شهر</div>
-                    </div>
-                </div>
+            <div class="hero-img-placeholder">
+                <i class="fas fa-gift"></i>
             </div>
         </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="services">
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>تسجيل الدخول</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="email" id="loginEmail" placeholder="البريد الإلكتروني" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" placeholder="كلمة المرور" required>
+                </div>
+                <button type="submit" class="btn btn-primary">دخول</button>
+            </form>
+            <p class="modal-footer">ليس لديك حساب؟ <a href="#" id="showRegister">انضم الآن</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>انضم إلى برنامج الولاء</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <input type="text" id="registerName" placeholder="الاسم الكامل" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="registerEmail" placeholder="البريد الإلكتروني" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="registerPhone" placeholder="رقم الهاتف" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="registerPassword" placeholder="كلمة المرور" required>
+                </div>
+                <button type="submit" class="btn btn-primary">إنشاء حساب</button>
+            </form>
+            <p class="modal-footer">لديك حساب بالفعل؟ <a href="#" id="showLogin">تسجيل الدخول</a></p>
+        </div>
+    </div>
+
+    <!-- User Dashboard (hidden by default) -->
+    <div id="userDashboard" class="user-dashboard" style="display: none;">
+        <div class="dashboard-header">
+            <h2>لوحة التحكم</h2>
+            <button id="logoutBtn" class="btn btn-outline">تسجيل الخروج</button>
+        </div>
+        <div class="dashboard-content">
+            <div class="points-card">
+                <div class="points-icon">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <div class="points-info">
+                    <h3>نقاطي الحالية</h3>
+                    <div class="points-value" id="userPoints">0</div>
+                </div>
+            </div>
+            <div class="dashboard-actions">
+                <button class="btn btn-primary" id="earnPointsBtn">اكسب نقاط</button>
+                <button class="btn btn-secondary" id="redeemPointsBtn">استبدل المكافآت</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Program Overview -->
+    <section id="program" class="program-overview">
         <div class="container">
             <div class="section-header">
-                <h2>خدماتنا</h2>
-                <p>نقدم مجموعة شاملة من الخدمات العقارية</p>
+                <h2>كيف يعمل البرنامج؟</h2>
+                <p>ثلاث خطوات بسيطة للحصول على مكافآت مذهلة</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-home"></i>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-user-plus"></i>
                     </div>
-                    <h3>بيع العقارات</h3>
-                    <p>نساعدك في بيع عقارك بأفضل سعر في السوق مع ضمان إتمام الصفقة بسرعة وأمان</p>
+                    <h3>انضم للبرنامج</h3>
+                    <p>سجل مجاناً واحصل على 100 نقطة ترحيب</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-key"></i>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-shopping-cart"></i>
                     </div>
-                    <h3>تأجير العقارات</h3>
-                    <p>خدمات تأجير شاملة تشمل إيجاد المستأجرين المناسبين وإدارة العقود</p>
+                    <h3>اكسب النقاط</h3>
+                    <p>احصل على نقاط مع كل عملية شراء أو إحالة صديق</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search"></i>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-gift"></i>
                     </div>
-                    <h3>البحث عن العقارات</h3>
-                    <p>نساعدك في العثور على العقار المثالي الذي يناسب احتياجاتك وميزانيتك</p>
+                    <h3>استبدل المكافآت</h3>
+                    <p>استبدل نقاطك بمكافآت رائعة وخصومات حصرية</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-calculator"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rewards -->
+    <section id="rewards" class="rewards">
+        <div class="container">
+            <div class="section-header">
+                <h2>المكافآت المتاحة</h2>
+                <p>استبدل نقاطك بمكافآت مميزة</p>
+            </div>
+            <div class="rewards-grid">
+                <div class="reward-card">
+                    <div class="reward-image">
+                        <i class="fas fa-percentage"></i>
                     </div>
-                    <h3>التقييم العقاري</h3>
-                    <p>تقييم دقيق وموضوعي للعقارات من خلال خبراء معتمدين</p>
+                    <div class="reward-info">
+                        <h3>خصم 10%</h3>
+                        <p>خصم على عمليات الشراء التالية</p>
+                        <div class="reward-points">
+                            <i class="fas fa-coins"></i>
+                            <span>500 نقطة</span>
+                        </div>
+                    </div>
+                    <button class="redeem-btn">استبدال</button>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-handshake"></i>
+                <div class="reward-card">
+                    <div class="reward-image">
+                        <i class="fas fa-coffee"></i>
                     </div>
-                    <h3>الاستشارات العقارية</h3>
-                    <p>استشارات متخصصة في الاستثمار العقاري وإدارة الممتلكات</p>
+                    <div class="reward-info">
+                        <h3>مشروب مجاني</h3>
+                        <p>أي مشروب من اختيارك مجاناً</p>
+                        <div class="reward-points">
+                            <i class="fas fa-coins"></i>
+                            <span>300 نقطة</span>
+                        </div>
+                    </div>
+                    <button class="redeem-btn">استبدال</button>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-file-contract"></i>
+                <div class="reward-card">
+                    <div class="reward-image">
+                        <i class="fas fa-utensils"></i>
                     </div>
-                    <h3>الخدمات القانونية</h3>
-                    <p>مساعدة قانونية في جميع المعاملات العقارية وإنهاء الإجراءات الرسمية</p>
+                    <div class="reward-info">
+                        <h3>وجبة مجانية</h3>
+                        <p>وجبة كاملة من قائمة خاصة</p>
+                        <div class="reward-points">
+                            <i class="fas fa-coins"></i>
+                            <span>800 نقطة</span>
+                        </div>
+                    </div>
+                    <button class="redeem-btn">استبدال</button>
+                </div>
+                <div class="reward-card">
+                    <div class="reward-image">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="reward-info">
+                        <h3>توصيل مجاني</h3>
+                        <p>توصيل مجاني لطلبك التالي</p>
+                        <div class="reward-points">
+                            <i class="fas fa-coins"></i>
+                            <span>200 نقطة</span>
+                        </div>
+                    </div>
+                    <button class="redeem-btn">استبدال</button>
+                </div>
+                <div class="reward-card">
+                    <div class="reward-image">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="reward-info">
+                        <h3>نقاط مضاعفة</h3>
+                        <p>اكسب نقاط مضاعفة لمدة أسبوع</p>
+                        <div class="reward-points">
+                            <i class="fas fa-coins"></i>
+                            <span>1000 نقطة</span>
+                        </div>
+                    </div>
+                    <button class="redeem-btn">استبدال</button>
+                </div>
+                <div class="reward-card">
+                    <div class="reward-image">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="reward-info">
+                        <h3>هدية خاصة</h3>
+                        <p>هدية حصرية لأعضاء البرنامج</p>
+                        <div class="reward-points">
+                            <i class="fas fa-coins"></i>
+                            <span>1500 نقطة</span>
+                        </div>
+                    </div>
+                    <button class="redeem-btn">استبدال</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>مزايا العضوية</h2>
+                <p>استمتع بمزايا حصرية كعضو في برنامج الولاء</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>نقاط سريعة</h3>
+                    <p>احصل على نقاط فورية مع كل عملية شراء</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3>مكافأة عيد الميلاد</h3>
+                    <p>هدية خاصة في يوم عيد ميلادك</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>برنامج الإحالة</h3>
+                    <p>اكسب نقاط إضافية عند دعوة الأصدقاء</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-vip"></i>
+                    </div>
+                    <h3>خدمة VIP</h3>
+                    <p>خدمة عملاء مميزة لأعضاء البرنامج</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>عروض حصرية</h3>
+                    <p>اطلع على العروض والخصومات الحصرية أولاً</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>الحماية المضمونة</h3>
+                    <p>حماية كاملة لنقاطك ومعلوماتك الشخصية</p>
                 </div>
             </div>
         </div>
@@ -211,54 +320,20 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number">1500+</div>
-                    <div class="stat-label">عقار مباع</div>
+                    <div class="stat-number">50,000+</div>
+                    <div class="stat-label">عضو نشط</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">800+</div>
-                    <div class="stat-label">عميل سعيد</div>
+                    <div class="stat-number">2,000,000+</div>
+                    <div class="stat-label">نقطة تم استبدالها</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">10+</div>
-                    <div class="stat-label">سنوات خبرة</div>
+                    <div class="stat-number">15,000+</div>
+                    <div class="stat-label">مكافأة تم توزيعها</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">خبير عقاري</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>من نحن</h2>
-                    <p>شركة عقارات الرياض هي واحدة من الشركات الرائدة في مجال العقارات في المملكة العربية السعودية. نتميز بخبرتنا الواسعة وفريق العمل المحترف الذي يضمن تقديم أفضل الخدمات لعملائنا.</p>
-                    <p>نسعى دائماً لتحقيق رضا عملائنا من خلال تقديم حلول عقارية مبتكرة ومتميزة تناسب جميع الاحتياجات والميزانيات.</p>
-                    <div class="about-features">
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>فريق عمل محترف ومعتمد</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>أسعار تنافسية وعادلة</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>خدمة عملاء متميزة على مدار الساعة</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>ضمان الجودة والشفافية</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <div class="about-img-placeholder"></div>
+                    <div class="stat-number">99%</div>
+                    <div class="stat-label">معدل رضا العملاء</div>
                 </div>
             </div>
         </div>
@@ -269,19 +344,10 @@
         <div class="container">
             <div class="section-header">
                 <h2>تواصل معنا</h2>
-                <p>نحن هنا لمساعدتك في جميع احتياجاتك العقارية</p>
+                <p>فريق خدمة العملاء جاهز لمساعدتك</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>العنوان</h4>
-                            <p>الرياض، حي العليا، طريق الملك فهد</p>
-                        </div>
-                    </div>
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-phone"></i>
@@ -297,7 +363,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>البريد الإلكتروني</h4>
-                            <p>info@riyadhrealestate.com</p>
+                            <p>support@loyaltyprogram.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -305,13 +371,22 @@
                             <i class="fas fa-clock"></i>
                         </div>
                         <div class="contact-details">
-                            <h4>أوقات العمل</h4>
-                            <p>الأحد - الخميس: 8:00 ص - 6:00 م</p>
+                            <h4>أوقات الدعم</h4>
+                            <p>24/7 طوال الأسبوع</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>الدردشة المباشرة</h4>
+                            <p>متاح الآن</p>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form>
+                    <form id="contactForm">
                         <div class="form-group">
                             <input type="text" placeholder="الاسم الكامل" required>
                         </div>
@@ -319,21 +394,18 @@
                             <input type="email" placeholder="البريد الإلكتروني" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" placeholder="رقم الهاتف" required>
-                        </div>
-                        <div class="form-group">
                             <select required>
                                 <option value="">نوع الاستفسار</option>
-                                <option>بيع عقار</option>
-                                <option>شراء عقار</option>
-                                <option>تأجير عقار</option>
-                                <option>استشارة عقارية</option>
+                                <option>مشكلة في النقاط</option>
+                                <option>استفسار عن المكافآت</option>
+                                <option>مشكلة تقنية</option>
+                                <option>اقتراح أو شكوى</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <textarea placeholder="رسالتك" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                        <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
                     </form>
                 </div>
             </div>
@@ -345,46 +417,58 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3><i class="fas fa-home"></i> عقارات الرياض</h3>
-                    <p>شريكك الأمثل في رحلة البحث عن العقار المثالي. نقدم خدمات عقارية شاملة بأعلى معايير الجودة والمهنية.</p>
+                    <h3><i class="fas fa-crown"></i> برنامج الولاء</h3>
+                    <p>برنامج المكافآت والولاء الأول في المملكة العربية السعودية. انضم إلينا واستمتع بتجربة تسوق مميزة مع مكافآت رائعة.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-snapchat"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
                     <h4>روابط سريعة</h4>
                     <ul>
                         <li><a href="#home">الرئيسية</a></li>
-                        <li><a href="#properties">العقارات</a></li>
-                        <li><a href="#services">الخدمات</a></li>
-                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#program">البرنامج</a></li>
+                        <li><a href="#rewards">المكافآت</a></li>
+                        <li><a href="#benefits">المزايا</a></li>
                         <li><a href="#contact">تواصل معنا</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>الخدمات</h4>
+                    <h4>الدعم</h4>
                     <ul>
-                        <li><a href="#">بيع العقارات</a></li>
-                        <li><a href="#">تأجير العقارات</a></li>
-                        <li><a href="#">التقييم العقاري</a></li>
-                        <li><a href="#">الاستشارات العقارية</a></li>
-                        <li><a href="#">إدارة الممتلكات</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">مركز المساعدة</a></li>
+                        <li><a href="#">تقييم التطبيق</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>معلومات التواصل</h4>
-                    <div class="footer-contact">
-                        <p><i class="fas fa-map-marker-alt"></i> الرياض، حي العليا</p>
-                        <p><i class="fas fa-phone"></i> +966 11 234 5678</p>
-                        <p><i class="fas fa-envelope"></i> info@riyadhrealestate.com</p>
+                    <h4>حمل التطبيق</h4>
+                    <div class="app-downloads">
+                        <a href="#" class="app-store">
+                            <i class="fab fa-apple"></i>
+                            <div>
+                                <span>متوفر على</span>
+                                <strong>App Store</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="google-play">
+                            <i class="fab fa-google-play"></i>
+                            <div>
+                                <span>احصل عليه من</span>
+                                <strong>Google Play</strong>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 عقارات الرياض. جميع الحقوق محفوظة.</p>
+                <p>&copy; 2024 برنامج الولاء. جميع الحقوق محفوظة.</p>
             </div>
         </div>
     </footer>
