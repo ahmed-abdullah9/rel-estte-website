@@ -47,6 +47,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // URL Shortener Functionality
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing URL shortener...');
+    
     const shortenForm = document.getElementById('shortenForm');
     const originalUrlInput = document.getElementById('originalUrl');
     const shortenBtn = document.getElementById('shortenBtn');
@@ -69,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Helper functions
     function showError(message) {
+        console.log('Showing error:', message);
         if (errorDiv) {
             errorDiv.textContent = message;
             errorDiv.style.display = 'block';
@@ -131,76 +134,91 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Check if all elements exist
+    if (!shortenForm || !originalUrlInput || !shortenBtn) {
+        console.error('Required form elements not found');
+        return;
+    }
+
+    console.log('All form elements found, setting up event listeners...');
+
     // Form submission
-    if (shortenForm) {
-        shortenForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            let originalUrl = originalUrlInput.value.trim();
-            
-            // Clear previous errors and results
-            hideError();
-            hideResult();
-            
-            if (!originalUrl) {
-                showError('Please enter a URL');
-                return;
-            }
+    shortenForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        console.log('Form submitted');
+        
+        let originalUrl = originalUrlInput.value.trim();
+        console.log('Original URL:', originalUrl);
+        
+        // Clear previous errors and results
+        hideError();
+        hideResult();
+        
+        if (!originalUrl) {
+            showError('Please enter a URL');
+            return;
+        }
 
-            // Format URL if needed
-            originalUrl = formatUrl(originalUrl);
+        // Format URL if needed
+        originalUrl = formatUrl(originalUrl);
+        console.log('Formatted URL:', originalUrl);
 
-            // Validate URL
-            if (!isValidUrl(originalUrl)) {
-                showError('Please enter a valid URL');
-                return;
-            }
+        // Validate URL
+        if (!isValidUrl(originalUrl)) {
+            showError('Please enter a valid URL');
+            return;
+        }
 
-            setLoading(true);
+        setLoading(true);
+        console.log('Sending request to server...');
 
-            try {
-                const response = await fetch('/api/shorten', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ url: originalUrl })
-                });
+        try {
+            const response = await fetch('/api/shorten', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ url: originalUrl })
+            });
 
-                const data = await response.json();
+            console.log('Response status:', response.status);
+            const data = await response.json();
+            console.log('Response data:', data);
 
-                if (data.success && data.data) {
-                    // Display results
-                    if (originalUrlDisplay) {
-                        originalUrlDisplay.textContent = data.data.original_url;
-                    }
-                    if (shortUrlDisplay) {
-                        shortUrlDisplay.textContent = data.data.short_url;
-                        currentShortUrl = data.data.short_url;
-                    }
-                    if (clickCount) {
-                        clickCount.textContent = data.data.clicks || 0;
-                    }
-                    if (createdDate) {
-                        createdDate.textContent = formatDate(data.data.created_at);
-                    }
-
-                    showResult();
-                    
-                    // Clear input
-                    originalUrlInput.value = '';
-                } else {
-                    showError(data.message || 'Failed to shorten URL');
+            if (data.success && data.data) {
+                console.log('Success! Displaying results...');
+                
+                // Display results
+                if (originalUrlDisplay) {
+                    originalUrlDisplay.textContent = data.data.original_url;
+                }
+                if (shortUrlDisplay) {
+                    shortUrlDisplay.textContent = data.data.short_url;
+                    currentShortUrl = data.data.short_url;
+                }
+                if (clickCount) {
+                    clickCount.textContent = data.data.clicks || 0;
+                }
+                if (createdDate) {
+                    createdDate.textContent = formatDate(data.data.created_at);
                 }
 
-            } catch (error) {
-                console.error('Shorten error:', error);
-                showError('Network error. Please try again.');
-            } finally {
-                setLoading(false);
+                showResult();
+                
+                // Clear input
+                originalUrlInput.value = '';
+            } else {
+                console.error('Server error:', data);
+                showError(data.message || 'Failed to shorten URL');
             }
-        });
-    }
+
+        } catch (error) {
+            console.error('Network error:', error);
+            showError('Network error. Please check if the server is running.');
+        } finally {
+            setLoading(false);
+        }
+    });
 
     // Copy to clipboard functionality
     if (copyBtn) {
@@ -232,16 +250,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.execCommand('copy');
                     document.body.removeChild(textArea);
                     
-                    showError('URL copied to clipboard!');
+                    console.log('URL copied to clipboard (fallback method)');
                 }
             }
         });
     }
 
     // QR Code functionality
-    if (qrBtn && window.QRCode) {
+    if (qrBtn && typeof QRCode !== 'undefined') {
         qrBtn.addEventListener('click', function() {
             if (currentShortUrl && qrModal) {
+                console.log('Generating QR code for:', currentShortUrl);
+                
                 // Clear previous QR code
                 const qrcodeDiv = document.getElementById('qrcode');
                 if (qrcodeDiv) {
@@ -259,6 +279,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         if (error) {
                             console.error('QR Code error:', error);
                             qrcodeDiv.innerHTML = '<p>Failed to generate QR code</p>';
+                        } else {
+                            console.log('QR code generated successfully');
                         }
                     });
                 }
@@ -295,6 +317,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    console.log('URL shortener initialized successfully');
 });
 
 // Active navigation highlighting
@@ -304,7 +328,6 @@ window.addEventListener('scroll', () => {
     
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
         if (pageYOffset >= (sectionTop - 200)) {
             current = section.getAttribute('id');
         }
