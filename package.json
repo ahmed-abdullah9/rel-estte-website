@@ -1,7 +1,7 @@
 {
-  "name": "linkshort-url-shortener",
+  "name": "linkshort",
   "version": "1.0.0",
-  "description": "Professional URL shortener with analytics and admin dashboard",
+  "description": "Professional URL Shortener with Analytics",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -13,19 +13,11 @@
     "mysql2": "^3.6.0",
     "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^9.0.2",
-    "express-validator": "^7.0.1",
-    "express-rate-limit": "^6.10.0",
-    "helmet": "^7.0.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "nanoid": "^3.3.6",
-    "useragent": "^2.3.0",
-    "geoip-lite": "^1.4.7"
+    "express-useragent": "^1.0.15",
+    "dotenv": "^16.3.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
-  },
-  "keywords": ["url-shortener", "analytics", "admin-dashboard", "bitly-clone"],
-  "author": "LinkShort",
-  "license": "MIT"
+  }
 }
