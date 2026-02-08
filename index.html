@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عقارات الرياض - أفضل العقارات في المملكة</title>
+    <title>LinkShort - URL Shortener</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -14,470 +14,243 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <h2><i class="fas fa-building"></i> عقارات الرياض</h2>
+                    <h2><i class="fas fa-link"></i> LinkShort</h2>
                 </div>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="#home" class="nav-link active">الرئيسية</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#properties" class="nav-link">العقارات</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#services" class="nav-link">خدماتنا</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link">من نحن</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link">تواصل معنا</a>
-                    </li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+                <div class="nav-menu">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="admin-login.html" class="nav-link admin-link">Admin</a>
                 </div>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h1>ابحث عن بيت أحلامك</h1>
-                    <p>اكتشف أفضل العقارات في الرياض والمملكة العربية السعودية. شقق، فلل، مكاتب وأراضي للبيع والإيجار بأفضل الأسعار.</p>
-                </div>
-                <div class="hero-search">
-                    <form class="search-form">
-                        <select class="search-input">
-                            <option value="">نوع العقار</option>
-                            <option value="apartment">شقة</option>
-                            <option value="villa">فيلا</option>
-                            <option value="office">مكتب</option>
-                            <option value="land">أرض</option>
-                        </select>
-                        <input type="text" class="search-input" placeholder="المدينة أو المنطقة">
-                        <select class="search-input">
-                            <option value="">السعر</option>
-                            <option value="0-500000">أقل من 500,000 ريال</option>
-                            <option value="500000-1000000">500,000 - 1,000,000 ريال</option>
-                            <option value="1000000-2000000">1,000,000 - 2,000,000 ريال</option>
-                            <option value="2000000+">أكثر من 2,000,000 ريال</option>
-                        </select>
-                        <button type="submit" class="search-btn">
-                            <i class="fas fa-search"></i>
-                            بحث
-                        </button>
+                <h1>Shorten Your URLs Instantly</h1>
+                <p>Transform long URLs into short, shareable links with click tracking and analytics</p>
+                
+                <div class="url-shortener">
+                    <form id="shortenForm" class="shorten-form">
+                        <div class="input-group">
+                            <input type="url" id="originalUrl" placeholder="Enter your long URL here..." required>
+                            <button type="submit" class="shorten-btn">
+                                <span class="btn-text">Shorten</span>
+                                <span class="btn-loading" style="display: none;">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                </span>
+                            </button>
+                        </div>
                     </form>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="hero-img-placeholder">
-                    <i class="fas fa-home"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Property Filters -->
-    <section class="property-filters">
-        <div class="container">
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">جميع العقارات</button>
-                <button class="filter-btn" data-filter="apartment">شقق</button>
-                <button class="filter-btn" data-filter="villa">فلل</button>
-                <button class="filter-btn" data-filter="office">مكاتب</button>
-                <button class="filter-btn" data-filter="land">أراضي</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Properties -->
-    <section id="properties" class="featured-properties section">
-        <div class="container">
-            <div class="section-header">
-                <h2>العقارات المميزة</h2>
-                <p>اكتشف مجموعة مختارة من أفضل العقارات المتاحة</p>
-            </div>
-            <div class="properties-grid">
-                <div class="property-card" data-category="villa">
-                    <div class="property-image">
-                        <div class="img-placeholder"></div>
-                        <div class="property-badge">للبيع</div>
-                        <div class="property-favorite">
-                            <i class="far fa-heart"></i>
+                    
+                    <div id="result" class="result" style="display: none;">
+                        <div class="result-card">
+                            <div class="result-header">
+                                <h3>Your Short URL</h3>
+                                <div class="result-actions">
+                                    <button id="copyBtn" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                        Copy
+                                    </button>
+                                    <button id="qrBtn" class="qr-btn">
+                                        <i class="fas fa-qrcode"></i>
+                                        QR Code
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="url-display">
+                                <div class="original-url">
+                                    <span class="url-label">Original:</span>
+                                    <span id="originalUrlDisplay"></span>
+                                </div>
+                                <div class="short-url">
+                                    <span class="url-label">Short:</span>
+                                    <a href="#" id="shortUrlDisplay" target="_blank"></a>
+                                </div>
+                            </div>
+                            
+                            <div class="url-stats">
+                                <div class="stat">
+                                    <i class="fas fa-mouse-pointer"></i>
+                                    <span class="stat-label">Clicks</span>
+                                    <span class="stat-value" id="clickCount">0</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-calendar"></i>
+                                    <span class="stat-label">Created</span>
+                                    <span class="stat-value" id="createdDate"></span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="property-info">
-                        <h3>فيلا فاخرة في حي الملقا</h3>
-                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> الملقا، الرياض</p>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 5 غرف</span>
-                            <span><i class="fas fa-bath"></i> 4 حمامات</span>
-                            <span><i class="fas fa-ruler-combined"></i> 450 م²</span>
-                        </div>
-                        <div class="property-price">2,500,000 ريال</div>
-                    </div>
-                </div>
-
-                <div class="property-card" data-category="apartment">
-                    <div class="property-image">
-                        <div class="img-placeholder"></div>
-                        <div class="property-badge rent">للإيجار</div>
-                        <div class="property-favorite">
-                            <i class="far fa-heart"></i>
-                        </div>
-                    </div>
-                    <div class="property-info">
-                        <h3>شقة حديثة في حي العليا</h3>
-                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> العليا، الرياض</p>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 3 غرف</span>
-                            <span><i class="fas fa-bath"></i> 2 حمامات</span>
-                            <span><i class="fas fa-ruler-combined"></i> 120 م²</span>
-                        </div>
-                        <div class="property-price">3,500 ريال/شهر</div>
-                    </div>
-                </div>
-
-                <div class="property-card" data-category="office">
-                    <div class="property-image">
-                        <div class="img-placeholder"></div>
-                        <div class="property-badge">للبيع</div>
-                        <div class="property-favorite">
-                            <i class="far fa-heart"></i>
-                        </div>
-                    </div>
-                    <div class="property-info">
-                        <h3>مكتب تجاري في برج الفيصلية</h3>
-                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> وسط الرياض</p>
-                        <div class="property-features">
-                            <span><i class="fas fa-building"></i> الطابق 15</span>
-                            <span><i class="fas fa-car"></i> موقف مجاني</span>
-                            <span><i class="fas fa-ruler-combined"></i> 200 م²</span>
-                        </div>
-                        <div class="property-price">1,800,000 ريال</div>
-                    </div>
-                </div>
-
-                <div class="property-card" data-category="land">
-                    <div class="property-image">
-                        <div class="img-placeholder"></div>
-                        <div class="property-badge">للبيع</div>
-                        <div class="property-favorite">
-                            <i class="far fa-heart"></i>
-                        </div>
-                    </div>
-                    <div class="property-info">
-                        <h3>أرض سكنية في حي النرجس</h3>
-                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> النرجس، الرياض</p>
-                        <div class="property-features">
-                            <span><i class="fas fa-expand-arrows-alt"></i> 600 م²</span>
-                            <span><i class="fas fa-road"></i> على شارعين</span>
-                            <span><i class="fas fa-check"></i> مخطط معتمد</span>
-                        </div>
-                        <div class="property-price">900,000 ريال</div>
-                    </div>
-                </div>
-
-                <div class="property-card" data-category="villa">
-                    <div class="property-image">
-                        <div class="img-placeholder"></div>
-                        <div class="property-badge rent">للإيجار</div>
-                        <div class="property-favorite">
-                            <i class="far fa-heart"></i>
-                        </div>
-                    </div>
-                    <div class="property-info">
-                        <h3>فيلا مؤثثة في حي الياسمين</h3>
-                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> الياسمين، الرياض</p>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 4 غرف</span>
-                            <span><i class="fas fa-bath"></i> 3 حمامات</span>
-                            <span><i class="fas fa-ruler-combined"></i> 350 م²</span>
-                        </div>
-                        <div class="property-price">8,000 ريال/شهر</div>
-                    </div>
-                </div>
-
-                <div class="property-card" data-category="apartment">
-                    <div class="property-image">
-                        <div class="img-placeholder"></div>
-                        <div class="property-badge">للبيع</div>
-                        <div class="property-favorite">
-                            <i class="far fa-heart"></i>
-                        </div>
-                    </div>
-                    <div class="property-info">
-                        <h3>شقة استثمارية في حي الحمراء</h3>
-                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> الحمراء، الرياض</p>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 2 غرف</span>
-                            <span><i class="fas fa-bath"></i> 2 حمامات</span>
-                            <span><i class="fas fa-ruler-combined"></i> 90 م²</span>
-                        </div>
-                        <div class="property-price">750,000 ريال</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="services section">
+    <!-- Features Section -->
+    <section id="features" class="features">
         <div class="container">
             <div class="section-header">
-                <h2>خدماتنا المميزة</h2>
-                <p>نقدم مجموعة شاملة من الخدمات العقارية لتلبية جميع احتياجاتكم</p>
+                <h2>Why Choose LinkShort?</h2>
+                <p>Powerful features for all your URL shortening needs</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-home"></i>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
                     </div>
-                    <h3>بيع العقارات</h3>
-                    <p>نساعدك في بيع عقارك بأفضل الأسعار وأسرع الطرق مع فريق من الخبراء المتخصصين</p>
+                    <h3>Lightning Fast</h3>
+                    <p>Generate short URLs instantly with our optimized platform</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-key"></i>
-                    </div>
-                    <h3>تأجير العقارات</h3>
-                    <p>خدمات تأجير شاملة للمالكين والمستأجرين مع إدارة كاملة للعقار</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>تقييم العقارات</h3>
-                    <p>تقييم دقيق ومهني للعقارات من قبل خبراء معتمدين</p>
+                    <h3>Click Analytics</h3>
+                    <p>Track clicks and analyze performance with detailed statistics</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-handshake"></i>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-qrcode"></i>
                     </div>
-                    <h3>استشارات عقارية</h3>
-                    <p>استشارات متخصصة لاتخاذ القرارات الاستثمارية الصحيحة</p>
+                    <h3>QR Code Generation</h3>
+                    <p>Get QR codes for easy mobile sharing and scanning</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-file-contract"></i>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>الخدمات القانونية</h3>
-                    <p>مساعدة في إجراءات التوثيق والعقود القانونية</p>
+                    <h3>Secure & Reliable</h3>
+                    <p>Your links are safe with our secure infrastructure</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tools"></i>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>إدارة العقارات</h3>
-                    <p>خدمات إدارة شاملة للعقارات التجارية والسكنية</p>
+                    <h3>Mobile Friendly</h3>
+                    <p>Works perfectly on all devices and screen sizes</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>Link Management</h3>
+                    <p>Keep track of all your shortened URLs in one place</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Statistics -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">15,000+</div>
-                    <div class="stat-label">عقار تم بيعه</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">25,000+</div>
-                    <div class="stat-label">عميل راضي</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">مشروع مكتمل</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">سنة من الخبرة</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="about section">
+    <!-- About Section -->
+    <section id="about" class="about">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>من نحن</h2>
-                    <p>نحن رواد في مجال العقارات في المملكة العربية السعودية، نقدم خدمات عقارية متكاملة منذ أكثر من 15 عاماً. فريقنا من الخبراء المتخصصين يعمل على تحقيق أهدافكم العقارية بأفضل الطرق.</p>
-                    <p>نؤمن بأن العقار ليس مجرد استثمار، بل هو بيت أحلامكم ومستقبلكم. لذلك نحرص على تقديم أفضل الخدمات والحلول المبتكرة لضمان رضاكم التام.</p>
+                    <h2>Simple. Fast. Powerful.</h2>
+                    <p>LinkShort is a modern URL shortening service designed for simplicity and performance. Whether you're sharing links on social media, in emails, or anywhere else, our platform makes it easy to create short, memorable URLs.</p>
+                    
                     <div class="about-features">
-                        <div class="feature-item">
+                        <div class="about-feature">
                             <i class="fas fa-check-circle"></i>
-                            <span>خبرة تزيد عن 15 عام في السوق العقاري</span>
+                            <span>No registration required</span>
                         </div>
-                        <div class="feature-item">
+                        <div class="about-feature">
                             <i class="fas fa-check-circle"></i>
-                            <span>فريق من الخبراء المعتمدين والمتخصصين</span>
+                            <span>Real-time click tracking</span>
                         </div>
-                        <div class="feature-item">
+                        <div class="about-feature">
                             <i class="fas fa-check-circle"></i>
-                            <span>خدمات شاملة من البحث إلى التوثيق</span>
+                            <span>Automatic QR code generation</span>
                         </div>
-                        <div class="feature-item">
+                        <div class="about-feature">
                             <i class="fas fa-check-circle"></i>
-                            <span>أسعار تنافسية وعروض مميزة</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>دعم فني ومتابعة مستمرة</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>تقنيات حديثة وأدوات متطورة</span>
+                            <span>Professional admin dashboard</span>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <div class="about-img-placeholder">
-                        <i class="fas fa-building"></i>
+                
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalUrls">0</div>
+                        <div class="stat-label">URLs Shortened</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalClicks">0</div>
+                        <div class="stat-label">Total Clicks</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Uptime</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact section">
-        <div class="container">
-            <div class="section-header">
-                <h2>تواصل معنا</h2>
-                <p>نحن هنا لمساعدتك في جميع احتياجاتك العقارية</p>
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>QR Code</h3>
+                <button class="modal-close">&times;</button>
             </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>العنوان</h4>
-                            <p>الرياض، المملكة العربية السعودية<br>حي العليا، شارع الملك فهد</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>الهاتف</h4>
-                            <p>+966 11 234 5678<br>+966 50 123 4567</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>البريد الإلكتروني</h4>
-                            <p>info@riyadhrealestate.sa<br>sales@riyadhrealestate.sa</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>أوقات العمل</h4>
-                            <p>السبت - الخميس: 8:00 ص - 6:00 م<br>الجمعة: مغلق</p>
-                        </div>
-                    </div>
+            <div class="modal-body">
+                <div class="qr-code-container">
+                    <div id="qrCode"></div>
+                    <p class="qr-url" id="qrUrl"></p>
                 </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" placeholder="الاسم الكامل" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="البريد الإلكتروني" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="رقم الهاتف" required>
-                        </div>
-                        <div class="form-group">
-                            <select required>
-                                <option value="">نوع الاستفسار</option>
-                                <option>شراء عقار</option>
-                                <option>بيع عقار</option>
-                                <option>تأجير عقار</option>
-                                <option>تقييم عقار</option>
-                                <option>استشارة عقارية</option>
-                                <option>أخرى</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="رسالتك" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">إرسال الرسالة</button>
-                    </form>
-                </div>
+                <button id="downloadQr" class="download-btn">
+                    <i class="fas fa-download"></i>
+                    Download QR Code
+                </button>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3><i class="fas fa-building"></i> عقارات الرياض</h3>
-                    <p>نحن الوكيل العقاري الموثوق في المملكة العربية السعودية، نقدم أفضل الخدمات العقارية لضمان رضا عملائنا وتحقيق أهدافهم.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-snapchat"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                    </div>
+                    <h3><i class="fas fa-link"></i> LinkShort</h3>
+                    <p>The fastest and most reliable URL shortening service with powerful analytics.</p>
                 </div>
                 <div class="footer-section">
-                    <h4>الخدمات</h4>
+                    <h4>Features</h4>
                     <ul>
-                        <li><a href="#">بيع العقارات</a></li>
-                        <li><a href="#">تأجير العقارات</a></li>
-                        <li><a href="#">تقييم العقارات</a></li>
-                        <li><a href="#">استشارات عقارية</a></li>
-                        <li><a href="#">إدارة العقارات</a></li>
+                        <li><a href="#">URL Shortening</a></li>
+                        <li><a href="#">Click Analytics</a></li>
+                        <li><a href="#">QR Codes</a></li>
+                        <li><a href="#">API Access</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>أنواع العقارات</h4>
+                    <h4>Support</h4>
                     <ul>
-                        <li><a href="#">شقق للبيع</a></li>
-                        <li><a href="#">فلل للبيع</a></li>
-                        <li><a href="#">مكاتب تجارية</a></li>
-                        <li><a href="#">أراضي سكنية</a></li>
-                        <li><a href="#">عقارات للإيجار</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>روابط مهمة</h4>
-                    <ul>
-                        <li><a href="#">من نحن</a></li>
-                        <li><a href="#">اتصل بنا</a></li>
-                        <li><a href="#">سياسة الخصوصية</a></li>
-                        <li><a href="#">شروط الاستخدام</a></li>
-                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 عقارات الرياض. جميع الحقوق محفوظة.</p>
+                <p>&copy; 2024 LinkShort. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.3/qrcode.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
