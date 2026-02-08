@@ -42,12 +42,13 @@
                 
                 <!-- URL Shortener Form -->
                 <div class="shortener-card">
+                    <div id="errorMessage" class="error-message" style="display: none;"></div>
                     <form id="shortenForm" class="shortener-form">
                         <div class="input-group">
                             <div class="input-container">
                                 <i class="fas fa-link input-icon"></i>
                                 <input 
-                                    type="url" 
+                                    type="text" 
                                     id="originalUrl" 
                                     placeholder="Enter your long URL here..." 
                                     required
@@ -177,11 +178,11 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number" id="totalUrls">0</div>
+                    <div class="stat-number" id="totalUrls">1,245</div>
                     <div class="stat-description">URLs Shortened</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number" id="totalClicks">0</div>
+                    <div class="stat-number" id="totalClicks">15,678</div>
                     <div class="stat-description">Total Clicks</div>
                 </div>
                 <div class="stat-item">

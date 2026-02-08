@@ -1,4 +1,4 @@
-// URL Shortener Frontend JavaScript
+// URL Shortener Frontend JavaScript - Fixed Version
 document.addEventListener('DOMContentLoaded', function() {
     const shortenForm = document.getElementById('shortenForm');
     const originalUrlInput = document.getElementById('originalUrl');
@@ -19,16 +19,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let currentShortUrl = '';
 
-    // Add error message div if it doesn't exist
+    // Get or create error message div
     let errorDiv = document.getElementById('errorMessage');
     if (!errorDiv) {
         errorDiv = document.createElement('div');
         errorDiv.id = 'errorMessage';
         errorDiv.className = 'error-message';
-        shortenForm.insertBefore(errorDiv, shortenForm.firstChild);
+        errorDiv.style.display = 'none';
+        shortenForm.parentNode.insertBefore(errorDiv, shortenForm);
     }
 
-    // Form submission
+    // Form submission - FIXED VERSION
     if (shortenForm) {
         shortenForm.addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -50,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 originalUrlInput.value = originalUrl; // Update input field
             }
 
-            // Validate URL format with improved regex
+            // FIXED: More permissive URL validation
             if (!isValidUrl(originalUrl)) {
                 showError('Please enter a valid URL (e.g., https://example.com)');
                 return;
@@ -148,18 +149,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // Functions
     function isValidUrl(string) {
         try {
-            // More flexible URL validation
-            const urlPattern = /^https?:\/\/(?:[-\w.])+(?:\.[a-zA-Z]{2,})+(?:\/[^?\s]*)?(?:\?[^#\s]*)?(?:#[^\s]*)?$/i;
+            // FIXED: More flexible and permissive URL validation
+            // Allow various domain formats including .sa domains
+            const urlPattern = /^https?:\/\/(?:[\w\-]+\.)+[a-zA-Z]{2,}(?:\/.*)?$/i;
             
-            // First check with regex
             if (!urlPattern.test(string)) {
                 return false;
             }
             
-            // Then validate with URL constructor
+            // Additional check with URL constructor for better validation
             const url = new URL(string);
-            return url.protocol === 'http:' || url.protocol === 'https:';
-        } catch (_) {
+            
+            // Check if hostname has valid format
+            const hostnamePattern = /^(?:[\w\-]+\.)*[\w\-]+\.[\w]{2,}$/i;
+            
+            return (url.protocol === 'http:' || url.protocol === 'https:') && 
+                   hostnamePattern.test(url.hostname);
+        } catch (error) {
+            console.log('URL validation error:', error);
             return false;
         }
     }
@@ -184,6 +191,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (errorDiv) {
             errorDiv.textContent = message;
             errorDiv.style.display = 'block';
+            errorDiv.style.background = '#fee';
+            errorDiv.style.color = '#c33';
+            errorDiv.style.padding = '1rem';
+            errorDiv.style.borderRadius = '8px';
+            errorDiv.style.border = '1px solid #fcc';
+            errorDiv.style.marginBottom = '1rem';
+            
             // Scroll error into view
             errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
@@ -216,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         if (clickCount) clickCount.textContent = data.clicks || 0;
         if (createdDate) {
-            const date = new Date(data.createdAt);
+            const date = new Date(data.createdAt || Date.now());
             createdDate.textContent = date.toLocaleDateString();
         }
         
@@ -248,7 +262,11 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.appendChild(textArea);
         textArea.focus();
         textArea.select();
-        document.execCommand('copy');
+        try {
+            document.execCommand('copy');
+        } catch (err) {
+            console.error('Fallback copy failed:', err);
+        }
         document.body.removeChild(textArea);
     }
 
@@ -314,19 +332,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     animateNumber(totalClicksEl, data.totalClicks);
                 }
             } else {
-                // Set default values if stats can't be loaded
-                const totalUrlsEl = document.getElementById('totalUrls');
-                const totalClicksEl = document.getElementById('totalClicks');
-                if (totalUrlsEl) totalUrlsEl.textContent = '1,245';
-                if (totalClicksEl) totalClicksEl.textContent = '15,678';
+                console.log('Using default stats values');
             }
         } catch (error) {
             console.error('Failed to load stats:', error);
-            // Set default values if stats can't be loaded
-            const totalUrlsEl = document.getElementById('totalUrls');
-            const totalClicksEl = document.getElementById('totalClicks');
-            if (totalUrlsEl) totalUrlsEl.textContent = '1,245';
-            if (totalClicksEl) totalClicksEl.textContent = '15,678';
         }
     }
 
