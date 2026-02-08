@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,38 +20,43 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 1rem;
         }
 
         .login-container {
             background: white;
+            border-radius: 20px;
             padding: 3rem;
-            border-radius: 1rem;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 400px;
         }
 
-        .login-header {
+        .logo {
             text-align: center;
             margin-bottom: 2rem;
         }
 
-        .login-header i {
+        .logo i {
             font-size: 3rem;
             color: #667eea;
             margin-bottom: 1rem;
         }
 
-        .login-header h1 {
-            font-size: 1.875rem;
+        .logo h1 {
+            font-size: 2rem;
             font-weight: 700;
-            color: #1f2937;
+            color: #2d3748;
             margin-bottom: 0.5rem;
         }
 
-        .login-header p {
-            color: #6b7280;
-            font-size: 0.875rem;
+        .logo p {
+            color: #718096;
+            font-size: 1rem;
+        }
+
+        .login-form {
+            margin-top: 2rem;
         }
 
         .form-group {
@@ -61,7 +66,7 @@
         .form-group label {
             display: block;
             font-weight: 500;
-            color: #374151;
+            color: #2d3748;
             margin-bottom: 0.5rem;
         }
 
@@ -74,21 +79,19 @@
             left: 1rem;
             top: 50%;
             transform: translateY(-50%);
-            color: #9ca3af;
+            color: #718096;
         }
 
-        input[type="email"],
-        input[type="password"] {
+        .form-control {
             width: 100%;
-            padding: 0.875rem 1rem 0.875rem 3rem;
-            border: 2px solid #e5e7eb;
-            border-radius: 0.5rem;
-            font-size: 0.875rem;
-            transition: border-color 0.3s;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
-        input[type="email"]:focus,
-        input[type="password"]:focus {
+        .form-control:focus {
             outline: none;
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
@@ -96,15 +99,15 @@
 
         .login-btn {
             width: 100%;
+            padding: 1rem;
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
-            padding: 0.875rem 2rem;
-            border-radius: 0.5rem;
-            font-size: 0.875rem;
+            border-radius: 10px;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -112,32 +115,30 @@
         }
 
         .login-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
 
         .login-btn:disabled {
-            opacity: 0.6;
+            opacity: 0.7;
             cursor: not-allowed;
             transform: none;
         }
 
-        .spinner {
-            display: none;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
         .error-message {
-            background: #fee2e2;
-            color: #dc2626;
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
-            font-size: 0.875rem;
+            background: #fed7d7;
+            color: #c53030;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .success-message {
+            background: #c6f6d5;
+            color: #276749;
+            padding: 1rem;
+            border-radius: 10px;
             margin-bottom: 1rem;
             display: none;
         }
@@ -150,42 +151,72 @@
         .back-link a {
             color: #667eea;
             text-decoration: none;
-            font-size: 0.875rem;
-            display: flex;
+            font-weight: 500;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
             gap: 0.5rem;
-            transition: color 0.3s;
         }
 
         .back-link a:hover {
-            color: #764ba2;
+            text-decoration: underline;
         }
 
-        @media (max-width: 480px) {
-            .login-container {
-                margin: 1rem;
-                padding: 2rem;
-            }
+        .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .credentials-info {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .credentials-info h4 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .credentials-info p {
+            color: #718096;
+            margin: 0.25rem 0;
+        }
+
+        .credentials-info strong {
+            color: #2d3748;
         }
     </style>
 </head>
 <body>
     <div class="login-container">
-        <div class="login-header">
+        <div class="logo">
             <i class="fas fa-shield-alt"></i>
             <h1>Admin Login</h1>
-            <p>Access your LinkShort dashboard</p>
+            <p>LinkShort Administration Panel</p>
         </div>
 
-        <div id="errorMessage" class="error-message"></div>
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
 
-        <form id="loginForm">
+        <form class="login-form" id="loginForm">
             <div class="form-group">
                 <label for="email">Email Address</label>
                 <div class="input-wrapper">
                     <i class="fas fa-envelope"></i>
-                    <input type="email" id="email" required>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
                 </div>
             </div>
 
@@ -193,15 +224,24 @@
                 <label for="password">Password</label>
                 <div class="input-wrapper">
                     <i class="fas fa-lock"></i>
-                    <input type="password" id="password" required>
+                    <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
                 </div>
             </div>
 
             <button type="submit" class="login-btn" id="loginBtn">
-                <span class="btn-text">Sign In</span>
-                <i class="fas fa-spinner spinner" id="spinner"></i>
+                <span class="btn-text">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Login to Dashboard
+                </span>
+                <div class="spinner" id="spinner"></div>
             </button>
         </form>
+
+        <div class="credentials-info">
+            <h4><i class="fas fa-info-circle"></i> Default Credentials</h4>
+            <p><strong>Email:</strong> admin@linkshort.com</p>
+            <p><strong>Password:</strong> Admin123!</p>
+        </div>
 
         <div class="back-link">
             <a href="/">
@@ -212,76 +252,64 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('loginForm');
-            const emailInput = document.getElementById('email');
-            const passwordInput = document.getElementById('password');
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
             const loginBtn = document.getElementById('loginBtn');
             const spinner = document.getElementById('spinner');
             const btnText = document.querySelector('.btn-text');
             const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
 
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
+            // Hide previous messages
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
 
-                const email = emailInput.value.trim();
-                const password = passwordInput.value;
+            // Show loading
+            loginBtn.disabled = true;
+            btnText.style.display = 'none';
+            spinner.style.display = 'block';
 
-                if (!email || !password) {
-                    showError('Please fill in all fields');
-                    return;
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    localStorage.setItem('adminToken', data.token);
+                    successMessage.textContent = 'Login successful! Redirecting...';
+                    successMessage.style.display = 'block';
+                    
+                    setTimeout(() => {
+                        window.location.href = '/admin';
+                    }, 1000);
+                } else {
+                    errorMessage.textContent = data.message || 'Login failed';
+                    errorMessage.style.display = 'block';
                 }
-
-                // Show loading state
-                loginBtn.disabled = true;
-                spinner.style.display = 'inline-block';
-                btnText.textContent = 'Signing In...';
-                hideError();
-
-                try {
-                    const response = await fetch('/api/auth/login', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ email, password })
-                    });
-
-                    const data = await response.json();
-
-                    if (response.ok && data.user.role === 'admin') {
-                        localStorage.setItem('adminToken', data.token);
-                        localStorage.setItem('adminUser', JSON.stringify(data.user));
-                        window.location.href = '/admin-dashboard.html';
-                    } else {
-                        showError('Invalid credentials or insufficient permissions');
-                    }
-                } catch (error) {
-                    console.error('Login error:', error);
-                    showError('Login failed. Please try again.');
-                } finally {
-                    // Reset button state
-                    loginBtn.disabled = false;
-                    spinner.style.display = 'none';
-                    btnText.textContent = 'Sign In';
-                }
-            });
-
-            function showError(message) {
-                errorMessage.textContent = message;
+            } catch (error) {
+                console.error('Login error:', error);
+                errorMessage.textContent = 'Network error. Please try again.';
                 errorMessage.style.display = 'block';
-            }
-
-            function hideError() {
-                errorMessage.style.display = 'none';
-            }
-
-            // Check if already logged in
-            const token = localStorage.getItem('adminToken');
-            if (token) {
-                window.location.href = '/admin-dashboard.html';
+            } finally {
+                // Hide loading
+                loginBtn.disabled = false;
+                btnText.style.display = 'flex';
+                spinner.style.display = 'none';
             }
         });
+
+        // Auto-fill demo credentials
+        document.getElementById('email').value = 'admin@linkshort.com';
+        document.getElementById('password').value = 'Admin123!';
     </script>
 </body>
 </html>
