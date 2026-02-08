@@ -137,6 +137,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check if all elements exist
     if (!shortenForm || !originalUrlInput || !shortenBtn) {
         console.error('Required form elements not found');
+        console.log('shortenForm:', shortenForm);
+        console.log('originalUrlInput:', originalUrlInput);
+        console.log('shortenBtn:', shortenBtn);
         return;
     }
 
@@ -182,6 +185,11 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             console.log('Response status:', response.status);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            
             const data = await response.json();
             console.log('Response data:', data);
 
@@ -214,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         } catch (error) {
             console.error('Network error:', error);
-            showError('Network error. Please check if the server is running.');
+            showError(`Network error: ${error.message}. Please check if the server is running on port 3000.`);
         } finally {
             setLoading(false);
         }
