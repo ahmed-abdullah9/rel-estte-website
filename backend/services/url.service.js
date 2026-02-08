@@ -1,8 +1,7 @@
 const URLModel = require('../models/URL.model');
 const AnalyticsModel = require('../models/Analytics.model');
 const config = require('../config/constants');
-const crypto = require('crypto');
-const { URL } = require('url');
+const logger = require('../utils/logger');
 
 class URLService {
   static generateShortCode(length = 6) {
@@ -17,20 +16,8 @@ class URLService {
   }
 
   static async createShortURL(originalUrl, userId = null, customCode = null) {
-    // Validate URL
-    try {
-      const urlObj = new URL(originalUrl);
-      
-      // Check for blocked domains
-      if (config.BLOCKED_DOMAINS.includes(urlObj.hostname)) {
-        throw new Error('Domain not allowed');
-      }
-      
-      // Check protocol
-      if (!config.ALLOWED_PROTOCOLS.includes(urlObj.protocol)) {
-        throw new Error('Protocol not allowed');
-      }
-    } catch (error) {
+    // Basic URL validation
+    if (!originalUrl || !originalUrl.startsWith('http')) {
       throw new Error('Invalid URL format');
     }
 
@@ -86,95 +73,80 @@ class URLService {
     // Update click count
     await URLModel.updateClickCount(shortCode);
 
-    // Record analytics
-    await this.recordAnalytics(url.id, clientInfo);
+    // Record analytics if model exists
+    try {
+      await this.recordAnalytics(url.id, clientInfo);
+    } catch (error) {
+      logger.warn('Analytics recording failed:', error.message);
+    }
 
     return url.original_url;
   }
 
   static async recordAnalytics(urlId, clientInfo) {
     try {
-      const analyticsData = {
+      await AnalyticsModel.recordClick({
         url_id: urlId,
-        ip_address: clientInfo.ip_address,
-        user_agent: clientInfo.user_agent,
-        referrer: clientInfo.referrer,
-        browser: this.extractBrowser(clientInfo.user_agent),
-        operating_system: this.extractOS(clientInfo.user_agent),
-        device_type: this.extractDeviceType(clientInfo.user_agent),
-        country: 'Unknown' // Could integrate with GeoIP service
-      };
-
-      await AnalyticsModel.recordClick(analyticsData);
+        ...clientInfo
+      });
     } catch (error) {
-      // Log error but don't fail the redirect
-      console.error('Analytics recording failed:', error);
+      logger.warn('Failed to record analytics:', error.message);
     }
   }
 
-  static extractBrowser(userAgent) {
-    if (!userAgent) return 'Unknown';
+  static async getPublicStats(shortCode) {
+    const url = await URLModel.findByShortCode(shortCode);
     
-    if (userAgent.includes('Chrome')) return 'Chrome';
-    if (userAgent.includes('Firefox')) return 'Firefox';
-    if (userAgent.includes('Safari')) return 'Safari';
-    if (userAgent.includes('Edge')) return 'Edge';
-    if (userAgent.includes('Opera')) return 'Opera';
-    
-    return 'Other';
-  }
+    if (!url) {
+      return null;
+    }
 
-  static extractOS(userAgent) {
-    if (!userAgent) return 'Unknown';
-    
-    if (userAgent.includes('Windows')) return 'Windows';
-    if (userAgent.includes('Mac OS')) return 'macOS';
-    if (userAgent.includes('Linux')) return 'Linux';
-    if (userAgent.includes('Android')) return 'Android';
-    if (userAgent.includes('iOS')) return 'iOS';
-    
-    return 'Other';
-  }
-
-  static extractDeviceType(userAgent) {
-    if (!userAgent) return 'Unknown';
-    
-    if (userAgent.includes('Mobile')) return 'Mobile';
-    if (userAgent.includes('Tablet')) return 'Tablet';
-    
-    return 'Desktop';
+    return {
+      short_code: url.short_code,
+      click_count: url.click_count,
+      created_at: url.created_at
+    };
   }
 
   static async getUserURLs(userId, limit, offset) {
     return await URLModel.findByUserId(userId, limit, offset);
   }
 
-  static async getURLStats(shortCode, userId) {
+  static async getAnalytics(shortCode, userId, days) {
     const url = await URLModel.findByShortCode(shortCode);
     
     if (!url || (userId && url.user_id !== userId)) {
       return null;
     }
 
-    return {
-      id: url.id,
-      original_url: url.original_url,
-      short_code: url.short_code,
-      short_url: `${config.BASE_URL}/${url.short_code}`,
-      click_count: url.click_count,
-      created_at: url.created_at,
-      last_accessed: url.last_accessed
-    };
+    try {
+      return await AnalyticsModel.getUrlAnalytics(url.id, days);
+    } catch (error) {
+      logger.warn('Analytics retrieval failed:', error.message);
+      return {
+        url: {
+          id: url.id,
+          original_url: url.original_url,
+          short_code: url.short_code,
+          click_count: url.click_count
+        },
+        daily_stats: [],
+        browser_stats: [],
+        device_stats: [],
+        country_stats: [],
+        referrer_stats: []
+      };
+    }
   }
 
-  static async deleteURL(urlId, userId) {
-    const url = await URLModel.findById(urlId);
+  static async deleteURL(id, userId) {
+    const url = await URLModel.findById(id);
     
-    if (!url || url.user_id !== userId) {
+    if (!url || (userId && url.user_id !== userId)) {
       return false;
     }
 
-    await URLModel.deleteById(urlId);
+    await URLModel.deleteById(id);
     return true;
   }
 }

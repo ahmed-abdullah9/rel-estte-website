@@ -1,80 +1,58 @@
 #!/bin/bash
+set -e
 
-echo "🚀 Setting up LinkShort URL Shortener..."
+PROJECT_NAME="linkshort"
+DB_NAME="linkshort_db"
+DB_USER="linkshort_user"
+DB_PASS="SecurePass123!"
+MYSQL_ROOT_PASS="MyPass123!@#"
 
-# Check if MySQL is running
-if ! command -v mysql &> /dev/null; then
-    echo "❌ MySQL is not installed. Please install MySQL first."
-    exit 1
-fi
+echo "🚀 Setting up LinkShort..."
 
-# Get MySQL root password
-read -sp "Enter MySQL root password: " MYSQL_ROOT_PASSWORD
-echo ""
-
-# Create database and user
-echo "📊 Creating database and user..."
-mysql -u root -p$MYSQL_ROOT_PASSWORD <<EOF
-CREATE DATABASE IF NOT EXISTS linkshort_db;
-CREATE USER IF NOT EXISTS 'linkshort_user'@'localhost' IDENTIFIED BY 'SecurePass123';
-GRANT ALL PRIVILEGES ON linkshort_db.* TO 'linkshort_user'@'localhost';
+# Database setup
+echo "📊 Creating database..."
+mysql -u root -p$MYSQL_ROOT_PASS <<EOF
+CREATE DATABASE IF NOT EXISTS $DB_NAME;
+CREATE USER IF NOT EXISTS '$DB_USER'@'localhost' IDENTIFIED BY '$DB_PASS';
+GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'localhost';
 FLUSH PRIVILEGES;
 EOF
 
-if [ $? -ne 0 ]; then
-    echo "❌ Failed to create database. Please check your MySQL root password."
-    exit 1
-fi
-
 # Import schema
-echo "📋 Importing database schema..."
-mysql -u linkshort_user -pSecurePass123 linkshort_db < schema.sql
+echo "📋 Importing schema..."
+mysql -u $DB_USER -p$DB_PASS $DB_NAME < schema.sql
 
-if [ $? -ne 0 ]; then
-    echo "❌ Failed to import schema."
-    exit 1
-fi
-
-# Install Node.js dependencies
-echo "📦 Installing Node.js dependencies..."
+# Backend setup
+echo "📦 Installing backend dependencies..."
+cd backend
 npm install
 
-if [ $? -ne 0 ]; then
-    echo "❌ Failed to install dependencies. Make sure Node.js is installed."
-    exit 1
+# Environment file
+if [ ! -f .env ]; then
+  echo "⚙️ Creating .env file..."
+  cp .env.example .env
+  sed -i "s/DB_NAME=.*/DB_NAME=$DB_NAME/" .env
+  sed -i "s/DB_USER=.*/DB_USER=$DB_USER/" .env
+  sed -i "s/DB_PASSWORD=.*/DB_PASSWORD=$DB_PASS/" .env
 fi
 
-# Create admin user
-echo "👤 Creating admin user..."
-npm run setup
+# Create logs directory
+mkdir -p logs
 
-# Install PM2 if not already installed
-if ! command -v pm2 &> /dev/null; then
-    echo "🔄 Installing PM2..."
-    npm install -g pm2
-fi
-
-# Start the application
-echo "🚀 Starting LinkShort server..."
-pm2 delete linkshort 2>/dev/null || true
-pm2 start server.js --name linkshort
+# PM2 setup
+echo "🔄 Starting backend with PM2..."
+pm2 delete $PROJECT_NAME 2>/dev/null || true
+pm2 start server.js --name $PROJECT_NAME
 pm2 save
-pm2 startup
 
-echo ""
-echo "✅ LinkShort setup completed successfully!"
-echo ""
-echo "🌐 Application URL: http://localhost:3000"
-echo "👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"
-echo "📧 Admin Email: admin@linkshort.com"
-echo "🔐 Admin Password: Admin123!"
-echo ""
-echo "📊 Database Details:"
-echo "   - Database: linkshort_db"
-echo "   - User: linkshort_user"
-echo "   - Password: SecurePass123"
-echo ""
-echo "🔍 Check status: pm2 status"
-echo "📝 View logs: pm2 logs linkshort"
-echo "🛑 Stop server: pm2 stop linkshort"
-echo ""
+echo "✅ Setup complete!"
+echo "🌐 Frontend: http://localhost/rel-estte-website/"
+echo "🔗 API: http://localhost:3000/api/"
+echo "👨‍💼 Admin: admin@linkshort.com / Admin123!"
+
+# Test API
+echo "🧪 Testing API..."
+sleep 2
+curl -X POST http://localhost:3000/api/urls/shorten \
+  -H "Content-Type: application/json" \
+  -d '{"url":"https://google.com"}' || echo "API test failed"

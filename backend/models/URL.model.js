@@ -53,7 +53,7 @@ class URLModel {
     const query = `
       SELECT 
         COUNT(*) as total_urls,
-        SUM(click_count) as total_clicks,
+        COALESCE(SUM(click_count), 0) as total_clicks,
         COUNT(CASE WHEN created_at >= DATE_SUB(NOW(), INTERVAL 24 HOUR) THEN 1 END) as urls_today,
         COUNT(CASE WHEN created_at >= DATE_SUB(NOW(), INTERVAL 7 DAY) THEN 1 END) as urls_week
       FROM urls
@@ -84,18 +84,18 @@ class URLModel {
     return results.length > 0;
   }
 
-  static async getAllWithPagination(limit = 50, offset = 0, searchTerm = '') {
+  static async getAllWithPagination(limit = 50, offset = 0, search = '') {
     let query = `
-      SELECT u.*, us.email as user_email 
-      FROM urls u 
+      SELECT u.*, us.email as user_email
+      FROM urls u
       LEFT JOIN users us ON u.user_id = us.id
-      WHERE u.is_active = 1
     `;
-    const params = [];
     
-    if (searchTerm) {
-      query += ' AND (u.original_url LIKE ? OR u.short_code LIKE ?)';
-      params.push(`%${searchTerm}%`, `%${searchTerm}%`);
+    let params = [];
+    
+    if (search) {
+      query += ' WHERE u.original_url LIKE ? OR u.short_code LIKE ?';
+      params.push(`%${search}%`, `%${search}%`);
     }
     
     query += ' ORDER BY u.created_at DESC LIMIT ? OFFSET ?';
