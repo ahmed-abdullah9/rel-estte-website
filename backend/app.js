@@ -85,16 +85,23 @@ app.use('/', redirectRoutes); // Handle short URL redirects
 // Static files
 app.use(express.static('public'));
 
-// 404 handler
-app.use('*', (req, res) => {
-  if (req.path.startsWith('/api/')) {
-    res.status(404).json({ success: false, message: 'API endpoint not found' });
-  } else {
-    res.status(404).sendFile('404.html', { root: 'public' });
-  }
+// 404 handler for API routes
+app.use('/api/*', (req, res) => {
+  res.status(404).json({ 
+    success: false, 
+    message: 'API endpoint not found' 
+  });
 });
 
-// Error handling
+// 404 handler for all other routes
+app.use('*', (req, res) => {
+  res.status(404).json({ 
+    success: false, 
+    message: 'Route not found' 
+  });
+});
+
+// Error handler (must be last)
 app.use(errorMiddleware);
 
 module.exports = app;

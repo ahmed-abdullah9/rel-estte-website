@@ -398,3 +398,965 @@
 {"timestamp":"2026-02-08T21:57:46.682Z","level":"INFO","message":"::1 - - [08/Feb/2026:21:57:46 +0000] \"POST /api/shorten HTTP/1.1\" 500 103 \"-\" \"curl/8.5.0\""}
 {"timestamp":"2026-02-08T21:58:33.979Z","level":"INFO","message":"::1 - - [08/Feb/2026:21:58:33 +0000] \"POST /api/shorten HTTP/1.1\" 500 103 \"-\" \"curl/8.5.0\""}
 {"timestamp":"2026-02-08T21:58:59.290Z","level":"INFO","message":"::1 - - [08/Feb/2026:21:58:59 +0000] \"POST /api/shorten HTTP/1.1\" 500 103 \"-\" \"curl/8.5.0\""}
+{"timestamp":"2026-02-08T22:03:17.868Z","level":"INFO","message":"::1 - - [08/Feb/2026:22:03:17 +0000] \"GET /api/health HTTP/1.1\" 500 103 \"-\" \"axios/1.13.5\""}
+{"timestamp":"2026-02-08T22:03:19.871Z","level":"INFO","message":"SIGINT received, closing server gracefully..."}
+{"timestamp":"2026-02-08T22:03:20.409Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:20.411Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:20.411Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:20.411Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:20.411Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:20.411Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:20.411Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:20.412Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:20.412Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:20.413Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:20.413Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:20.414Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:20.868Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:20.870Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:20.870Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:20.870Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:20.870Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:20.870Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:20.870Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:20.870Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:20.870Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:20.870Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:20.871Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:20.871Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:21.332Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:21.333Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:21.334Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:21.334Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:21.334Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:21.335Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:21.335Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:21.335Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:21.335Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:21.335Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:21.335Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:21.335Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:21.789Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:21.790Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:21.790Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:21.790Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:21.790Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:21.790Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:21.791Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:21.791Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:21.792Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:21.792Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:21.792Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:21.792Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:22.268Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:22.270Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:22.271Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:22.271Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:22.271Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:22.272Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:22.272Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:22.272Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:22.272Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:22.272Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:22.272Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:22.272Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:22.725Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:22.727Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:22.727Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:22.727Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:22.727Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:22.727Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:22.727Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:22.728Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:22.728Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:22.729Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:22.730Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:22.730Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:23.180Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:23.182Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:23.183Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:23.183Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:23.183Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:23.183Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:23.183Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:23.184Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:23.184Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:23.184Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:23.184Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:23.184Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:23.641Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:23.642Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:23.642Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:23.642Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:23.642Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:23.642Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:23.642Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:23.642Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:23.642Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:23.642Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:23.643Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:23.643Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:24.090Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:24.092Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:24.092Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:24.093Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:24.093Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:24.093Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:24.093Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:24.093Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:24.093Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:24.093Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:24.094Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:24.094Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:24.541Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:24.542Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:24.543Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:24.544Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:24.544Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:24.544Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:24.544Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:24.544Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:24.544Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:24.545Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:24.546Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:24.546Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:24.992Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:24.994Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:24.994Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:24.994Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:24.994Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:24.994Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:24.994Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:24.995Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:24.995Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:24.996Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:24.996Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:24.996Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:25.505Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:25.506Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:25.506Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:25.506Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:25.506Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:25.507Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:25.507Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:25.508Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:25.508Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:25.508Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:25.509Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:25.509Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:25.955Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:25.956Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:25.956Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:25.956Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:25.956Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:25.957Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:25.958Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:25.958Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:25.958Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:25.958Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:25.958Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:25.958Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:26.410Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:26.411Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:26.411Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:26.411Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:26.411Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:26.411Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:26.413Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:26.413Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:26.413Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:26.413Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:26.414Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:26.414Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:26.865Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:26.867Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:26.867Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:26.868Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:26.868Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:26.868Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:26.868Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:26.868Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:26.868Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:26.868Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:26.869Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:26.869Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:27.317Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:27.318Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:27.319Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:27.319Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:27.320Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:27.320Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:27.320Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:27.320Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:27.320Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:27.320Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:27.320Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:27.321Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:32.422Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:32.424Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:32.424Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:32.425Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:32.425Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:32.425Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:32.425Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:32.425Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:32.425Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:32.426Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:32.426Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:32.426Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:32.867Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:32.869Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:32.870Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:32.870Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:32.871Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:32.871Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:32.871Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:32.871Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:32.871Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:32.871Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:32.871Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:32.873Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:33.309Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:33.311Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:33.311Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:33.311Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:33.311Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:33.311Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:33.312Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:33.312Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:33.313Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:33.313Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:33.313Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:33.313Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:33.763Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:33.765Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:33.765Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:33.765Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:33.765Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:33.765Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:33.765Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:33.765Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:33.765Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:33.766Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:33.766Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:33.766Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:34.210Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:34.212Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:34.213Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:34.213Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:34.214Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:34.214Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:34.214Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:34.214Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:34.214Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:34.214Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:34.214Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:34.214Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:34.651Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:34.653Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:34.653Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:34.653Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:34.653Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:34.653Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:34.653Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:34.653Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:34.653Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:34.653Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:34.653Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:34.654Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:35.082Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:35.083Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:35.083Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:35.083Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:35.084Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:35.084Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:35.085Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:35.085Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:35.085Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:35.085Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:35.085Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:35.085Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:35.521Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:35.524Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:35.524Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:35.524Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:35.524Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:35.524Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:35.524Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:35.524Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:35.525Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:35.525Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:35.526Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:35.527Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:35.970Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:35.972Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:35.972Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:35.972Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:35.972Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:35.972Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:35.972Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:35.972Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:35.972Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:35.972Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:35.973Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:35.973Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:36.415Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:36.416Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:36.417Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:36.418Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:36.418Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:36.418Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:36.418Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:36.418Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:36.419Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:36.420Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:36.420Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:36.420Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:36.865Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:36.867Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:36.868Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:36.868Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:36.868Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:36.868Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:36.868Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:36.868Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:36.868Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:36.868Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:36.868Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:36.868Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:37.357Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:37.358Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:37.359Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:37.359Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:37.359Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:37.359Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:37.359Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:37.359Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:37.359Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:37.359Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:37.360Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:37.361Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:37.803Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:37.805Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:37.805Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:37.805Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:37.805Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:37.805Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:37.805Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:37.805Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:37.806Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:37.806Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:37.807Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:37.807Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:38.241Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:38.242Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:38.243Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:38.243Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:38.243Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:38.243Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:38.243Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:38.243Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:38.243Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:38.244Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:38.244Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:38.244Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:38.697Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:38.699Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:38.699Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:38.699Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:38.699Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:38.699Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:38.699Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:38.699Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:38.700Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:38.700Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:38.701Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:38.701Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:39.145Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:39.147Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:39.148Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:39.148Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:39.149Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:39.149Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:39.149Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:39.149Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:39.149Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:39.149Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:39.149Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:39.149Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:43.558Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:43.559Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:43.560Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:43.560Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:43.561Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:43.561Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:43.561Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:43.561Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:43.561Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:43.562Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:43.562Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:43.562Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:43.990Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:43.991Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:43.992Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:43.992Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:43.992Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:43.992Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:43.992Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:43.992Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:43.992Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:43.992Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:43.993Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:43.993Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:44.445Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:44.447Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:44.447Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:44.447Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:44.447Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:44.447Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:44.447Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:44.447Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:44.447Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:44.448Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:44.449Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:44.449Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:44.893Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:44.894Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:44.894Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:44.894Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:44.894Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:44.894Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:44.895Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:44.896Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:44.897Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:44.897Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:44.897Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:44.897Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:45.339Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:45.340Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:45.341Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:45.341Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:45.342Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:45.342Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:45.342Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:45.342Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:45.342Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:45.343Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:45.343Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:45.343Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:45.782Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:45.784Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:45.784Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:45.784Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:45.784Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:45.784Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:45.784Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:45.784Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:45.784Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:45.785Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:45.785Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:45.786Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:46.227Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:46.229Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:46.229Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:46.229Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:46.229Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:46.229Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:46.232Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:46.232Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:46.232Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:46.232Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:46.233Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:46.233Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:46.674Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:46.676Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:46.676Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:46.676Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:46.676Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:46.676Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:46.676Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:46.676Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:46.676Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:46.677Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:46.678Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:46.678Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:47.135Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:47.137Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:47.137Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:47.137Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:47.137Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:47.137Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:47.137Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:47.137Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:47.137Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:47.137Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:47.137Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:47.138Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:47.609Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:47.610Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:47.611Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:47.611Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:47.612Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:47.612Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:47.612Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:47.612Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:47.613Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:47.613Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:47.613Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:47.613Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:48.054Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:48.055Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:48.056Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:48.056Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:48.056Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:48.056Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:48.057Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:48.058Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:48.058Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:48.058Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:48.058Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:48.058Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:48.552Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:48.553Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:48.554Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:48.554Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:48.555Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:48.555Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:48.555Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:48.555Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:48.556Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:48.556Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:48.556Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:48.556Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:48.982Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:48.984Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:48.984Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:48.984Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:48.984Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:48.985Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:48.985Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:48.985Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:48.985Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:48.985Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:48.985Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:48.985Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:49.440Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:49.441Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:49.441Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:49.441Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:49.441Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:49.441Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:49.442Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:49.442Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:49.443Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:49.443Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:49.444Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:49.444Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:49.877Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:49.878Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:49.879Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:49.879Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:49.880Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:49.880Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:49.880Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:49.880Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:49.880Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:49.881Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:49.881Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:49.881Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:50.320Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:50.321Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:50.321Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:50.321Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:50.321Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:50.321Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:50.321Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:50.321Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:50.322Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:50.322Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:50.323Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:50.324Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:54.690Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:54.692Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:54.692Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:54.692Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:54.692Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:54.692Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:54.692Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:54.693Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:54.693Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:54.694Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:54.694Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:54.694Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:55.155Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:55.157Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:55.157Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:55.157Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:55.157Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:55.157Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:55.157Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:55.157Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:55.158Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:55.158Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:55.159Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:55.159Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:55.609Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:55.611Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:55.612Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:55.612Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:55.612Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:55.613Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:55.613Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:55.614Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:55.614Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:55.614Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:55.614Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:55.615Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:56.061Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:56.062Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:56.063Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:56.063Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:56.063Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:56.063Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:56.063Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:56.064Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:56.064Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:56.065Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:56.065Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:56.065Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:56.518Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:56.519Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:56.519Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:56.519Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:56.519Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:56.520Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:56.521Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:56.521Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:56.521Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:56.521Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:56.521Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:56.521Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:56.978Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:56.980Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:56.980Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:56.980Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:56.980Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:56.980Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:56.980Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:56.980Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:56.980Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:56.980Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:56.980Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:56.981Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:57.440Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:57.441Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:57.441Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:57.441Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:57.441Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:57.442Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:57.443Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:57.443Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:57.443Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:57.443Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:57.444Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:57.444Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:57.894Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:57.895Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:57.896Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:57.896Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:57.897Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:57.897Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:57.897Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:57.897Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:57.897Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:57.897Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:57.897Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:57.897Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:58.366Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:58.367Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:58.367Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:58.367Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:58.367Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:58.368Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:58.369Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:58.369Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:58.369Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:58.369Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:58.369Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:58.369Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:58.822Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:58.824Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:58.824Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:58.825Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:58.825Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:58.825Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:58.825Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:58.825Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:58.825Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:58.825Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:58.825Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:58.825Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:59.263Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:59.264Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:59.265Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:59.265Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:59.266Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:59.266Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:59.266Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:59.266Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:59.266Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:59.267Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:59.268Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:59.268Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:59.756Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:03:59.757Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:03:59.758Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:03:59.758Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:03:59.758Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:59.758Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:03:59.758Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:03:59.758Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:03:59.758Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:03:59.759Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:03:59.759Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:03:59.759Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:00.208Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:00.209Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:00.209Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:00.210Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:00.210Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:00.210Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:00.210Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:00.210Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:00.210Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:00.210Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:00.210Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:00.210Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:00.652Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:00.654Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:00.654Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:00.654Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:00.654Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:00.654Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:00.655Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:00.656Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:00.656Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:00.656Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:00.656Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:00.656Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:01.098Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:01.099Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:01.100Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:01.100Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:01.100Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:01.100Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:01.100Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:01.100Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:01.100Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:01.100Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:01.100Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:01.100Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:01.547Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:01.548Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:01.549Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:01.549Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:01.551Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:01.551Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:01.551Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:01.551Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:01.551Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:01.551Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:01.551Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:01.551Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:05.930Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:05.932Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:05.932Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:05.932Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:05.932Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:05.932Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:05.932Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:05.932Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:05.932Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:05.932Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:05.932Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:05.932Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:06.380Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:06.382Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:06.383Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:06.383Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:06.383Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:06.383Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:06.384Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:06.384Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:06.384Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:06.384Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:06.384Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:06.384Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:06.825Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:06.826Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:06.826Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:06.826Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:06.827Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:06.827Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:06.828Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:06.828Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:06.828Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:06.828Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:06.829Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:06.829Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:07.274Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:07.276Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:07.276Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:07.276Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:07.276Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:07.276Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:07.276Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:07.276Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:07.276Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:07.276Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:07.276Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:07.276Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:07.727Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:07.727Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:07.727Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:07.728Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:07.728Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:07.729Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:07.729Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:07.729Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:07.729Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:07.729Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:07.729Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:07.729Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:08.170Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:08.172Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:08.172Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:08.172Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:08.172Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:08.172Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:08.172Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:08.172Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:08.173Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:08.173Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:08.174Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:08.174Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:08.616Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:08.617Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:08.618Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:08.618Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:08.618Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:08.618Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:08.618Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:08.618Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:08.618Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:08.619Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:08.620Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:08.620Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:09.059Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:09.060Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:09.061Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:09.061Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:09.062Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:09.062Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:09.062Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:09.063Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:09.063Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:09.064Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:09.064Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:09.064Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:09.505Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:09.507Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:09.507Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:09.508Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:09.508Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:09.510Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:09.510Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:09.510Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:09.510Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:09.510Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:09.510Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:09.510Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:09.953Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:09.954Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:09.954Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:09.955Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:09.955Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:09.955Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:09.955Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:09.955Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:09.955Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:09.955Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:09.955Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:09.955Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:10.402Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:10.404Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:10.404Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:10.404Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:10.404Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:10.404Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:10.404Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:10.404Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:10.404Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:10.404Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:10.404Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:10.404Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:10.894Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:10.896Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:10.896Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:10.897Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:10.897Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:10.898Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:10.898Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:10.898Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:10.898Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:10.898Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:10.898Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:10.898Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:11.336Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:11.338Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:11.338Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:11.339Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:11.339Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:11.339Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:11.340Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:11.340Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:11.340Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:11.340Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:11.340Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:11.340Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:11.779Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:11.782Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:11.782Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:11.784Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:11.784Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:11.784Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:11.784Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:11.784Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:11.784Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:11.784Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:11.784Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:11.784Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:12.235Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:12.237Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:12.237Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:12.237Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:12.238Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:12.238Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:12.238Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:12.238Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:12.238Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:12.238Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:12.239Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:12.240Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:12.700Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-08T22:04:12.702Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-08T22:04:12.702Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-08T22:04:12.702Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-08T22:04:12.702Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:12.702Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-08T22:04:12.703Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-08T22:04:12.704Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-08T22:04:12.704Z","level":"INFO","message":""}
+{"timestamp":"2026-02-08T22:04:12.705Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-08T22:04:12.705Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-08T22:04:12.705Z","level":"INFO","message":"=========================================="}

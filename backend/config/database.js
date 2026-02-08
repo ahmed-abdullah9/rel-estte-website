@@ -2,7 +2,7 @@ const mysql = require('mysql2');
 const config = require('./constants');
 const logger = require('../utils/logger');
 
-// Create connection pool with correct options
+// Create connection pool with ONLY valid MySQL2 options
 const pool = mysql.createPool({
   host: config.DB_HOST,
   user: config.DB_USER,
@@ -11,16 +11,14 @@ const pool = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
-  acquireTimeout: 60000,
-  timeout: 60000,
-  reconnect: true,
   charset: 'utf8mb4'
 });
 
-// Test connection
+// Test connection on startup
 pool.getConnection((err, connection) => {
   if (err) {
     logger.error('❌ Database connection failed:', err.message);
+    process.exit(1);
   } else {
     logger.info('✅ Database connected successfully');
     connection.release();

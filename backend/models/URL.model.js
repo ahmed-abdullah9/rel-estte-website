@@ -86,19 +86,18 @@ class URLModel {
 
   static async getAllWithPagination(limit = 50, offset = 0, search = '') {
     let query = `
-      SELECT u.*, us.email as user_email
-      FROM urls u
-      LEFT JOIN users us ON u.user_id = us.id
+      SELECT id, original_url, short_code, click_count, created_at, user_id
+      FROM urls 
+      WHERE is_active = 1
     `;
-    
     let params = [];
     
     if (search) {
-      query += ' WHERE u.original_url LIKE ? OR u.short_code LIKE ?';
+      query += ' AND (original_url LIKE ? OR short_code LIKE ?)';
       params.push(`%${search}%`, `%${search}%`);
     }
     
-    query += ' ORDER BY u.created_at DESC LIMIT ? OFFSET ?';
+    query += ' ORDER BY created_at DESC LIMIT ? OFFSET ?';
     params.push(limit, offset);
     
     return await database.execute(query, params);
