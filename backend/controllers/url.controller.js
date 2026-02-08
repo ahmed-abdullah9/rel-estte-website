@@ -1,5 +1,4 @@
-const urlService = require('../services/url.service');
-const analyticsService = require('../services/analytics.service');
+const URLService = require('../services/url.service');
 const { successResponse, errorResponse } = require('../utils/response');
 const { validateURL } = require('../validators/url.validator');
 const logger = require('../utils/logger');
@@ -9,92 +8,23 @@ class URLController {
     try {
       const { url, customCode } = req.body;
       
+      logger.info('📝 Shorten request received:', { url });
+      
       // Validate input
       const validation = validateURL(url, customCode);
       if (!validation.isValid) {
         return errorResponse(res, validation.errors, 'Validation failed', 400);
       }
-
+      
+      // Create short URL
       const userId = req.user?.id || null;
-      const shortUrl = await urlService.createShortURL(url, userId, customCode);
+      const result = await URLService.createShortURL(url, userId, customCode);
       
-      logger.info(`Short URL created: ${shortUrl.short_code}`, { userId, originalUrl: url });
+      logger.info('✅ URL shortened successfully:', result.short_code);
       
-      return successResponse(res, shortUrl, 'URL shortened successfully', 201);
+      return successResponse(res, result, 'URL shortened successfully', 201);
     } catch (error) {
-      logger.error('Error creating short URL:', error);
-      next(error);
-    }
-  }
-
-  static async getUserURLs(req, res, next) {
-    try {
-      const userId = req.user.id;
-      const { page = 1, limit = 20 } = req.query;
-      
-      const offset = (page - 1) * limit;
-      const urls = await urlService.getUserURLs(userId, parseInt(limit), offset);
-      
-      return successResponse(res, urls, 'URLs retrieved successfully');
-    } catch (error) {
-      logger.error('Error fetching user URLs:', error);
-      next(error);
-    }
-  }
-
-  static async getURLStats(req, res, next) {
-    try {
-      const { shortCode } = req.params;
-      const userId = req.user.id;
-      
-      const stats = await urlService.getURLStats(shortCode, userId);
-      
-      if (!stats) {
-        return errorResponse(res, null, 'URL not found or access denied', 404);
-      }
-      
-      return successResponse(res, stats, 'URL statistics retrieved successfully');
-    } catch (error) {
-      logger.error('Error fetching URL stats:', error);
-      next(error);
-    }
-  }
-
-  static async getURLAnalytics(req, res, next) {
-    try {
-      const { shortCode } = req.params;
-      const { days = 30 } = req.query;
-      const userId = req.user.id;
-      
-      const analytics = await analyticsService.getURLAnalytics(shortCode, userId, parseInt(days));
-      
-      if (!analytics) {
-        return errorResponse(res, null, 'URL not found or access denied', 404);
-      }
-      
-      return successResponse(res, analytics, 'URL analytics retrieved successfully');
-    } catch (error) {
-      logger.error('Error fetching URL analytics:', error);
-      next(error);
-    }
-  }
-
-  static async deleteURL(req, res, next) {
-    try {
-      const { id } = req.params;
-      const userId = req.user.id;
-      
-      const deleted = await urlService.deleteURL(id, userId);
-      
-      if (!deleted) {
-        return errorResponse(res, null, 'URL not found or access denied', 404);
-      }
-      
-      logger.info(`URL deleted: ${id}`, { userId });
-      
-      return successResponse(res, null, 'URL deleted successfully');
-    } catch (error) {
-      logger.error('Error deleting URL:', error);
+      logger.error('URL shortening error:', error);
       next(error);
     }
   }
@@ -105,21 +35,110 @@ class URLController {
       
       // Get client info for analytics
       const clientInfo = {
-        ip_address: req.ip || req.connection.remoteAddress,
-        user_agent: req.get('User-Agent') || 'Unknown',
-        referrer: req.get('Referrer') || req.get('Referer') || null
+        ip_address: req.ip,
+        user_agent: req.get('User-Agent'),
+        referrer: req.get('Referrer') || null,
+        browser: req.get('User-Agent')?.split(' ')[0] || 'Unknown',
+        operating_system: req.get('User-Agent')?.includes('Windows') ? 'Windows' : 
+                         req.get('User-Agent')?.includes('Mac') ? 'macOS' : 
+                         req.get('User-Agent')?.includes('Linux') ? 'Linux' : 'Unknown',
+        device_type: req.get('User-Agent')?.includes('Mobile') ? 'Mobile' : 'Desktop'
       };
       
-      const originalUrl = await urlService.handleRedirect(shortCode, clientInfo);
+      const originalUrl = await URLService.handleRedirect(shortCode, clientInfo);
       
       if (!originalUrl) {
-        return res.status(404).sendFile('404.html', { root: 'public' });
+        return res.status(404).send(`
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <title>Link Not Found</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+          </head>
+          <body style="font-family: Arial, sans-serif; text-align: center; padding: 50px;">
+            <h1>404 - Link Not Found</h1>
+            <p>The short link you clicked does not exist or has been removed.</p>
+            <a href="/" style="color: #007bff;">Create a new short link</a>
+          </body>
+          </html>
+        `);
       }
       
-      // Redirect to original URL
-      res.redirect(301, originalUrl);
+      logger.info('🔄 Redirecting:', { shortCode, originalUrl });
+      return res.redirect(301, originalUrl);
+      
     } catch (error) {
-      logger.error('Error handling redirect:', error);
+      logger.error('Redirect error:', error);
+      next(error);
+    }
+  }
+
+  static async getPublicStats(req, res, next) {
+    try {
+      const { shortCode } = req.params;
+      
+      const stats = await URLService.getPublicStats(shortCode);
+      
+      if (!stats) {
+        return errorResponse(res, null, 'Short URL not found', 404);
+      }
+      
+      return successResponse(res, stats);
+    } catch (error) {
+      logger.error('Stats error:', error);
+      next(error);
+    }
+  }
+
+  static async getUserURLs(req, res, next) {
+    try {
+      const userId = req.user.id;
+      const page = parseInt(req.query.page) || 1;
+      const limit = parseInt(req.query.limit) || 10;
+      const offset = (page - 1) * limit;
+      
+      const urls = await URLService.getUserURLs(userId, limit, offset);
+      
+      return successResponse(res, urls);
+    } catch (error) {
+      logger.error('Get user URLs error:', error);
+      next(error);
+    }
+  }
+
+  static async getURLAnalytics(req, res, next) {
+    try {
+      const { shortCode } = req.params;
+      const userId = req.user.id;
+      const days = parseInt(req.query.days) || 30;
+      
+      const analytics = await URLService.getAnalytics(shortCode, userId, days);
+      
+      if (!analytics) {
+        return errorResponse(res, null, 'URL not found or access denied', 404);
+      }
+      
+      return successResponse(res, analytics);
+    } catch (error) {
+      logger.error('Analytics error:', error);
+      next(error);
+    }
+  }
+
+  static async deleteURL(req, res, next) {
+    try {
+      const { id } = req.params;
+      const userId = req.user.id;
+      
+      const deleted = await URLService.deleteURL(id, userId);
+      
+      if (!deleted) {
+        return errorResponse(res, null, 'URL not found or access denied', 404);
+      }
+      
+      return successResponse(res, null, 'URL deleted successfully');
+    } catch (error) {
+      logger.error('Delete URL error:', error);
       next(error);
     }
   }

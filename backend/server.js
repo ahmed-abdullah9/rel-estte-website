@@ -4,32 +4,39 @@ const logger = require('./utils/logger');
 
 const PORT = config.PORT || 3000;
 
+// Start server
 const server = app.listen(PORT, () => {
-  logger.info(`🚀 LinkShort server running on port ${PORT}`);
-  logger.info(`📱 Environment: ${config.NODE_ENV}`);
+  logger.info(`🚀 LinkShort Server Started Successfully!`);
+  logger.info(`==========================================`);
+  logger.info(`📱 Application: http://localhost:${PORT}`);
+  logger.info(`👨‍💼 Admin Panel: http://localhost:${PORT}/admin-login.html`);
+  logger.info(``);
+  logger.info(`👤 Admin Credentials:`);
+  logger.info(`   📧 Email: admin@linkshort.com`);
+  logger.info(`   🔐 Password: Admin123!`);
+  logger.info(``);
+  logger.info(`📊 Database: Connected ✅`);
+  logger.info(`🔧 Environment: ${process.env.NODE_ENV || 'development'}`);
+  logger.info(`==========================================`);
 });
 
 // Graceful shutdown
-const gracefulShutdown = (signal) => {
-  logger.info(`${signal} received. Starting graceful shutdown...`);
-  
+process.on('SIGTERM', () => {
+  logger.info('SIGTERM received, closing server gracefully...');
   server.close(() => {
-    logger.info('HTTP server closed');
     process.exit(0);
   });
+});
 
-  // Force close after 10s
-  setTimeout(() => {
-    logger.error('Forced shutdown after 10s');
-    process.exit(1);
-  }, 10000);
-};
-
-process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
-process.on('SIGINT', () => gracefulShutdown('SIGINT'));
+process.on('SIGINT', () => {
+  logger.info('SIGINT received, closing server gracefully...');
+  server.close(() => {
+    process.exit(0);
+  });
+});
 
 process.on('unhandledRejection', (err) => {
-  logger.error('Unhandled Rejection:', err);
+  logger.error('Unhandled Promise Rejection:', err);
   process.exit(1);
 });
 
@@ -37,3 +44,5 @@ process.on('uncaughtException', (err) => {
   logger.error('Uncaught Exception:', err);
   process.exit(1);
 });
+
+module.exports = server;

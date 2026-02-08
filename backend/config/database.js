@@ -1,35 +1,37 @@
 const mysql = require('mysql2/promise');
+const config = require('./constants');
 const logger = require('../utils/logger');
 
 class Database {
   constructor() {
     this.pool = null;
-    this.config = {
-      host: process.env.DB_HOST || 'localhost',
-      user: process.env.DB_USER || 'linkshort_user',
-      password: process.env.DB_PASSWORD || 'SecurePass123!',
-      database: process.env.DB_NAME || 'linkshort_db',
-      connectionLimit: parseInt(process.env.DB_CONNECTION_LIMIT) || 10,
-      acquireTimeout: 60000,
-      timeout: 60000,
-      reconnect: true,
-      charset: 'utf8mb4'
-    };
+    this.init();
   }
 
   async init() {
     try {
-      this.pool = mysql.createPool(this.config);
-      
+      this.pool = mysql.createPool({
+        host: config.DB_HOST,
+        user: config.DB_USER,
+        password: config.DB_PASSWORD,
+        database: config.DB_NAME,
+        waitForConnections: true,
+        connectionLimit: 10,
+        queueLimit: 0,
+        acquireTimeout: 60000,
+        timeout: 60000,
+        reconnect: true
+      });
+
       // Test connection
       const connection = await this.pool.getConnection();
       await connection.ping();
       connection.release();
       
-      logger.info('✅ Database connection pool initialized');
+      logger.info('✅ Database connected successfully');
     } catch (error) {
-      logger.error('❌ Database initialization failed:', error);
-      throw error;
+      logger.error('❌ Database connection failed:', error);
+      process.exit(1);
     }
   }
 
@@ -38,35 +40,14 @@ class Database {
       const [results] = await this.pool.execute(query, params);
       return results;
     } catch (error) {
-      logger.error('Database query error:', { query, params, error: error.message });
+      logger.error('Database query error:', error);
       throw error;
     }
   }
 
-  async transaction(callback) {
-    const connection = await this.pool.getConnection();
-    
-    try {
-      await connection.beginTransaction();
-      const result = await callback(connection);
-      await connection.commit();
-      return result;
-    } catch (error) {
-      await connection.rollback();
-      throw error;
-    } finally {
-      connection.release();
-    }
-  }
-
-  async close() {
-    if (this.pool) {
-      await this.pool.end();
-      logger.info('Database connection pool closed');
-    }
+  async getConnection() {
+    return await this.pool.getConnection();
   }
 }
 
-const database = new Database();
-
-module.exports = database;
+module.exports = new Database();

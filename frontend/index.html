@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkShort - URL Shortener</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-link"></i>
+                <span>LinkShort</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#stats" class="nav-link">Statistics</a>
+                <a href="admin-login.html" class="nav-link admin-link">
+                    <i class="fas fa-user-shield"></i>
+                    Admin
+                </a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Shorten Your Links
+                        <span class="gradient-text">Instantly</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Transform long URLs into short, shareable links with detailed analytics
+                    </p>
+                    
+                    <!-- URL Shortener Form -->
+                    <div class="shortener-container">
+                        <form id="shortenForm" class="shortener-form">
+                            <div class="input-group">
+                                <div class="input-wrapper">
+                                    <i class="fas fa-link input-icon"></i>
+                                    <input 
+                                        type="url" 
+                                        id="originalUrl" 
+                                        placeholder="Enter your long URL here..."
+                                        class="url-input"
+                                        required
+                                    >
+                                </div>
+                                <button type="submit" id="shortenBtn" class="shorten-btn">
+                                    <span class="btn-text">
+                                        <i class="fas fa-cut"></i>
+                                        Shorten
+                                    </span>
+                                    <span class="btn-loading" style="display: none;">
+                                        <i class="fas fa-spinner fa-spin"></i>
+                                        Processing...
+                                    </span>
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Error Message -->
+                        <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+                        <!-- Result -->
+                        <div id="result" class="result-container" style="display: none;">
+                            <div class="result-header">
+                                <i class="fas fa-check-circle"></i>
+                                <h3>URL Shortened Successfully!</h3>
+                            </div>
+                            
+                            <div class="result-content">
+                                <div class="url-display">
+                                    <label>Original URL:</label>
+                                    <div class="url-value" id="originalUrlDisplay"></div>
+                                </div>
+                                
+                                <div class="url-display">
+                                    <label>Short URL:</label>
+                                    <div class="url-value short-url" id="shortUrlDisplay"></div>
+                                </div>
+                                
+                                <div class="result-stats">
+                                    <div class="stat-item">
+                                        <i class="fas fa-mouse-pointer"></i>
+                                        <span>Clicks: <span id="clickCount">0</span></span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>Created: <span id="createdDate"></span></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="result-actions">
+                                    <button id="copyBtn" class="action-btn primary">
+                                        <i class="fas fa-copy"></i>
+                                        Copy Link
+                                    </button>
+                                    <button id="qrBtn" class="action-btn secondary">
+                                        <i class="fas fa-qrcode"></i>
+                                        QR Code
+                                    </button>
+                                    <button id="newUrlBtn" class="action-btn secondary">
+                                        <i class="fas fa-plus"></i>
+                                        New URL
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title">Why Choose LinkShort?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Lightning Fast</h3>
+                        <p>Generate short links instantly with our optimized infrastructure</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Detailed Analytics</h3>
+                        <p>Track clicks, locations, devices, and more with comprehensive analytics</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Secure & Reliable</h3>
+                        <p>Enterprise-grade security with 99.9% uptime guarantee</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Mobile Optimized</h3>
+                        <p>Perfect experience on all devices - desktop, tablet, and mobile</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section id="stats" class="stats">
+            <div class="container">
+                <h2 class="section-title">Platform Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalUrls">0</div>
+                        <div class="stat-label">URLs Shortened</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalClicks">0</div>
+                        <div class="stat-label">Total Clicks</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="todayUrls">0</div>
+                        <div class="stat-label">URLs Today</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="activeUsers">0</div>
+                        <div class="stat-label">Active Users</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-link"></i>
+                    <span>LinkShort</span>
+                </div>
+                <p>&copy; 2024 LinkShort. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="admin-login.html" class="footer-link">Admin Panel</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>QR Code</h3>
+                <button id="closeQrModal" class="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="qrcode"></div>
+                <p>Scan this QR code to access your short link</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <script src="js/utils/api.js"></script>
+    <script src="js/services/url.service.js"></script>
+    <script src="js/components/qr-generator.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

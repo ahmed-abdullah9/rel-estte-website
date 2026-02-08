@@ -1,4 +1,4 @@
-const authService = require('../services/auth.service');
+const AuthService = require('../services/auth.service');
 const { successResponse, errorResponse } = require('../utils/response');
 const { validateEmail, validatePassword } = require('../validators/auth.validator');
 const logger = require('../utils/logger');
@@ -14,20 +14,20 @@ class AuthController {
       }
       
       if (!validatePassword(password)) {
-        return errorResponse(res, { password: 'Password must be at least 8 characters with uppercase, lowercase, and number' }, 'Validation failed', 400);
+        return errorResponse(res, { 
+          password: 'Password must be at least 8 characters with uppercase, lowercase, and number' 
+        }, 'Validation failed', 400);
       }
       
-      const result = await authService.register(email, password);
+      const result = await AuthService.register(email, password);
       
-      logger.info(`User registered: ${email}`);
+      logger.info('User registered:', { email });
       
       return successResponse(res, result, 'Registration successful', 201);
     } catch (error) {
-      if (error.code === 'ER_DUP_ENTRY') {
-        return errorResponse(res, { email: 'Email already exists' }, 'Registration failed', 409);
+      if (error.message === 'User already exists') {
+        return errorResponse(res, { email: 'Email already registered' }, error.message, 409);
       }
-      
-      logger.error('Registration error:', error);
       next(error);
     }
   }
@@ -37,20 +37,19 @@ class AuthController {
       const { email, password } = req.body;
       
       if (!email || !password) {
-        return errorResponse(res, null, 'Email and password required', 400);
+        return errorResponse(res, null, 'Email and password are required', 400);
       }
       
-      const result = await authService.login(email, password);
+      const result = await AuthService.login(email, password);
       
       if (!result) {
-        return errorResponse(res, null, 'Invalid credentials', 401);
+        return errorResponse(res, null, 'Invalid email or password', 401);
       }
       
-      logger.info(`User logged in: ${email}`);
+      logger.info('User logged in:', { email });
       
       return successResponse(res, result, 'Login successful');
     } catch (error) {
-      logger.error('Login error:', error);
       next(error);
     }
   }
@@ -58,11 +57,10 @@ class AuthController {
   static async getProfile(req, res, next) {
     try {
       const userId = req.user.id;
-      const profile = await authService.getProfile(userId);
+      const profile = await AuthService.getProfile(userId);
       
-      return successResponse(res, profile, 'Profile retrieved successfully');
+      return successResponse(res, profile);
     } catch (error) {
-      logger.error('Error fetching profile:', error);
       next(error);
     }
   }
@@ -70,11 +68,12 @@ class AuthController {
   static async refreshToken(req, res, next) {
     try {
       const userId = req.user.id;
-      const newToken = await authService.generateToken(userId);
+      const user = req.user;
       
-      return successResponse(res, { token: newToken }, 'Token refreshed successfully');
+      const token = AuthService.generateToken(user.id, user.email, user.role);
+      
+      return successResponse(res, { token }, 'Token refreshed');
     } catch (error) {
-      logger.error('Token refresh error:', error);
       next(error);
     }
   }
