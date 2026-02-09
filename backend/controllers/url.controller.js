@@ -1,38 +1,30 @@
 const URLService = require('../services/url.service');
 const { successResponse, errorResponse } = require('../utils/response');
+const { validateURL } = require('../validators/url.validator');
 const logger = require('../utils/logger');
 
 class URLController {
   static async createShortURL(req, res, next) {
     try {
       const { url, customCode } = req.body;
+      const userId = req.user?.id || null;
       
-      logger.info('Creating short URL request:', { url, customCode, userId: req.user?.id });
+      logger.info('Creating short URL request:', { url, customCode, userId });
       
-      if (!url) {
-        return errorResponse(res, null, 'URL is required', 400);
+      // Validate input
+      const validation = validateURL(url, customCode);
+      if (!validation.isValid) {
+        return errorResponse(res, validation.errors, 'Validation failed', 400);
       }
       
-      const shortUrl = await URLService.createShortURL(url, req.user?.id, customCode);
+      // Create short URL
+      const shortURL = await URLService.createShortURL(url, userId, customCode);
       
-      logger.info('Short URL created successfully:', { 
-        shortCode: shortUrl.short_code,
-        originalUrl: url 
-      });
+      logger.info('Short URL created successfully:', shortURL);
       
-      return successResponse(res, shortUrl, 'URL shortened successfully', 201);
+      return successResponse(res, shortURL, 'Short URL created successfully', 201);
     } catch (error) {
-      logger.error('Error creating short URL:', {
-        error: error.message,
-        stack: error.stack,
-        body: req.body,
-        userId: req.user?.id
-      });
-      
-      if (error.message.includes('Invalid URL') || error.message.includes('Custom code')) {
-        return errorResponse(res, null, error.message, 400);
-      }
-      
+      logger.error('Error creating short URL:', error);
       next(error);
     }
   }
@@ -41,48 +33,29 @@ class URLController {
     try {
       const { shortCode } = req.params;
       
-      logger.info('Redirect request:', { shortCode, ip: req.ip });
-      
       const clientInfo = {
-        ip: req.ip || req.connection.remoteAddress,
-        userAgent: req.get('user-agent') || '',
-        referrer: req.get('referrer') || '',
-        timestamp: new Date()
+        ip_address: req.ip || req.connection.remoteAddress,
+        user_agent: req.get('User-Agent') || '',
+        referrer: req.get('Referer') || null
       };
       
       const originalUrl = await URLService.handleRedirect(shortCode, clientInfo);
       
       if (!originalUrl) {
-        logger.warn('Short URL not found:', { shortCode });
-        return errorResponse(res, null, 'Short URL not found', 404);
+        return res.status(404).send(`
+          <!DOCTYPE html>
+          <html><head><title>Link Not Found</title></head>
+          <body style="font-family: Arial, sans-serif; text-align: center; padding: 50px;">
+            <h1>🔗 Link Not Found</h1>
+            <p>The short URL you're looking for doesn't exist or has been removed.</p>
+            <a href="/" style="color: #007bff;">← Go Home</a>
+          </body></html>
+        `);
       }
       
-      logger.info('Redirecting to:', { shortCode, originalUrl });
-      
-      return res.redirect(301, originalUrl);
+      return res.redirect(302, originalUrl);
     } catch (error) {
-      logger.error('Error handling redirect:', {
-        error: error.message,
-        stack: error.stack,
-        shortCode: req.params.shortCode
-      });
-      next(error);
-    }
-  }
-
-  static async getPublicStats(req, res, next) {
-    try {
-      const { shortCode } = req.params;
-      
-      const stats = await URLService.getPublicStats(shortCode);
-      
-      if (!stats) {
-        return errorResponse(res, null, 'Short URL not found', 404);
-      }
-      
-      return successResponse(res, stats, 'Stats retrieved successfully');
-    } catch (error) {
-      logger.error('Error getting public stats:', error);
+      logger.error('Error in redirect:', error);
       next(error);
     }
   }
@@ -98,6 +71,22 @@ class URLController {
       return successResponse(res, urls, 'URLs retrieved successfully');
     } catch (error) {
       logger.error('Error getting user URLs:', error);
+      next(error);
+    }
+  }
+
+  static async getPublicStats(req, res, next) {
+    try {
+      const { shortCode } = req.params;
+      const stats = await URLService.getPublicStats(shortCode);
+      
+      if (!stats) {
+        return errorResponse(res, null, 'URL not found', 404);
+      }
+      
+      return successResponse(res, stats, 'Statistics retrieved successfully');
+    } catch (error) {
+      logger.error('Error getting public stats:', error);
       next(error);
     }
   }

@@ -2,80 +2,65 @@ const mysql = require('mysql2/promise');
 const config = require('./constants');
 const logger = require('../utils/logger');
 
-class Database {
-  constructor() {
-    this.pool = null;
-    this.init();
+// Create connection pool with ONLY valid mysql2 options
+const pool = mysql.createPool({
+  host: config.DB_HOST,
+  user: config.DB_USER,
+  password: config.DB_PASSWORD,
+  database: config.DB_NAME,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+});
+
+// Test connection
+const testConnection = async () => {
+  try {
+    const connection = await pool.getConnection();
+    await connection.execute('SELECT 1');
+    connection.release();
+    logger.info('✅ Database connected successfully');
+    return true;
+  } catch (error) {
+    logger.error('❌ Database connection failed:', error);
+    return false;
   }
+};
 
-  init() {
-    try {
-      this.pool = mysql.createPool({
-        host: config.DB_HOST,
-        user: config.DB_USER,
-        password: config.DB_PASSWORD,
-        database: config.DB_NAME,
-        waitForConnections: true,
-        connectionLimit: 10,
-        queueLimit: 0,
-        acquireTimeout: 60000,
-        timeout: 60000,
-        reconnect: true,
-        charset: 'utf8mb4'
-      });
-
-      logger.info('✅ Database pool created successfully');
-    } catch (error) {
-      logger.error('❌ Database pool creation failed:', error);
-      throw error;
-    }
+// Execute query wrapper with detailed logging
+const execute = async (query, params = []) => {
+  try {
+    logger.debug('Executing query:', { query, params });
+    const [results] = await pool.execute(query, params);
+    return results;
+  } catch (error) {
+    logger.error('❌ Database query error:', {
+      message: error.message,
+      code: error.code,
+      errno: error.errno,
+      sql: error.sql,
+      sqlMessage: error.sqlMessage,
+      query,
+      params
+    });
+    throw error;
   }
+};
 
-  async execute(query, params = []) {
-    try {
-      logger.debug('Executing query:', { query, params });
-      const [results] = await this.pool.execute(query, params);
-      return results;
-    } catch (error) {
-      logger.error('❌ Database query error:', {
-        query,
-        params,
-        error: error.message,
-        code: error.code,
-        errno: error.errno,
-        sqlState: error.sqlState,
-        sqlMessage: error.sqlMessage
-      });
-      throw error;
-    }
+// Initialize database
+const initialize = async () => {
+  const isConnected = await testConnection();
+  if (!isConnected) {
+    throw new Error('Database connection failed');
   }
+  
+  logger.info('✅ Database pool created successfully');
+  return pool;
+};
 
-  async query(sql, params = []) {
-    try {
-      logger.debug('Executing query:', { sql, params });
-      const [results] = await this.pool.query(sql, params);
-      return results;
-    } catch (error) {
-      logger.error('❌ Database query error:', {
-        sql,
-        params,
-        error: error.message,
-        code: error.code,
-        errno: error.errno,
-        sqlState: error.sqlState,
-        sqlMessage: error.sqlMessage
-      });
-      throw error;
-    }
-  }
-
-  async close() {
-    if (this.pool) {
-      await this.pool.end();
-      logger.info('Database pool closed');
-    }
-  }
-}
-
-const database = new Database();
-module.exports = database;
+module.exports = {
+  pool,
+  execute,
+  testConnection,
+  initialize
+};

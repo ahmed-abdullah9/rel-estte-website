@@ -13,18 +13,15 @@ router.use(rateLimitMiddleware.adminLimit);
 // Dashboard
 router.get('/dashboard', AdminController.getDashboard);
 
-// URL Management
+// URL management
 router.get('/urls', AdminController.getAllURLs);
 router.delete('/urls/:id', AdminController.deleteURL);
 
-// User Management
+// User management
 router.get('/users', AdminController.getAllUsers);
 router.delete('/users/:id', AdminController.deleteUser);
 
-// Analytics
-router.get('/analytics/global', AdminController.getGlobalAnalytics);
-
-// Export Data
+// Data export
 router.get('/export/:type', AdminController.exportData);
 
 module.exports = router;

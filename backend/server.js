@@ -2,21 +2,29 @@ const app = require('./app');
 const config = require('./config/constants');
 const logger = require('./utils/logger');
 
-const PORT = config.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-// Test database connection on startup
-const testDatabase = async () => {
-  try {
-    const database = require('./config/database');
-    await database.execute('SELECT 1');
-    logger.info('✅ Database connected successfully');
-  } catch (error) {
-    logger.error('❌ Database connection failed:', error);
-    process.exit(1);
-  }
+// Graceful shutdown
+const gracefulShutdown = (signal) => {
+  logger.info(`${signal} received, closing server...`);
+  process.exit(0);
 };
 
-const server = app.listen(PORT, async () => {
+process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
+process.on('SIGINT', () => gracefulShutdown('SIGINT'));
+
+// Uncaught exception handler
+process.on('uncaughtException', (error) => {
+  logger.error('❌ Uncaught Exception:', error);
+  process.exit(1);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  logger.error('❌ Unhandled Rejection at:', promise, 'reason:', reason);
+  process.exit(1);
+});
+
+const server = app.listen(PORT, () => {
   logger.info('🚀 LinkShort Server Started Successfully!');
   logger.info('==========================================');
   logger.info(`📱 Application: http://localhost:${PORT}`);
@@ -27,31 +35,19 @@ const server = app.listen(PORT, async () => {
   logger.info('   🔐 Password: Admin123!');
   logger.info('');
   logger.info('📊 Database: Connected ✅');
-  logger.info(`🔧 Environment: ${config.NODE_ENV}`);
+  logger.info(`🔧 Environment: ${process.env.NODE_ENV || 'development'}`);
   logger.info('==========================================');
-  
-  await testDatabase();
 });
 
-// Graceful shutdown
-process.on('SIGTERM', () => {
-  logger.info('SIGTERM received, closing server...');
-  server.close(() => process.exit(0));
-});
-
-process.on('SIGINT', () => {
-  logger.info('SIGINT received, closing server...');
-  server.close(() => process.exit(0));
-});
-
-process.on('unhandledRejection', (err) => {
-  logger.error('Unhandled Rejection:', err);
+server.on('error', (error) => {
+  if (error.code === 'EADDRINUSE') {
+    logger.error(`❌ Port ${PORT} is already in use`);
+    logger.error('💡 Solutions:');
+    logger.error('   1. Stop existing process: pm2 stop all');
+    logger.error('   2. Kill process: lsof -ti:3000 | xargs kill -9');
+    logger.error('   3. Use different port: PORT=3001 npm start');
+  } else {
+    logger.error('❌ Server error:', error);
+  }
   process.exit(1);
 });
-
-process.on('uncaughtException', (err) => {
-  logger.error('Uncaught Exception:', err);
-  process.exit(1);
-});
-
-module.exports = server;
