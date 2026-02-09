@@ -56,7 +56,7 @@ class URLModel {
         COALESCE(SUM(click_count), 0) as total_clicks,
         COUNT(CASE WHEN created_at >= DATE_SUB(NOW(), INTERVAL 24 HOUR) THEN 1 END) as urls_today,
         COUNT(CASE WHEN created_at >= DATE_SUB(NOW(), INTERVAL 7 DAY) THEN 1 END) as urls_week
-      FROM urls
+      FROM urls WHERE is_active = 1
     `;
     const results = await database.execute(query);
     return results[0];

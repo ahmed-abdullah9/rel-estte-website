@@ -35,21 +35,21 @@ app.use(helmet({
 
 // CORS configuration
 app.use(cors({
-  origin: process.env.ALLOWED_ORIGINS?.split(',') || ['*'],
+  origin: ['*'],
   credentials: true
 }));
 
 // Compression
 app.use(compression());
 
-// Rate limiting
+// Rate limiting (relaxed for development)
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 1000, // High limit for development
   message: { success: false, message: 'Too many requests, please try again later' },
   standardHeaders: true,
   legacyHeaders: false,
-  skip: (req) => process.env.NODE_ENV === 'development' // Skip in development
+  skip: () => process.env.NODE_ENV === 'development'
 });
 
 app.use(limiter);
@@ -63,10 +63,11 @@ app.use(morgan('combined', {
   stream: { write: message => logger.info(message.trim()) }
 }));
 
-// Serve static files
+// Serve static files - CRITICAL FIX
 app.use('/css', express.static(path.join(__dirname, '../frontend/css')));
 app.use('/js', express.static(path.join(__dirname, '../frontend/js')));
 app.use('/assets', express.static(path.join(__dirname, '../frontend/assets')));
+app.use(express.static(path.join(__dirname, '../frontend')));
 
 // Health check - CRITICAL: This was missing!
 app.get('/api/health', (req, res) => {
@@ -74,7 +75,8 @@ app.get('/api/health', (req, res) => {
     status: 'OK', 
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
-    database: 'connected'
+    database: 'connected',
+    port: process.env.PORT || 3001
   });
 });
 
@@ -89,10 +91,10 @@ app.use('/api/auth', authRoutes);
 app.use('/api/urls', urlRoutes);
 app.use('/api/admin', adminRoutes);
 
-// Redirect routes (must be last)
+// Redirect routes (must be after API routes)
 app.use('/', redirectRoutes);
 
-// Serve frontend
+// Serve frontend for all other routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });

@@ -101,14 +101,9 @@ class AnalyticsModel {
   static async getReferrerStats(urlId) {
     try {
       const query = `
-        SELECT 
-          CASE 
-            WHEN referrer IS NULL OR referrer = '' THEN 'Direct'
-            ELSE referrer
-          END as referrer,
-          COUNT(*) as count
+        SELECT referrer, COUNT(*) as count
         FROM url_analytics 
-        WHERE url_id = ?
+        WHERE url_id = ? AND referrer IS NOT NULL
         GROUP BY referrer
         ORDER BY count DESC
         LIMIT 10
@@ -125,8 +120,8 @@ class AnalyticsModel {
       const query = `
         SELECT 
           DATE(clicked_at) as date,
-          COUNT(*) as clicks,
-          COUNT(DISTINCT url_id) as urls_clicked,
+          COUNT(*) as total_clicks,
+          COUNT(DISTINCT url_id) as active_urls,
           COUNT(DISTINCT ip_address) as unique_visitors
         FROM url_analytics 
         WHERE clicked_at >= DATE_SUB(NOW(), INTERVAL ? DAY)
