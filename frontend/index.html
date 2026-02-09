@@ -3,67 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LinkShort - URL Shortener</title>
+    <title>LinkShort - Professional URL Shortener</title>
     <link rel="stylesheet" href="css/main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Professional URL shortener with advanced analytics and custom domains">
+    <meta name="keywords" content="URL shortener, link shortener, analytics, custom links">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="nav-brand">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
                 <i class="fas fa-link"></i>
                 <span>LinkShort</span>
             </div>
-            <div class="nav-links">
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#stats" class="nav-link">Statistics</a>
-                <a href="admin-login.html" class="nav-link admin-link">
-                    <i class="fas fa-user-shield"></i>
-                    Admin
-                </a>
-            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#features" class="nav-link">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#pricing" class="nav-link">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#analytics" class="nav-link">Analytics</a>
+                </li>
+                <li class="nav-item">
+                    <a href="admin-login.html" class="nav-link nav-admin">
+                        <i class="fas fa-cog"></i> Admin
+                    </a>
+                </li>
+            </ul>
+            
             <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <main class="main">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
                     <h1 class="hero-title">
-                        Shorten Your Links
-                        <span class="gradient-text">Instantly</span>
+                        <span class="gradient-text">Shorten URLs</span>
+                        <br>Track Performance
+                        <br>Boost Results
                     </h1>
                     <p class="hero-subtitle">
-                        Transform long URLs into short, shareable links with detailed analytics
+                        Professional URL shortening with advanced analytics, 
+                        custom domains, and enterprise-grade security.
                     </p>
                     
-                    <!-- URL Shortener Form -->
-                    <div class="shortener-container">
-                        <form id="shortenForm" class="shortener-form">
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" id="totalUrls">0</div>
+                            <div class="stat-label">URLs Shortened</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="totalClicks">0</div>
+                            <div class="stat-label">Total Clicks</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">99.9%</div>
+                            <div class="stat-label">Uptime</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-form">
+                    <div class="url-shortener-card">
+                        <h2 class="card-title">Shorten Your URL</h2>
+                        
+                        <form id="shortenForm" class="shorten-form">
                             <div class="input-group">
                                 <div class="input-wrapper">
                                     <i class="fas fa-link input-icon"></i>
                                     <input 
                                         type="url" 
                                         id="originalUrl" 
-                                        placeholder="Enter your long URL here..."
-                                        class="url-input"
+                                        placeholder="Enter your long URL here..." 
                                         required
+                                        class="url-input"
                                     >
                                 </div>
                                 <button type="submit" id="shortenBtn" class="shorten-btn">
                                     <span class="btn-text">
-                                        <i class="fas fa-cut"></i>
+                                        <i class="fas fa-compress-arrows-alt"></i>
                                         Shorten
                                     </span>
                                     <span class="btn-loading" style="display: none;">
@@ -72,13 +109,27 @@
                                     </span>
                                 </button>
                             </div>
+                            
+                            <div class="advanced-options" style="display: none;">
+                                <div class="option-group">
+                                    <label for="customCode">Custom Code (Optional)</label>
+                                    <input type="text" id="customCode" placeholder="my-custom-link">
+                                </div>
+                                <div class="option-group">
+                                    <label for="urlTitle">Title (Optional)</label>
+                                    <input type="text" id="urlTitle" placeholder="My Important Link">
+                                </div>
+                            </div>
+                            
+                            <button type="button" class="advanced-toggle" onclick="toggleAdvancedOptions()">
+                                <i class="fas fa-cog"></i>
+                                Advanced Options
+                            </button>
                         </form>
-
-                        <!-- Error Message -->
+                        
                         <div id="errorMessage" class="error-message" style="display: none;"></div>
-
-                        <!-- Result -->
-                        <div id="result" class="result-container" style="display: none;">
+                        
+                        <div id="result" class="result-section" style="display: none;">
                             <div class="result-header">
                                 <i class="fas fa-check-circle"></i>
                                 <h3>URL Shortened Successfully!</h3>
@@ -90,145 +141,370 @@
                                     <div class="url-value" id="originalUrlDisplay"></div>
                                 </div>
                                 
-                                <div class="url-display">
-                                    <label>Short URL:</label>
-                                    <div class="url-value short-url" id="shortUrlDisplay"></div>
+                                <div class="url-display short-url">
+                                    <label>Shortened URL:</label>
+                                    <div class="url-value" id="shortUrlDisplay"></div>
+                                    <div class="url-actions">
+                                        <button id="copyBtn" class="action-btn copy-btn">
+                                            <i class="fas fa-copy"></i>
+                                            Copy
+                                        </button>
+                                        <button id="qrBtn" class="action-btn qr-btn">
+                                            <i class="fas fa-qrcode"></i>
+                                            QR Code
+                                        </button>
+                                    </div>
                                 </div>
                                 
                                 <div class="result-stats">
-                                    <div class="stat-item">
-                                        <i class="fas fa-mouse-pointer"></i>
-                                        <span>Clicks: <span id="clickCount">0</span></span>
+                                    <div class="stat">
+                                        <span class="stat-label">Clicks:</span>
+                                        <span class="stat-value" id="clickCount">0</span>
                                     </div>
-                                    <div class="stat-item">
-                                        <i class="fas fa-calendar"></i>
-                                        <span>Created: <span id="createdDate"></span></span>
+                                    <div class="stat">
+                                        <span class="stat-label">Created:</span>
+                                        <span class="stat-value" id="createdDate"></span>
                                     </div>
-                                </div>
-                                
-                                <div class="result-actions">
-                                    <button id="copyBtn" class="action-btn primary">
-                                        <i class="fas fa-copy"></i>
-                                        Copy Link
-                                    </button>
-                                    <button id="qrBtn" class="action-btn secondary">
-                                        <i class="fas fa-qrcode"></i>
-                                        QR Code
-                                    </button>
-                                    <button id="newUrlBtn" class="action-btn secondary">
-                                        <i class="fas fa-plus"></i>
-                                        New URL
-                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Features Section -->
-        <section id="features" class="features">
-            <div class="container">
-                <h2 class="section-title">Why Choose LinkShort?</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h3>Lightning Fast</h3>
-                        <p>Generate short links instantly with our optimized infrastructure</p>
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Powerful Features</h2>
+                <p class="section-subtitle">Everything you need for professional URL management</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3>Detailed Analytics</h3>
-                        <p>Track clicks, locations, devices, and more with comprehensive analytics</p>
+                    <h3 class="feature-title">Advanced Analytics</h3>
+                    <p class="feature-description">
+                        Track clicks, geographic data, referrers, and device information
+                        with real-time analytics dashboard.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3>Secure & Reliable</h3>
-                        <p>Enterprise-grade security with 99.9% uptime guarantee</p>
+                    <h3 class="feature-title">Custom Domains</h3>
+                    <p class="feature-description">
+                        Use your own domain for branded short links that build trust
+                        and maintain your brand identity.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
+                    <h3 class="feature-title">Enterprise Security</h3>
+                    <p class="feature-description">
+                        SSL encryption, malware protection, and enterprise-grade
+                        security features to keep your links safe.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h3 class="feature-title">QR Codes</h3>
+                    <p class="feature-description">
+                        Generate high-quality QR codes for your short links,
+                        perfect for print materials and mobile campaigns.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-api"></i>
+                    </div>
+                    <h3 class="feature-title">API Integration</h3>
+                    <p class="feature-description">
+                        Powerful REST API for seamless integration with your
+                        existing tools and workflows.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Team Management</h3>
+                    <p class="feature-description">
+                        Collaborate with your team, share links, and manage
+                        permissions with role-based access control.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytics Demo Section -->
+    <section id="analytics" class="analytics-section">
+        <div class="container">
+            <div class="analytics-content">
+                <div class="analytics-text">
+                    <h2 class="section-title">Real-time Analytics</h2>
+                    <p class="section-subtitle">
+                        Get detailed insights into your link performance with 
+                        comprehensive analytics and reporting.
+                    </p>
+                    
+                    <div class="analytics-features">
+                        <div class="analytics-feature">
+                            <i class="fas fa-chart-bar"></i>
+                            <div>
+                                <h4>Click Tracking</h4>
+                                <p>Monitor every click with timestamp and source tracking</p>
+                            </div>
+                        </div>
+                        
+                        <div class="analytics-feature">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <div>
+                                <h4>Geographic Data</h4>
+                                <p>See where your audience is coming from worldwide</p>
+                            </div>
+                        </div>
+                        
+                        <div class="analytics-feature">
                             <i class="fas fa-mobile-alt"></i>
+                            <div>
+                                <h4>Device Insights</h4>
+                                <p>Understand your audience's device preferences</p>
+                            </div>
                         </div>
-                        <h3>Mobile Optimized</h3>
-                        <p>Perfect experience on all devices - desktop, tablet, and mobile</p>
+                    </div>
+                </div>
+                
+                <div class="analytics-demo">
+                    <div class="demo-card">
+                        <div class="demo-header">
+                            <h3>Live Analytics Dashboard</h3>
+                            <span class="live-indicator">
+                                <span class="pulse"></span>
+                                Live
+                            </span>
+                        </div>
+                        
+                        <div class="demo-stats">
+                            <div class="demo-stat">
+                                <div class="demo-stat-value">2,847</div>
+                                <div class="demo-stat-label">Total Clicks</div>
+                                <div class="demo-stat-change positive">+12.5%</div>
+                            </div>
+                            
+                            <div class="demo-stat">
+                                <div class="demo-stat-value">1,254</div>
+                                <div class="demo-stat-label">Unique Visitors</div>
+                                <div class="demo-stat-change positive">+8.3%</div>
+                            </div>
+                            
+                            <div class="demo-stat">
+                                <div class="demo-stat-value">68%</div>
+                                <div class="demo-stat-label">Mobile Traffic</div>
+                                <div class="demo-stat-change">+2.1%</div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-chart">
+                            <canvas id="demoChart" width="300" height="150"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Stats Section -->
-        <section id="stats" class="stats">
-            <div class="container">
-                <h2 class="section-title">Platform Statistics</h2>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number" id="totalUrls">0</div>
-                        <div class="stat-label">URLs Shortened</div>
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Simple Pricing</h2>
+                <p class="section-subtitle">Choose the plan that works for you</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Free</h3>
+                        <div class="pricing-price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">0</span>
+                            <span class="price-period">/month</span>
+                        </div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="totalClicks">0</div>
-                        <div class="stat-label">Total Clicks</div>
+                    
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 1,000 links per month</li>
+                        <li><i class="fas fa-check"></i> Basic analytics</li>
+                        <li><i class="fas fa-check"></i> QR codes</li>
+                        <li><i class="fas fa-check"></i> SSL security</li>
+                        <li><i class="fas fa-times"></i> Custom domains</li>
+                        <li><i class="fas fa-times"></i> API access</li>
+                    </ul>
+                    
+                    <button class="pricing-btn">Get Started</button>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Pro</h3>
+                        <div class="pricing-price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">19</span>
+                            <span class="price-period">/month</span>
+                        </div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="todayUrls">0</div>
-                        <div class="stat-label">URLs Today</div>
+                    
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 50,000 links per month</li>
+                        <li><i class="fas fa-check"></i> Advanced analytics</li>
+                        <li><i class="fas fa-check"></i> Custom QR codes</li>
+                        <li><i class="fas fa-check"></i> Custom domains</li>
+                        <li><i class="fas fa-check"></i> API access</li>
+                        <li><i class="fas fa-check"></i> Team collaboration</li>
+                    </ul>
+                    
+                    <button class="pricing-btn">Start Free Trial</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Enterprise</h3>
+                        <div class="pricing-price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">99</span>
+                            <span class="price-period">/month</span>
+                        </div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="activeUsers">0</div>
-                        <div class="stat-label">Active Users</div>
-                    </div>
+                    
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Unlimited links</li>
+                        <li><i class="fas fa-check"></i> White-label solution</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                        <li><i class="fas fa-check"></i> Advanced security</li>
+                        <li><i class="fas fa-check"></i> Custom integrations</li>
+                        <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                    </ul>
+                    
+                    <button class="pricing-btn">Contact Sales</button>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <i class="fas fa-link"></i>
-                    <span>LinkShort</span>
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-link"></i>
+                        <span>LinkShort</span>
+                    </div>
+                    <p class="footer-description">
+                        Professional URL shortener with advanced analytics 
+                        and enterprise-grade security.
+                    </p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
                 </div>
-                <p>&copy; 2024 LinkShort. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="#" class="footer-link">Privacy Policy</a>
-                    <a href="#" class="footer-link">Terms of Service</a>
-                    <a href="admin-login.html" class="footer-link">Admin Panel</a>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Product</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#analytics">Analytics</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                        <li><a href="#">System Status</a></li>
+                        <li><a href="#">Bug Reports</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 LinkShort. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Security</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- QR Code Modal -->
-    <div id="qrModal" class="modal" style="display: none;">
-        <div class="modal-content">
+    <!-- QR Modal -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content qr-modal">
             <div class="modal-header">
-                <h3>QR Code</h3>
-                <button id="closeQrModal" class="modal-close">
+                <h2>QR Code</h2>
+                <button id="closeQrModal" class="close-btn">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
+            
             <div class="modal-body">
-                <div id="qrcode"></div>
-                <p>Scan this QR code to access your short link</p>
+                <div class="qr-container">
+                    <div id="qrcode"></div>
+                </div>
+                
+                <div class="qr-actions">
+                    <button id="downloadQr" class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        Download QR Code
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
-    <script src="js/utils/api.js"></script>
-    <script src="js/services/url.service.js"></script>
-    <script src="js/components/qr-generator.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
