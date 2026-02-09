@@ -7,7 +7,7 @@ DB_USER="linkshort_user"
 DB_PASS="LinkShort123!"
 MYSQL_ROOT_PASS="MyPass123!@#"
 
-echo "🚀 Setting up LinkShort URL Shortener..."
+echo "🚀 Setting up $PROJECT_NAME LinkShort..."
 
 # Database setup
 echo "📊 Creating database and user..."
@@ -20,23 +20,39 @@ EOF
 
 # Import schema
 echo "📋 Importing database schema..."
-mysql -u $DB_USER -p$DB_PASS $DB_NAME < schema.sql
+mysql -u root -p$MYSQL_ROOT_PASS < schema.sql
 
 # Backend setup
 echo "📦 Installing backend dependencies..."
 cd backend
 npm install --production
 
+# Environment setup
+echo "⚙️ Setting up environment..."
+if [ ! -f .env ]; then
+  echo "NODE_ENV=production
+PORT=3000
+DB_HOST=localhost
+DB_USER=$DB_USER
+DB_PASSWORD=$DB_PASS
+DB_NAME=$DB_NAME
+JWT_SECRET=your-super-secret-jwt-key-change-this-in-production-linkshort-$(date +%s)
+JWT_EXPIRES_IN=7d
+BASE_URL=http://143.110.253.11
+ALLOWED_ORIGINS=http://143.110.253.11,http://localhost" > .env
+fi
+
 # Create logs directory
 mkdir -p logs
 
-# Start backend
-echo "🔄 Starting backend server..."
-pm2 delete $PROJECT_NAME 2>/dev/null || true
-pm2 start server.js --name $PROJECT_NAME
+# PM2 setup
+echo "🔄 Starting backend with PM2..."
+pm2 delete rel-estte-backend 2>/dev/null || true
+pm2 start server.js --name rel-estte-backend
 pm2 save
 
 echo "✅ Setup complete!"
-echo "🌐 Frontend: http://143.110.253.11/$PROJECT_NAME/"
-echo "🔗 API: http://143.110.253.11/api/"
-echo "👨‍💼 Admin: admin@linkshort.com / Admin123!"
+echo "🌐 Backend: http://143.110.253.11:3000"
+echo "📊 Health Check: http://143.110.253.11:3000/health"
+echo "🔗 API: http://143.110.253.11:3000/api/"
+echo "👤 Admin: admin@linkshort.com / Admin123!"

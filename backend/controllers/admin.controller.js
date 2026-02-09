@@ -6,9 +6,9 @@ class AdminController {
   static async getDashboard(req, res, next) {
     try {
       const stats = await AdminService.getDashboardStats();
-      
-      return successResponse(res, stats);
+      return successResponse(res, stats, 'Dashboard data retrieved successfully');
     } catch (error) {
+      logger.error('Error getting dashboard stats:', error);
       next(error);
     }
   }
@@ -21,8 +21,9 @@ class AdminController {
       
       const urls = await AdminService.getAllURLs(limit, offset, search);
       
-      return successResponse(res, urls);
+      return successResponse(res, urls, 'URLs retrieved successfully');
     } catch (error) {
+      logger.error('Error getting all URLs:', error);
       next(error);
     }
   }
@@ -34,8 +35,9 @@ class AdminController {
       
       const users = await AdminService.getAllUsers(limit, offset);
       
-      return successResponse(res, users);
+      return successResponse(res, users, 'Users retrieved successfully');
     } catch (error) {
+      logger.error('Error getting all users:', error);
       next(error);
     }
   }
@@ -44,16 +46,15 @@ class AdminController {
     try {
       const { id } = req.params;
       
-      const result = await AdminService.deleteURL(id);
+      const deleted = await AdminService.deleteURL(id);
       
-      if (!result) {
+      if (!deleted) {
         return errorResponse(res, null, 'URL not found', 404);
       }
       
-      logger.info('Admin deleted URL:', { urlId: id, adminId: req.user.id });
-      
       return successResponse(res, null, 'URL deleted successfully');
     } catch (error) {
+      logger.error('Error deleting URL:', error);
       next(error);
     }
   }
@@ -62,32 +63,49 @@ class AdminController {
     try {
       const { id } = req.params;
       
-      const result = await AdminService.deleteUser(id);
+      const deleted = await AdminService.deleteUser(id);
       
-      if (!result) {
-        return errorResponse(res, null, 'User not found or cannot delete admin', 404);
+      if (!deleted) {
+        return errorResponse(res, null, 'User not found or cannot be deleted', 404);
       }
-      
-      logger.info('Admin deleted user:', { userId: id, adminId: req.user.id });
       
       return successResponse(res, null, 'User deleted successfully');
     } catch (error) {
+      logger.error('Error deleting user:', error);
+      next(error);
+    }
+  }
+
+  static async getGlobalAnalytics(req, res, next) {
+    try {
+      const days = parseInt(req.query.days) || 30;
+      
+      const analytics = await AdminService.getGlobalAnalytics(days);
+      
+      return successResponse(res, analytics, 'Global analytics retrieved successfully');
+    } catch (error) {
+      logger.error('Error getting global analytics:', error);
       next(error);
     }
   }
 
   static async exportData(req, res, next) {
     try {
-      const { type } = req.params; // 'urls' or 'users'
+      const { type } = req.params;
+      
+      if (!['urls', 'users'].includes(type)) {
+        return errorResponse(res, null, 'Invalid export type', 400);
+      }
       
       const data = await AdminService.exportData(type);
       const csv = AdminService.convertToCSV(data);
       
       res.setHeader('Content-Type', 'text/csv');
-      res.setHeader('Content-Disposition', `attachment; filename=${type}_export_${Date.now()}.csv`);
+      res.setHeader('Content-Disposition', `attachment; filename=${type}-export.csv`);
       
       return res.send(csv);
     } catch (error) {
+      logger.error('Error exporting data:', error);
       next(error);
     }
   }

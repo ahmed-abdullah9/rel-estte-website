@@ -1,45 +1,81 @@
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
 const config = require('./constants');
 const logger = require('../utils/logger');
 
-// Create connection pool with ONLY valid MySQL2 options
-const pool = mysql.createPool({
-  host: config.DB_HOST,
-  user: config.DB_USER,
-  password: config.DB_PASSWORD,
-  database: config.DB_NAME,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
-  charset: 'utf8mb4'
-});
-
-// Test connection on startup
-pool.getConnection((err, connection) => {
-  if (err) {
-    logger.error('❌ Database connection failed:', err.message);
-    process.exit(1);
-  } else {
-    logger.info('✅ Database connected successfully');
-    connection.release();
+class Database {
+  constructor() {
+    this.pool = null;
+    this.init();
   }
-});
 
-// Promisify for async/await
-const promisePool = pool.promise();
-
-module.exports = {
-  execute: async (query, params = []) => {
+  init() {
     try {
-      const [rows] = await promisePool.execute(query, params);
-      return rows;
+      this.pool = mysql.createPool({
+        host: config.DB_HOST,
+        user: config.DB_USER,
+        password: config.DB_PASSWORD,
+        database: config.DB_NAME,
+        waitForConnections: true,
+        connectionLimit: 10,
+        queueLimit: 0,
+        acquireTimeout: 60000,
+        timeout: 60000,
+        reconnect: true,
+        charset: 'utf8mb4'
+      });
+
+      logger.info('✅ Database pool created successfully');
     } catch (error) {
-      logger.error('Database query error:', { query, error: error.message });
+      logger.error('❌ Database pool creation failed:', error);
       throw error;
     }
-  },
-  
-  getConnection: () => promisePool.getConnection(),
-  
-  close: () => pool.end()
-};
+  }
+
+  async execute(query, params = []) {
+    try {
+      logger.debug('Executing query:', { query, params });
+      const [results] = await this.pool.execute(query, params);
+      return results;
+    } catch (error) {
+      logger.error('❌ Database query error:', {
+        query,
+        params,
+        error: error.message,
+        code: error.code,
+        errno: error.errno,
+        sqlState: error.sqlState,
+        sqlMessage: error.sqlMessage
+      });
+      throw error;
+    }
+  }
+
+  async query(sql, params = []) {
+    try {
+      logger.debug('Executing query:', { sql, params });
+      const [results] = await this.pool.query(sql, params);
+      return results;
+    } catch (error) {
+      logger.error('❌ Database query error:', {
+        sql,
+        params,
+        error: error.message,
+        code: error.code,
+        errno: error.errno,
+        sqlState: error.sqlState,
+        sqlMessage: error.sqlMessage
+      });
+      throw error;
+    }
+  }
+
+  async close() {
+    if (this.pool) {
+      await this.pool.end();
+      logger.info('Database pool closed');
+    }
+  }
+}
+
+const database = new Database();
+module.exports = database;

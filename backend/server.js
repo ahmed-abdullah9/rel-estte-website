@@ -1,21 +1,22 @@
 const app = require('./app');
 const config = require('./config/constants');
 const logger = require('./utils/logger');
-const database = require('./config/database');
 
 const PORT = config.PORT || 3000;
 
-// Test database connection
-database.execute('SELECT 1')
-  .then(() => {
+// Test database connection on startup
+const testDatabase = async () => {
+  try {
+    const database = require('./config/database');
+    await database.execute('SELECT 1');
     logger.info('✅ Database connected successfully');
-  })
-  .catch((error) => {
-    logger.error('❌ Database connection failed:', error.message);
+  } catch (error) {
+    logger.error('❌ Database connection failed:', error);
     process.exit(1);
-  });
+  }
+};
 
-const server = app.listen(PORT, () => {
+const server = app.listen(PORT, async () => {
   logger.info('🚀 LinkShort Server Started Successfully!');
   logger.info('==========================================');
   logger.info(`📱 Application: http://localhost:${PORT}`);
@@ -28,27 +29,28 @@ const server = app.listen(PORT, () => {
   logger.info('📊 Database: Connected ✅');
   logger.info(`🔧 Environment: ${config.NODE_ENV}`);
   logger.info('==========================================');
+  
+  await testDatabase();
 });
 
 // Graceful shutdown
 process.on('SIGTERM', () => {
   logger.info('SIGTERM received, closing server...');
-  server.close(() => {
-    database.close();
-    process.exit(0);
-  });
+  server.close(() => process.exit(0));
 });
 
 process.on('SIGINT', () => {
   logger.info('SIGINT received, closing server...');
-  server.close(() => {
-    database.close();
-    process.exit(0);
-  });
+  server.close(() => process.exit(0));
 });
 
 process.on('unhandledRejection', (err) => {
   logger.error('Unhandled Rejection:', err);
+  process.exit(1);
+});
+
+process.on('uncaughtException', (err) => {
+  logger.error('Uncaught Exception:', err);
   process.exit(1);
 });
 

@@ -21,7 +21,10 @@ router.delete('/urls/:id', AdminController.deleteURL);
 router.get('/users', AdminController.getAllUsers);
 router.delete('/users/:id', AdminController.deleteUser);
 
-// Data Export
+// Analytics
+router.get('/analytics/global', AdminController.getGlobalAnalytics);
+
+// Export Data
 router.get('/export/:type', AdminController.exportData);
 
 module.exports = router;
