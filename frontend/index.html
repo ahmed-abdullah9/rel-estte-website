@@ -1,129 +1,212 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LinkShort - Professional URL Shortener</title>
+    <meta name="description" content="Professional URL shortener with analytics, custom links, and enterprise features">
     
-    <!-- CSS Files - FIXED PATHS -->
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Styles -->
     <link rel="stylesheet" href="css/main.css">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <!-- Language Switch Modal -->
+    <div id="languageModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 data-en="Choose Language" data-ar="اختر اللغة">Choose Language</h3>
+                <button class="close-modal" onclick="closeLangModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="language-options">
+                <button class="lang-btn" onclick="setLanguage('en')">
+                    <i class="fas fa-globe"></i>
+                    <span>English</span>
+                </button>
+                <button class="lang-btn" onclick="setLanguage('ar')">
+                    <i class="fas fa-globe"></i>
+                    <span>العربية</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="header">
-        <nav class="nav">
-            <a href="#" class="logo">
-                <i class="fas fa-link"></i>
-                LinkShort
-            </a>
-            
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#features" class="nav-link">Features</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="/admin-login.html" class="nav-link">Admin</a></li>
-            </ul>
-            
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+        <nav class="nav container">
+            <div class="nav-brand">
+                <i class="fas fa-link brand-icon"></i>
+                <span class="brand-text">LinkShort</span>
             </div>
+            
+            <div class="nav-menu">
+                <a href="#home" class="nav-link" data-en="Home" data-ar="الرئيسية">Home</a>
+                <a href="#features" class="nav-link" data-en="Features" data-ar="المميزات">Features</a>
+                <a href="#analytics" class="nav-link" data-en="Analytics" data-ar="التحليلات">Analytics</a>
+                <a href="#pricing" class="nav-link" data-en="Pricing" data-ar="الأسعار">Pricing</a>
+                <a href="#contact" class="nav-link" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="lang-toggle" onclick="openLangModal()">
+                    <i class="fas fa-globe"></i>
+                    <span id="currentLang">EN</span>
+                </button>
+                <button class="btn-outline" onclick="showAuthModal('login')" data-en="Login" data-ar="تسجيل الدخول">Login</button>
+                <button class="btn-primary" onclick="showAuthModal('register')" data-en="Sign Up" data-ar="إنشاء حساب">Sign Up</button>
+            </div>
+
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="hero-pattern"></div>
+        </div>
         <div class="container">
-            <h1>Shorten Your URLs Instantly</h1>
-            <p>Transform long, unwieldy URLs into short, shareable links with our professional URL shortening service.</p>
-            
-            <!-- URL Shortener Form -->
-            <div class="shortener">
-                <form id="shortenForm">
-                    <div class="form-group">
-                        <label for="originalUrl">Enter your URL</label>
-                        <input 
-                            type="url" 
-                            id="originalUrl" 
-                            class="form-input" 
-                            placeholder="https://example.com/very-long-url-that-needs-shortening"
-                            required
-                        >
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="customCode">Custom alias (optional)</label>
-                        <input 
-                            type="text" 
-                            id="customCode" 
-                            class="form-input" 
-                            placeholder="my-custom-link"
-                            pattern="[a-zA-Z0-9]{3,20}"
-                            title="3-20 alphanumeric characters only"
-                        >
-                    </div>
-                    
-                    <button type="submit" id="shortenBtn" class="btn btn-primary">
-                        <span class="btn-text">
-                            <i class="fas fa-scissors"></i>
-                            Shorten URL
-                        </span>
-                        <span class="btn-loading" style="display: none;">
-                            <div class="spinner"></div>
-                            Processing...
-                        </span>
-                    </button>
-                </form>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-rocket"></i>
+                    <span data-en="Professional URL Management" data-ar="إدارة الروابط الاحترافية">Professional URL Management</span>
+                </div>
                 
-                <!-- Error Message -->
-                <div id="errorMessage" class="alert alert-error"></div>
+                <h1 class="hero-title">
+                    <span data-en="Shorten, Track & Optimize" data-ar="اختصر، تتبع وحسن">Shorten, Track & Optimize</span>
+                    <span class="hero-subtitle" data-en="Your Links Like a Pro" data-ar="روابطك كالمحترفين">Your Links Like a Pro</span>
+                </h1>
                 
-                <!-- Success Result -->
-                <div id="result" class="result">
-                    <div class="result-item">
-                        <div>
-                            <div class="result-label">Original URL:</div>
-                            <div class="result-value" id="originalUrlDisplay"></div>
+                <p class="hero-description" data-en="Transform long URLs into powerful short links with advanced analytics, custom branding, and enterprise-grade reliability." data-ar="حول الروابط الطويلة إلى روابط قصيرة قوية مع تحليلات متقدمة وعلامة تجارية مخصصة وموثوقية على مستوى المؤسسات.">
+                    Transform long URLs into powerful short links with advanced analytics, custom branding, and enterprise-grade reliability.
+                </p>
+
+                <!-- URL Shortener Form -->
+                <div class="url-shortener-card">
+                    <form id="shortenForm" class="shortener-form">
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <i class="fas fa-link input-icon"></i>
+                                <input 
+                                    type="url" 
+                                    id="originalUrl" 
+                                    placeholder="Enter your long URL here..." 
+                                    data-en-placeholder="Enter your long URL here..."
+                                    data-ar-placeholder="أدخل الرابط الطويل هنا..."
+                                    required
+                                >
+                            </div>
+                            <button type="submit" class="btn-shorten" id="shortenBtn">
+                                <span class="btn-text" data-en="Shorten Now" data-ar="اختصر الآن">Shorten Now</span>
+                                <span class="btn-loading">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                </span>
+                            </button>
+                        </div>
+                        
+                        <div class="advanced-options" id="advancedOptions">
+                            <div class="custom-code-input">
+                                <i class="fas fa-edit input-icon"></i>
+                                <input 
+                                    type="text" 
+                                    id="customCode" 
+                                    placeholder="Custom alias (optional)"
+                                    data-en-placeholder="Custom alias (optional)"
+                                    data-ar-placeholder="اسم مستعار مخصص (اختياري)"
+                                    maxlength="20"
+                                >
+                            </div>
+                            <button type="button" class="toggle-advanced" onclick="toggleAdvanced()">
+                                <i class="fas fa-cog"></i>
+                                <span data-en="Advanced" data-ar="متقدم">Advanced</span>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Result Display -->
+                    <div id="result" class="result-card hidden">
+                        <div class="result-header">
+                            <i class="fas fa-check-circle success-icon"></i>
+                            <h3 data-en="Link Created Successfully!" data-ar="تم إنشاء الرابط بنجاح!">Link Created Successfully!</h3>
+                        </div>
+                        
+                        <div class="result-content">
+                            <div class="url-display">
+                                <div class="url-item">
+                                    <label data-en="Original URL:" data-ar="الرابط الأصلي:">Original URL:</label>
+                                    <div class="url-value" id="originalUrlDisplay"></div>
+                                </div>
+                                <div class="url-item">
+                                    <label data-en="Short URL:" data-ar="الرابط المختصر:">Short URL:</label>
+                                    <div class="url-value short-url" id="shortUrlDisplay"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="result-actions">
+                                <button class="btn-copy" id="copyBtn">
+                                    <i class="fas fa-copy"></i>
+                                    <span data-en="Copy Link" data-ar="نسخ الرابط">Copy Link</span>
+                                </button>
+                                <button class="btn-qr" id="qrBtn">
+                                    <i class="fas fa-qrcode"></i>
+                                    <span data-en="QR Code" data-ar="رمز QR">QR Code</span>
+                                </button>
+                                <button class="btn-share" id="shareBtn">
+                                    <i class="fas fa-share-alt"></i>
+                                    <span data-en="Share" data-ar="مشاركة">Share</span>
+                                </button>
+                            </div>
+                            
+                            <div class="result-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-mouse-pointer"></i>
+                                    <span id="clickCount">0</span>
+                                    <label data-en="Clicks" data-ar="النقرات">Clicks</label>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span id="createdDate">-</span>
+                                    <label data-en="Created" data-ar="تم الإنشاء">Created</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="result-item">
-                        <div>
-                            <div class="result-label">Short URL:</div>
-                            <a href="#" class="result-value url" id="shortUrlDisplay" target="_blank"></a>
-                        </div>
+
+                    <!-- Error Message -->
+                    <div id="errorMessage" class="error-message hidden">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span></span>
                     </div>
-                    
-                    <div class="result-item">
-                        <div>
-                            <div class="result-label">Clicks:</div>
-                            <div class="result-value" id="clickCount">0</div>
-                        </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" data-count="1000000">1M+</span>
+                        <span class="stat-label" data-en="Links Created" data-ar="رابط تم إنشاؤه">Links Created</span>
                     </div>
-                    
-                    <div class="result-item">
-                        <div>
-                            <div class="result-label">Created:</div>
-                            <div class="result-value" id="createdDate"></div>
-                        </div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="50000">50K+</span>
+                        <span class="stat-label" data-en="Happy Users" data-ar="مستخدم سعيد">Happy Users</span>
                     </div>
-                    
-                    <div class="result-actions">
-                        <button id="copyBtn" class="btn btn-secondary">
-                            <i class="fas fa-copy"></i>
-                            Copy Link
-                        </button>
-                        <button id="qrBtn" class="btn btn-outline">
-                            <i class="fas fa-qrcode"></i>
-                            QR Code
-                        </button>
+                    <div class="stat">
+                        <span class="stat-number">99.9%</span>
+                        <span class="stat-label" data-en="Uptime" data-ar="وقت التشغيل">Uptime</span>
                     </div>
                 </div>
             </div>
@@ -133,63 +216,285 @@
     <!-- Features Section -->
     <section id="features" class="features">
         <div class="container">
-            <h2>Why Choose LinkShort?</h2>
+            <div class="section-header">
+                <h2 data-en="Powerful Features" data-ar="مميزات قوية">Powerful Features</h2>
+                <p data-en="Everything you need to manage and optimize your links professionally" data-ar="كل ما تحتاجه لإدارة وتحسين روابطك بشكل احترافي">Everything you need to manage and optimize your links professionally</p>
+            </div>
             
             <div class="features-grid">
                 <div class="feature-card">
-                    <i class="fas fa-bolt"></i>
-                    <h3>Lightning Fast</h3>
-                    <p>Generate short links instantly with our optimized servers and global CDN network.</p>
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 data-en="Advanced Analytics" data-ar="تحليلات متقدمة">Advanced Analytics</h3>
+                    <p data-en="Track clicks, locations, devices, and user behavior with detailed reports" data-ar="تتبع النقرات والمواقع والأجهزة وسلوك المستخدم مع تقارير مفصلة">Track clicks, locations, devices, and user behavior with detailed reports</p>
                 </div>
                 
                 <div class="feature-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Secure & Reliable</h3>
-                    <p>Your links are protected with enterprise-grade security and 99.9% uptime guarantee.</p>
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 data-en="Custom Branding" data-ar="علامة تجارية مخصصة">Custom Branding</h3>
+                    <p data-en="Use your own domain and customize links to match your brand identity" data-ar="استخدم نطاقك الخاص وخصص الروابط لتتناسب مع هوية علامتك التجارية">Use your own domain and customize links to match your brand identity</p>
                 </div>
                 
                 <div class="feature-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Detailed Analytics</h3>
-                    <p>Track clicks, geographic data, and performance metrics for all your shortened URLs.</p>
+                    <div class="feature-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h3 data-en="QR Code Generator" data-ar="مولد رمز QR">QR Code Generator</h3>
+                    <p data-en="Automatically generate QR codes for all your shortened links" data-ar="إنشاء رموز QR تلقائياً لجميع روابطك المختصرة">Automatically generate QR codes for all your shortened links</p>
                 </div>
                 
                 <div class="feature-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>Mobile Optimized</h3>
-                    <p>Perfect experience across all devices with responsive design and touch-friendly interface.</p>
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 data-en="Enterprise Security" data-ar="أمان على مستوى المؤسسات">Enterprise Security</h3>
+                    <p data-en="Advanced security features including link expiration and password protection" data-ar="ميزات أمان متقدمة بما في ذلك انتهاء صلاحية الروابط وحماية كلمة المرور">Advanced security features including link expiration and password protection</p>
                 </div>
                 
                 <div class="feature-card">
-                    <i class="fas fa-palette"></i>
-                    <h3>Custom Aliases</h3>
-                    <p>Create branded, memorable short links with custom aliases that reflect your brand.</p>
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 data-en="Lightning Fast" data-ar="سرعة البرق">Lightning Fast</h3>
+                    <p data-en="Optimized infrastructure ensures your links redirect in milliseconds" data-ar="البنية التحتية المحسنة تضمن إعادة توجيه روابطك في أجزاء من الثانية">Optimized infrastructure ensures your links redirect in milliseconds</p>
                 </div>
                 
                 <div class="feature-card">
-                    <i class="fas fa-users"></i>
-                    <h3>Team Collaboration</h3>
-                    <p>Share and manage links with your team using our collaborative workspace features.</p>
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 data-en="Developer API" data-ar="واجهة برمجة التطبيقات للمطورين">Developer API</h3>
+                    <p data-en="Integrate with your applications using our comprehensive REST API" data-ar="التكامل مع تطبيقاتك باستخدام واجهة برمجة التطبيقات REST الشاملة">Integrate with your applications using our comprehensive REST API</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- QR Code Modal -->
-    <div id="qrModal" class="modal">
-        <div class="modal-content">
-            <button id="closeQrModal" class="modal-close">
-                <i class="fas fa-times"></i>
-            </button>
-            <h3>QR Code for Your Short URL</h3>
-            <div class="qr-code">
-                <img id="qrCodeImage" src="" alt="QR Code" />
+    <!-- Analytics Demo Section -->
+    <section id="analytics" class="analytics-demo">
+        <div class="container">
+            <div class="analytics-content">
+                <div class="analytics-text">
+                    <h2 data-en="Real-time Analytics" data-ar="تحليلات في الوقت الفعلي">Real-time Analytics</h2>
+                    <p data-en="Get detailed insights into your link performance with our comprehensive analytics dashboard." data-ar="احصل على رؤى مفصلة حول أداء روابطك مع لوحة التحليلات الشاملة.">Get detailed insights into your link performance with our comprehensive analytics dashboard.</p>
+                    
+                    <div class="analytics-features">
+                        <div class="feature-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span data-en="Click Tracking" data-ar="تتبع النقرات">Click Tracking</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-globe"></i>
+                            <span data-en="Geographic Data" data-ar="البيانات الجغرافية">Geographic Data</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span data-en="Device Analytics" data-ar="تحليلات الأجهزة">Device Analytics</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-clock"></i>
+                            <span data-en="Real-time Updates" data-ar="تحديثات فورية">Real-time Updates</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="analytics-visual">
+                    <div class="dashboard-preview">
+                        <div class="chart-container">
+                            <canvas id="analyticsChart"></canvas>
+                        </div>
+                        <div class="stats-preview">
+                            <div class="stat-card">
+                                <span class="stat-value">2,547</span>
+                                <span class="stat-name" data-en="Total Clicks" data-ar="إجمالي النقرات">Total Clicks</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-value">1,823</span>
+                                <span class="stat-name" data-en="Unique Visitors" data-ar="زوار فريدون">Unique Visitors</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p>Scan this QR code to access your shortened URL</p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-en="Choose Your Plan" data-ar="اختر خطتك">Choose Your Plan</h2>
+                <p data-en="Start free and scale as you grow" data-ar="ابدأ مجاناً وتوسع مع نموك">Start free and scale as you grow</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3 data-en="Starter" data-ar="المبتدئ">Starter</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">0</span>
+                            <span class="period" data-en="/month" data-ar="/شهر">/month</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> <span data-en="1,000 links/month" data-ar="1,000 رابط/شهر">1,000 links/month</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Basic analytics" data-ar="تحليلات أساسية">Basic analytics</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Standard support" data-ar="دعم عادي">Standard support</span></li>
+                    </ul>
+                    <button class="btn-plan" data-en="Get Started" data-ar="ابدأ الآن">Get Started</button>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="plan-badge" data-en="Most Popular" data-ar="الأكثر شعبية">Most Popular</div>
+                    <div class="plan-header">
+                        <h3 data-en="Professional" data-ar="المحترف">Professional</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">29</span>
+                            <span class="period" data-en="/month" data-ar="/شهر">/month</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> <span data-en="25,000 links/month" data-ar="25,000 رابط/شهر">25,000 links/month</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Advanced analytics" data-ar="تحليلات متقدمة">Advanced analytics</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Custom domains" data-ar="نطاقات مخصصة">Custom domains</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Priority support" data-ar="دعم أولوية">Priority support</span></li>
+                    </ul>
+                    <button class="btn-plan" data-en="Start Free Trial" data-ar="ابدأ التجربة المجانية">Start Free Trial</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3 data-en="Enterprise" data-ar="المؤسسات">Enterprise</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">99</span>
+                            <span class="period" data-en="/month" data-ar="/شهر">/month</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> <span data-en="Unlimited links" data-ar="روابط غير محدودة">Unlimited links</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="Full analytics suite" data-ar="مجموعة تحليلات كاملة">Full analytics suite</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="White-label solution" data-ar="حل العلامة البيضاء">White-label solution</span></li>
+                        <li><i class="fas fa-check"></i> <span data-en="24/7 dedicated support" data-ar="دعم مخصص 24/7">24/7 dedicated support</span></li>
+                    </ul>
+                    <button class="btn-plan" data-en="Contact Sales" data-ar="اتصل بالمبيعات">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-link brand-icon"></i>
+                        <span class="brand-text">LinkShort</span>
+                    </div>
+                    <p data-en="Professional URL shortening service with advanced analytics and enterprise features." data-ar="خدمة اختصار الروابط الاحترافية مع تحليلات متقدمة وميزات المؤسسات.">Professional URL shortening service with advanced analytics and enterprise features.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-en="Product" data-ar="المنتج">Product</h4>
+                    <ul>
+                        <li><a href="#" data-en="Features" data-ar="المميزات">Features</a></li>
+                        <li><a href="#" data-en="Pricing" data-ar="الأسعار">Pricing</a></li>
+                        <li><a href="#" data-en="API" data-ar="واجهة برمجة التطبيقات">API</a></li>
+                        <li><a href="#" data-en="Integrations" data-ar="التكاملات">Integrations</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-en="Company" data-ar="الشركة">Company</h4>
+                    <ul>
+                        <li><a href="#" data-en="About" data-ar="عنا">About</a></li>
+                        <li><a href="#" data-en="Blog" data-ar="المدونة">Blog</a></li>
+                        <li><a href="#" data-en="Careers" data-ar="الوظائف">Careers</a></li>
+                        <li><a href="#" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-en="Support" data-ar="الدعم">Support</h4>
+                    <ul>
+                        <li><a href="#" data-en="Help Center" data-ar="مركز المساعدة">Help Center</a></li>
+                        <li><a href="#" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a></li>
+                        <li><a href="#" data-en="Terms of Service" data-ar="شروط الخدمة">Terms of Service</a></li>
+                        <li><a href="#" data-en="Status" data-ar="الحالة">Status</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 LinkShort. <span data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal-overlay">
+        <div class="modal-content auth-modal">
+            <div class="modal-header">
+                <h3 id="authModalTitle" data-en="Sign In" data-ar="تسجيل الدخول">Sign In</h3>
+                <button class="close-modal" onclick="closeAuthModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <form id="authForm">
+                    <div class="form-group">
+                        <label data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+                        <input type="email" id="authEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-en="Password" data-ar="كلمة المرور">Password</label>
+                        <input type="password" id="authPassword" required>
+                    </div>
+                    <button type="submit" class="btn-primary full-width" id="authSubmitBtn">
+                        <span data-en="Sign In" data-ar="تسجيل الدخول">Sign In</span>
+                    </button>
+                </form>
+                
+                <div class="auth-switch">
+                    <p id="authSwitchText" data-en="Don't have an account?" data-ar="ليس لديك حساب؟">Don't have an account?</p>
+                    <button id="authSwitchBtn" onclick="switchAuthMode()" data-en="Sign Up" data-ar="إنشاء حساب">Sign Up</button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- JavaScript -->
-    <script src="js/app.js"></script>
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="modal-overlay">
+        <div class="modal-content qr-modal">
+            <div class="modal-header">
+                <h3 data-en="QR Code" data-ar="رمز QR">QR Code</h3>
+                <button class="close-modal" onclick="closeQrModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="qrCodeContainer"></div>
+                <button class="btn-primary" onclick="downloadQR()" data-en="Download QR Code" data-ar="تحميل رمز QR">Download QR Code</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
