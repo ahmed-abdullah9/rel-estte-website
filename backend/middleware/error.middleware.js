@@ -2,15 +2,29 @@ const logger = require('../utils/logger');
 const { errorResponse } = require('../utils/response');
 
 const errorMiddleware = (err, req, res, next) => {
-  // Log error
-  logger.error('Error occurred:', {
+  // Log FULL error details including all properties
+  const errorDetails = {
     message: err.message,
     stack: err.stack,
+    name: err.name,
+    code: err.code,
+    errno: err.errno,
+    sql: err.sql,
+    sqlMessage: err.sqlMessage,
+    sqlState: err.sqlState,
+    index: err.index,
+    statusCode: err.statusCode,
     url: req.url,
     method: req.method,
     ip: req.ip,
-    userAgent: req.get('User-Agent')
-  });
+    userAgent: req.get('User-Agent'),
+    body: req.body,
+    params: req.params,
+    query: req.query
+  };
+
+  // Log complete error details to file
+  logger.error('Error occurred:', errorDetails);
 
   // Default error response
   let statusCode = 500;

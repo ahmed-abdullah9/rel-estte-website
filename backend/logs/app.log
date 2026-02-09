@@ -1396,3 +1396,224 @@
 {"timestamp":"2026-02-09T19:52:26.621Z","level":"INFO","message":"143.110.253.11 - - [09/Feb/2026:19:52:26 +0000] \"POST /api/shorten HTTP/1.1\" 404 52 \"-\" \"curl/8.5.0\""}
 {"timestamp":"2026-02-09T20:02:39.027Z","level":"INFO","message":"::1 - - [09/Feb/2026:20:02:39 +0000] \"POST /api/urls/shorten HTTP/1.1\" 500 103 \"-\" \"curl/8.5.0\""}
 {"timestamp":"2026-02-09T20:03:11.355Z","level":"INFO","message":"143.110.253.11 - - [09/Feb/2026:20:03:11 +0000] \"POST /api/urls/shorten HTTP/1.1\" 500 103 \"-\" \"curl/8.5.0\""}
+{"timestamp":"2026-02-09T20:10:12.705Z","level":"INFO","message":"::1 - - [09/Feb/2026:20:10:12 +0000] \"GET /api/health HTTP/1.1\" 404 52 \"-\" \"axios/1.13.5\""}
+{"timestamp":"2026-02-09T20:10:14.978Z","level":"INFO","message":"SIGINT received, closing server..."}
+{"timestamp":"2026-02-09T20:10:15.494Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:10:15.565Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-09T20:10:15.566Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:10:15.572Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-09T20:10:15.572Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-09T20:10:15.572Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:10:15.572Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-09T20:10:15.572Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-09T20:10:15.572Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-09T20:10:15.572Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:10:15.573Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-09T20:10:15.576Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-09T20:10:15.577Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:10:15.610Z","level":"INFO","message":"✅ Database connected successfully"}
+{"timestamp":"2026-02-09T20:10:20.546Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:10:20.599Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-09T20:10:20.604Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:10:20.604Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-09T20:10:20.604Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-09T20:10:20.604Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:10:20.604Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-09T20:10:20.605Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-09T20:10:20.607Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-09T20:10:20.608Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:10:20.608Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-09T20:10:20.609Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-09T20:10:20.610Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:10:20.649Z","level":"INFO","message":"✅ Database connected successfully"}
+{"timestamp":"2026-02-09T20:10:24.536Z","level":"INFO","message":"::1 - - [09/Feb/2026:20:10:24 +0000] \"GET /api/health HTTP/1.1\" 404 52 \"-\" \"axios/1.13.5\""}
+{"timestamp":"2026-02-09T20:10:26.411Z","level":"INFO","message":"SIGINT received, closing server..."}
+{"timestamp":"2026-02-09T20:10:26.856Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:10:26.920Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-09T20:10:26.921Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:10:26.922Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-09T20:10:26.922Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-09T20:10:26.922Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:10:26.922Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-09T20:10:26.922Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-09T20:10:26.922Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-09T20:10:26.923Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:10:26.923Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-09T20:10:26.924Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-09T20:10:26.925Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:10:26.954Z","level":"INFO","message":"✅ Database connected successfully"}
+{"timestamp":"2026-02-09T20:10:31.928Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:10:31.971Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-09T20:10:31.972Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:10:31.972Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-09T20:10:31.972Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-09T20:10:31.972Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:10:31.973Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-09T20:10:31.974Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-09T20:10:31.974Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-09T20:10:31.975Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:10:31.975Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-09T20:10:31.975Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-09T20:10:31.975Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:10:32.033Z","level":"INFO","message":"✅ Database connected successfully"}
+{"timestamp":"2026-02-09T20:10:35.917Z","level":"INFO","message":"::1 - - [09/Feb/2026:20:10:35 +0000] \"GET /api/health HTTP/1.1\" 404 52 \"-\" \"axios/1.13.5\""}
+{"timestamp":"2026-02-09T20:10:37.782Z","level":"INFO","message":"SIGINT received, closing server..."}
+{"timestamp":"2026-02-09T20:10:38.222Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:10:38.281Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-09T20:10:38.287Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:10:38.287Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-09T20:10:38.287Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-09T20:10:38.287Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:10:38.287Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-09T20:10:38.287Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-09T20:10:38.287Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-09T20:10:38.289Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:10:38.296Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-09T20:10:38.298Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-09T20:10:38.298Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:10:38.330Z","level":"INFO","message":"✅ Database connected successfully"}
+{"timestamp":"2026-02-09T20:10:43.294Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:10:43.359Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-09T20:10:43.360Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:10:43.360Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-09T20:10:43.361Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-09T20:10:43.361Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:10:43.361Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-09T20:10:43.361Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-09T20:10:43.361Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-09T20:10:43.361Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:10:43.361Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-09T20:10:43.361Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-09T20:10:43.361Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:10:43.392Z","level":"INFO","message":"✅ Database connected successfully"}
+{"timestamp":"2026-02-09T20:10:48.058Z","level":"INFO","message":"::1 - - [09/Feb/2026:20:10:48 +0000] \"GET /api/health HTTP/1.1\" 404 52 \"-\" \"axios/1.13.5\""}
+{"timestamp":"2026-02-09T20:10:49.907Z","level":"INFO","message":"SIGINT received, closing server..."}
+{"timestamp":"2026-02-09T20:10:50.364Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:10:50.419Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-09T20:10:50.419Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:10:50.420Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-09T20:10:50.422Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-09T20:10:50.422Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:10:50.423Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-09T20:10:50.423Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-09T20:10:50.424Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-09T20:10:50.424Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:10:50.424Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-09T20:10:50.424Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-09T20:10:50.424Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:10:50.463Z","level":"INFO","message":"✅ Database connected successfully"}
+{"timestamp":"2026-02-09T20:10:55.438Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:10:55.504Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-09T20:10:55.507Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:10:55.507Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-09T20:10:55.507Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-09T20:10:55.508Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:10:55.508Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-09T20:10:55.508Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-09T20:10:55.508Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-09T20:10:55.508Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:10:55.508Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-09T20:10:55.508Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-09T20:10:55.508Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:10:55.548Z","level":"INFO","message":"✅ Database connected successfully"}
+{"timestamp":"2026-02-09T20:10:59.419Z","level":"INFO","message":"::1 - - [09/Feb/2026:20:10:59 +0000] \"GET /api/health HTTP/1.1\" 404 52 \"-\" \"axios/1.13.5\""}
+{"timestamp":"2026-02-09T20:11:01.696Z","level":"INFO","message":"SIGINT received, closing server..."}
+{"timestamp":"2026-02-09T20:11:02.211Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:11:02.258Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-09T20:11:02.260Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:11:02.261Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-09T20:11:02.261Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-09T20:11:02.262Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:11:02.262Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-09T20:11:02.262Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-09T20:11:02.262Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-09T20:11:02.262Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:11:02.262Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-09T20:11:02.263Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-09T20:11:02.264Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:11:02.324Z","level":"INFO","message":"✅ Database connected successfully"}
+{"timestamp":"2026-02-09T20:11:07.213Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:11:07.259Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-09T20:11:07.260Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:11:07.260Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-09T20:11:07.260Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-09T20:11:07.260Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:11:07.260Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-09T20:11:07.260Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-09T20:11:07.260Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-09T20:11:07.260Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:11:07.261Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-09T20:11:07.262Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-09T20:11:07.262Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:11:07.318Z","level":"INFO","message":"✅ Database connected successfully"}
+{"timestamp":"2026-02-09T20:11:11.195Z","level":"INFO","message":"::1 - - [09/Feb/2026:20:11:11 +0000] \"GET /api/health HTTP/1.1\" 404 52 \"-\" \"axios/1.13.5\""}
+{"timestamp":"2026-02-09T20:11:27.834Z","level":"INFO","message":"Creating short URL request:","url":"https://google.com"}
+{"timestamp":"2026-02-09T20:11:27.843Z","level":"INFO","message":"::1 - - [09/Feb/2026:20:11:27 +0000] \"POST /api/urls/shorten HTTP/1.1\" 500 103 \"-\" \"curl/8.5.0\""}
+{"timestamp":"2026-02-09T20:14:09.608Z","level":"INFO","message":"SIGINT received, closing server..."}
+{"timestamp":"2026-02-09T20:14:09.908Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:14:09.950Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-09T20:14:09.950Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:14:09.950Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-09T20:14:09.950Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-09T20:14:09.950Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:14:09.951Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-09T20:14:09.951Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-09T20:14:09.951Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-09T20:14:09.951Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:14:09.951Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-09T20:14:09.951Z","level":"INFO","message":"🔧 Environment: production"}
+{"timestamp":"2026-02-09T20:14:09.951Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:14:10.011Z","level":"INFO","message":"✅ Database connected successfully"}
+{"timestamp":"2026-02-09T20:14:27.872Z","level":"INFO","message":"Creating short URL request:","url":"https://google.com"}
+{"timestamp":"2026-02-09T20:14:27.882Z","level":"INFO","message":"::1 - - [09/Feb/2026:20:14:27 +0000] \"POST /api/urls/shorten HTTP/1.1\" 500 103 \"-\" \"curl/8.5.0\""}
+{"timestamp":"2026-02-09T20:18:05.277Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:18:06.068Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:18:06.462Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:18:06.838Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:18:07.212Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:18:07.594Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:18:07.990Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:18:08.364Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:18:08.757Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:18:09.155Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:18:09.526Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:18:09.908Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:18:10.274Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:18:10.652Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:18:11.022Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:18:11.416Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:18:11.804Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:19:05.696Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:19:05.739Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-09T20:19:05.740Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:19:05.740Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-09T20:19:05.740Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-09T20:19:05.740Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:19:05.740Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-09T20:19:05.740Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-09T20:19:05.740Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-09T20:19:05.741Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:19:05.741Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-09T20:19:05.742Z","level":"INFO","message":"🔧 Environment: development"}
+{"timestamp":"2026-02-09T20:19:05.743Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:19:05.802Z","level":"INFO","message":"✅ Database connected successfully"}
+{"timestamp":"2026-02-09T20:19:13.843Z","level":"INFO","message":"Creating short URL request:","url":"https://google.com"}
+{"timestamp":"2026-02-09T20:19:13.857Z","level":"INFO","message":"::1 - - [09/Feb/2026:20:19:13 +0000] \"POST /api/urls/shorten HTTP/1.1\" 500 104 \"-\" \"curl/8.5.0\""}
+{"timestamp":"2026-02-09T20:23:10.675Z","level":"INFO","message":"SIGINT received, closing server..."}
+{"timestamp":"2026-02-09T20:23:11.115Z","level":"INFO","message":"✅ Database pool created successfully"}
+{"timestamp":"2026-02-09T20:23:11.156Z","level":"INFO","message":"🚀 LinkShort Server Started Successfully!"}
+{"timestamp":"2026-02-09T20:23:11.156Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:23:11.156Z","level":"INFO","message":"📱 Application: http://localhost:3000"}
+{"timestamp":"2026-02-09T20:23:11.156Z","level":"INFO","message":"👨‍💼 Admin Panel: http://localhost:3000/admin-login.html"}
+{"timestamp":"2026-02-09T20:23:11.156Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:23:11.156Z","level":"INFO","message":"👤 Admin Credentials:"}
+{"timestamp":"2026-02-09T20:23:11.156Z","level":"INFO","message":"   📧 Email: admin@linkshort.com"}
+{"timestamp":"2026-02-09T20:23:11.156Z","level":"INFO","message":"   🔐 Password: Admin123!"}
+{"timestamp":"2026-02-09T20:23:11.156Z","level":"INFO","message":""}
+{"timestamp":"2026-02-09T20:23:11.156Z","level":"INFO","message":"📊 Database: Connected ✅"}
+{"timestamp":"2026-02-09T20:23:11.157Z","level":"INFO","message":"🔧 Environment: development"}
+{"timestamp":"2026-02-09T20:23:11.158Z","level":"INFO","message":"=========================================="}
+{"timestamp":"2026-02-09T20:23:11.214Z","level":"INFO","message":"✅ Database connected successfully"}
+{"timestamp":"2026-02-09T20:23:19.398Z","level":"INFO","message":"Creating short URL request:","url":"https://google.com"}
+{"timestamp":"2026-02-09T20:23:19.406Z","level":"INFO","message":"Short URL created successfully:","shortCode":"9raGi1","originalUrl":"https://google.com"}
+{"timestamp":"2026-02-09T20:23:19.413Z","level":"INFO","message":"::1 - - [09/Feb/2026:20:23:19 +0000] \"POST /api/urls/shorten HTTP/1.1\" 201 267 \"-\" \"curl/8.5.0\""}

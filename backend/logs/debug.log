@@ -1,0 +1,6 @@
+{"timestamp":"2026-02-09T20:19:05.744Z","level":"DEBUG","message":"Executing query:","query":"SELECT 1","params":[]}
+{"timestamp":"2026-02-09T20:19:13.844Z","level":"DEBUG","message":"Executing query:","query":"SELECT id FROM urls WHERE short_code = ?","params":["Wn1U1D"]}
+{"timestamp":"2026-02-09T20:19:13.848Z","level":"DEBUG","message":"Executing query:","query":"\n      INSERT INTO urls (original_url, short_code, user_id, title, created_at)\n      VALUES (?, ?, ?, ?, NOW())\n    ","params":["https://google.com","Wn1U1D",null,null]}
+{"timestamp":"2026-02-09T20:23:11.159Z","level":"DEBUG","message":"Executing query:","query":"SELECT 1","params":[]}
+{"timestamp":"2026-02-09T20:23:19.398Z","level":"DEBUG","message":"Executing query:","query":"SELECT id FROM urls WHERE short_code = ?","params":["9raGi1"]}
+{"timestamp":"2026-02-09T20:23:19.402Z","level":"DEBUG","message":"Executing query:","query":"\n      INSERT INTO urls (original_url, short_code, user_id, title, created_at)\n      VALUES (?, ?, ?, ?, NOW())\n    ","params":["https://google.com","9raGi1",null,null]}
