@@ -90,33 +90,85 @@ class URLService {
   }
 
   static async recordAnalytics(urlId, clientInfo) {
-    try {
-      await AnalyticsModel.recordClick({
-        url_id: urlId,
-        ...clientInfo
-      });
-    } catch (error) {
-      logger.warn('Failed to record analytics:', error.message);
-    }
+    const analyticsData = {
+      url_id: urlId,
+      ip_address: clientInfo.ip_address,
+      user_agent: clientInfo.user_agent,
+      browser: this.detectBrowser(clientInfo.user_agent),
+      operating_system: this.detectOS(clientInfo.user_agent),
+      device_type: this.detectDevice(clientInfo.user_agent),
+      country: 'Unknown',
+      referrer: clientInfo.referrer
+    };
+
+    await AnalyticsModel.recordClick(analyticsData);
   }
 
-  static async getURLStats(shortCode) {
-    return await URLModel.findByShortCode(shortCode);
+  static detectBrowser(userAgent) {
+    if (!userAgent) return 'Unknown';
+    if (userAgent.includes('Chrome')) return 'Chrome';
+    if (userAgent.includes('Firefox')) return 'Firefox';
+    if (userAgent.includes('Safari')) return 'Safari';
+    if (userAgent.includes('Edge')) return 'Edge';
+    return 'Other';
+  }
+
+  static detectOS(userAgent) {
+    if (!userAgent) return 'Unknown';
+    if (userAgent.includes('Windows')) return 'Windows';
+    if (userAgent.includes('Mac')) return 'macOS';
+    if (userAgent.includes('Linux')) return 'Linux';
+    if (userAgent.includes('Android')) return 'Android';
+    if (userAgent.includes('iOS')) return 'iOS';
+    return 'Other';
+  }
+
+  static detectDevice(userAgent) {
+    if (!userAgent) return 'Unknown';
+    if (userAgent.includes('Mobile')) return 'Mobile';
+    if (userAgent.includes('Tablet')) return 'Tablet';
+    return 'Desktop';
   }
 
   static async getUserURLs(userId, limit = 50, offset = 0) {
     return await URLModel.findByUserId(userId, limit, offset);
   }
 
+  static async getPublicStats(shortCode) {
+    const url = await URLModel.findByShortCode(shortCode);
+    if (!url) return null;
+
+    return {
+      short_code: url.short_code,
+      original_url: url.original_url,
+      click_count: url.click_count,
+      created_at: url.created_at
+    };
+  }
+
   static async getURLAnalytics(shortCode, userId, days = 30) {
-    const AnalyticsService = require('./analytics.service');
-    return await AnalyticsService.getURLAnalytics(shortCode, userId, days);
+    const url = await URLModel.findByShortCode(shortCode);
+    
+    if (!url || (userId && url.user_id !== userId)) {
+      return null;
+    }
+
+    const analytics = await AnalyticsModel.getUrlAnalytics(url.id, days);
+    
+    return {
+      url: {
+        short_code: url.short_code,
+        original_url: url.original_url,
+        click_count: url.click_count
+      },
+      analytics
+    };
   }
 
   static async deleteURL(urlId, userId) {
     const url = await URLModel.findById(urlId);
     
-    if (!url || (url.user_id !== userId)) {
+    if (!url || url.user_id !== userId) {
       return false;
     }
 
