@@ -1628,3 +1628,13 @@
 {"timestamp":"2026-02-09T22:04:33.587Z","level":"INFO","message":"::1 - - [09/Feb/2026:22:04:33 +0000] \"GET /api/health HTTP/1.1\" 404 52 \"-\" \"axios/1.13.5\""}
 {"timestamp":"2026-02-09T22:16:34.824Z","level":"INFO","message":"::1 - - [09/Feb/2026:22:16:34 +0000] \"GET /api/health HTTP/1.1\" 404 52 \"-\" \"axios/1.13.5\""}
 {"timestamp":"2026-02-09T22:20:34.579Z","level":"INFO","message":"::1 - - [09/Feb/2026:22:20:34 +0000] \"GET /api/health HTTP/1.1\" 404 52 \"-\" \"axios/1.13.5\""}
+{"timestamp":"2026-02-09T22:24:57.767Z","level":"INFO","message":"::1 - - [09/Feb/2026:22:24:57 +0000] \"GET /api/health HTTP/1.1\" 404 52 \"-\" \"axios/1.13.5\""}
+{"timestamp":"2026-02-10T03:24:45.118Z","level":"INFO","message":"204.76.203.210 - - [10/Feb/2026:03:24:45 +0000] \"GET /api/.env HTTP/1.1\" 404 52 \"-\" \"Mozilla/5.0\""}
+{"timestamp":"2026-02-10T03:25:15.915Z","level":"INFO","message":"204.76.203.210 - - [10/Feb/2026:03:25:15 +0000] \"GET /api/config HTTP/1.1\" 404 52 \"-\" \"Mozilla/5.0\""}
+{"timestamp":"2026-02-10T03:25:16.344Z","level":"INFO","message":"204.76.203.210 - - [10/Feb/2026:03:25:16 +0000] \"GET /api/settings HTTP/1.1\" 404 52 \"-\" \"Mozilla/5.0\""}
+{"timestamp":"2026-02-10T03:25:16.743Z","level":"INFO","message":"204.76.203.210 - - [10/Feb/2026:03:25:16 +0000] \"GET /api/env HTTP/1.1\" 404 52 \"-\" \"Mozilla/5.0\""}
+{"timestamp":"2026-02-10T03:25:29.821Z","level":"INFO","message":"204.76.203.210 - - [10/Feb/2026:03:25:29 +0000] \"GET /api/contents/.env HTTP/1.1\" 404 52 \"-\" \"Mozilla/5.0\""}
+{"timestamp":"2026-02-10T03:25:30.234Z","level":"INFO","message":"204.76.203.210 - - [10/Feb/2026:03:25:30 +0000] \"GET /api/contents/.env.local HTTP/1.1\" 404 52 \"-\" \"Mozilla/5.0\""}
+{"timestamp":"2026-02-10T03:25:30.659Z","level":"INFO","message":"204.76.203.210 - - [10/Feb/2026:03:25:30 +0000] \"GET /api/contents/.env.production HTTP/1.1\" 404 52 \"-\" \"Mozilla/5.0\""}
+{"timestamp":"2026-02-10T03:25:31.121Z","level":"INFO","message":"204.76.203.210 - - [10/Feb/2026:03:25:31 +0000] \"GET /api/contents/root/.aws/credentials HTTP/1.1\" 404 52 \"-\" \"Mozilla/5.0\""}
+{"timestamp":"2026-02-10T17:52:30.197Z","level":"INFO","message":"37.36.127.65 - - [10/Feb/2026:17:52:30 +0000] \"GET /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1\" 404 52 \"-\" \"libredtail-http\""}
